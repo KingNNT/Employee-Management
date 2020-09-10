@@ -1,0 +1,20 @@
+.containerProfile
+{
+    background-color: #eee;
+    padding: 10px;
+    height: 100%;  
+}
+.containerProfile .container 
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 100%;
+}
+.containerProfile .container .leftContent h2 
+{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: slateblue;
+}

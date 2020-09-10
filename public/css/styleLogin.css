@@ -1,0 +1,128 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background: url(../images/background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+input {
+	border: none;
+	outline: none;
+	border-radius: 10px;
+}
+.wraper {
+	width: 450px;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.wraper .title {
+	text-align: center;
+	color: #fff;
+	margin-bottom: 40px;
+	font-family: serif;
+}
+.wraper .title h1 {
+	display: inline-block;
+	font-weight: 600;
+	border-radius: 10px;
+	color: black;
+	background: lightblue;
+	padding: 5px 7px;
+}
+.wraper .title p {
+	font-size: 12px;
+	font-weight: 100;
+	margin-top: 10px;
+	letter-spacing: 0.5px;
+}
+.wraper .form-top {
+	display: flex;
+	justify-content: space-between;
+	background-color: seagreen;
+	padding: 20px 30px 0;
+	flex-wrap: wrap;
+	border-radius: 10px 10px 0 0;
+	border-bottom: 1px solid white;
+}
+.wraper .form-top .left {
+	width: 80%;
+}
+.wraper .form-top .right {
+	width: calc(100% - 80%);
+}
+.wraper .form-top .right img {
+	width: 100%;
+	margin: -5px 0 5px 0;
+}
+.form-top .left p {
+	margin: 10px 0;
+	font-size: 13px;
+	line-height: 1.8;
+	color: rgb(255, 255, 255);
+}
+.form-top .left h3 {
+	font-size: 20px;
+	color: #fff;
+}
+.wraper .form-bottom {
+	padding: 10px 30px 20px;
+	background-color: seagreen;
+	text-align: center;
+	border-radius: 0 0 10px 10px;
+}
+.wraper .input-box {
+	position: relative;
+}
+.wraper .input-box input {
+	width: 100%;
+	padding: 10px 10px;
+	font-size: 16px;
+	margin-top: 35px;
+}
+.wraper .input-box label {
+	position: absolute;
+	top: 35px;
+	left: 10px;
+	padding: 10px 0;
+	color: rgb(92, 78, 78);
+	transition: 0.5s;
+	pointer-events: none;
+	word-spacing: 2px;
+}
+.wraper .input-box input:focus ~ label,
+.wraper .input-box input:valid ~ label {
+	top: -5px;
+	left: 0;
+	font-size: 18px;
+	font-weight: 600;
+	color: #fff;
+}
+.wraper input[type="submit"] {
+	background: #00a65a;
+	width: 30%;
+	padding: 10px 0;
+	margin: 20px 0 10px 0;
+	color: #fff;
+	cursor: pointer;
+}
+.wraper input:hover[type="submit"] {
+	background: rgb(7, 189, 107);
+}
+.wraper .form-bottom a {
+	text-decoration: none;
+	font-size: 13px;
+	display: block;
+	color: #fff;
+}
+
+@media (max-width: 468px) {
+	.wraper {
+		width: 90%;
+	}
+}

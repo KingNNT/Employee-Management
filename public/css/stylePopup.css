@@ -1,0 +1,68 @@
+a
+{
+    text-decoration: none;
+}
+.popupContainer img 
+{
+    width: 50px;
+}
+.popupContainer
+{
+    z-index: 99999999;
+    position: fixed;
+    max-width: 400px;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%,-50%);
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.7);
+    background-color: white;
+    transition: .3s;
+    text-align: center;
+}
+
+.popupContainer h2 
+{
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 2px solid teal;
+    padding-bottom: 10px;
+}
+.popupContainer p 
+{
+    color: navy;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+.popupContainer a 
+{
+    padding: 5px 12px;
+    background-color: teal;
+    color: white;
+    border:1px solid teal;
+    transition: .3s;
+    display: block;
+    width: 70px;
+    text-align: center;
+    margin: 0 auto;
+}
+.popupContainer a:hover
+{
+    background-color: white;
+    color: teal;
+}
+/*form login*/
+#popuplogin 
+{
+    top: 58%;
+    border-radius: 10px;
+    border: 5px solid teal;
+    transition: .4s;
+    padding: 60px;
+}
+#popup{
+    max-width: 200px;
+    height: 100px;
+}

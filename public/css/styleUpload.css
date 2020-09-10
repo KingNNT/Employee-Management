@@ -1,0 +1,50 @@
+.containerUpload 
+{
+    background-color: #eee;
+    height: 100%;
+}
+.containerUpload .container
+{
+    /*height: 100% !important;*/
+    padding: 20px;
+}
+.containerUpload .formUpload 
+{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.btnUpload
+{
+	padding: 5px 10px;
+	outline: none;
+	text-transform: uppercase;
+	border-radius: 4px;
+	background-color: teal;
+	color: white;
+	border:2px solid teal;
+	transition: .4s linear;
+	margin-top: 20px;
+}
+.btnUpload:hover
+{
+	color: teal;
+	background-color: white;
+}
+
+.btnDelete
+{
+	padding: 1.5px 10px !important;
+	border:2px solid orangered;
+	background-color: orangered;
+	margin-top: 0;
+}
+.btnDelete:hover
+{
+	color: orangered;
+	background-color: white;
+}
+input[type="text"]
+{
+	padding: 5px 10px;
+}

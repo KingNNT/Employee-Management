@@ -1,0 +1,101 @@
+.containerHoso
+{
+    background-color: white;
+}
+/* code */
+.containerHoso .formTTcanhan,
+.containerHoso .formTTtaikhoan
+{
+    margin:  10px auto;
+    max-width: 400px;
+    height: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    padding: 20px;
+    background: #fff;
+}
+.containerHoso  .title 
+{
+    color:rgb(62, 143, 209);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.containerHoso .title span 
+{
+    border-bottom: 3px solid yellowgreen;
+}
+.containerHoso .formTTcanhan p,
+.containerHoso .formTTtaikhoan p
+{
+    font-size: 20px;
+    font-weight: bold;
+    color: #191919;
+}
+.containerHoso .formTTcanhan input,
+.containerHoso .formTTtaikhoan input
+{
+    margin: 5px 0 10px;
+}
+.containerHoso .formTTcanhan input[type='text'],
+.containerHoso .formTTcanhan input[type='email'],
+.containerHoso .formTTtaikhoan input[type='text'],
+.containerHoso .formTTtaikhoan input[type='email'],
+.containerHoso .formTTtaikhoan input[type='password']
+{
+    padding: 5px 10px;
+    width: 100%;
+    border:1px solid teal;
+    border-radius: 5px;
+    outline: none;
+}
+.containerHoso .formTTcanhan input[type='text']:focus,
+.containerHoso .formTTcanhan input[type='email']:focus,
+.containerHoso .formTTtaikhoan input[type='text']:focus,
+.containerHoso .formTTtaikhoan input[type='email']:focus,
+.containerHoso .formTTtaikhoan input[type='password']:focus
+{
+    background-color: skyblue;
+}
+.btnUpdate 
+{
+    padding: 5px 10px;
+    background-color: teal;
+    border: 1px solid teal;
+    color: white;
+    width: 100px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    transition: .3s linear;
+    cursor: pointer;
+}
+.btnUpdate:hover 
+{
+    color: teal;
+    background-color: white;
+}
+
+
+
+@media (max-width:468px )
+{
+   
+    .main .containerHoso .content 
+    {
+        margin-top: 10px;
+    }
+    
+    .containerHoso .formTTcanhan,
+    .containerHoso .formTTtaikhoan
+    {
+        padding: 5px;
+    }
+    .containerHoso 
+    {
+        padding: 5px;
+    }
+
+}
+
+
+

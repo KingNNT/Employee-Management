@@ -1,0 +1,32 @@
+
+.containerTailieu
+{
+    /* margin: 10px; */
+    background-color: #eee;
+    padding: 10px;
+    height: 100%;   
+}
+
+.containerTailieu  h2 
+{
+    text-align: center;
+    text-transform: uppercase;
+    color: teal;
+}
+.containerTailieu  table
+ {
+    border: none !important;
+  }
+
+.table-responsive-lg h4 
+{
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px solid;
+}
+.iconImg
+{
+    width: 25px;
+    height: 20px;
+    
+}
