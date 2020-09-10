@@ -1,7 +1,5 @@
 <?php
-session_start();
-require_once("./includes/connection.php");
-require_once('./config/config.php');
+require_once("./autoload/autoload.php");
 
 if (isset($_POST["login"])) {
     $id = $_POST["id"];

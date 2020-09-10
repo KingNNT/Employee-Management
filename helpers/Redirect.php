@@ -1,5 +1,7 @@
 
 <?php
+
+namespace EmployeeManagement\helpers;
 class Redirect
 {
 	public static function back()

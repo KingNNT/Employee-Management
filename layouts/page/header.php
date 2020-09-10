@@ -1,9 +1,5 @@
 <?php
-require_once("./config/config.php");
 echo "SS=" . $_SESSION['id'] . "|";
-// if ($_SESSION['id'] == "") {
-//     header('location:' . BASE_URI . 'login.php');
-// }
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +97,7 @@ echo "SS=" . $_SESSION['id'] . "|";
                     <li><a href="upload.php"><img src="./public/images/google-docs.png"> Upload</a></li>
                     <li><a href="timkiem.php"><img src="./public/images/loupe.png" alt=""> Tìm kiếm</a></li>
                     <li>
-                        <a href="detroysession.php"><img src="./public/images/gear.png" alt=""> Đăng xuất </a>
+                        <a href="logout.php"><img src="./public/images/gear.png" alt=""> Đăng xuất </a>
                     </li>
                 </ul>
             </div>

@@ -1,9 +1,9 @@
 <?php
 
+namespace EmployeeManagement\helpers;
 class DB
 {
-
-	private $kn = null;
+	private $connection = null;
 
 	public function __construct()
 	{
@@ -12,10 +12,9 @@ class DB
 
 	private function connect()
 	{
-		// hàm kết nối
-		$this->kn = new mysqli(DB['server'], DB['username'], DB['password'], DB['name']);
-		mysqli_set_charset($this->kn, "utf8");
-		if (!$this->kn) {
+		$this->connection = new mysqli(DB['server'], DB['username'], DB['password'], DB['name']);
+		mysqli_set_charset($this->connection, "utf8");
+		if (!$this->connection) {
 			echo ('Lỗi kết nối cơ sở dữ liệu');
 			return;
 		}
@@ -23,7 +22,7 @@ class DB
 
 	public function query($sql)
 	{
-		$query = $this->kn->query($sql);
+		$query = $this->connection->query($sql);
 		if ($query) {
 			if (is_object($query)) {
 				if ($query->num_rows > 0) {
@@ -44,7 +43,7 @@ class DB
 	}
 	public function queryOne($sql)
 	{
-		$query = $this->kn->query($sql);
+		$query = $this->connection->query($sql);
 		if ($query) {
 			if (is_object($query)) {
 				if ($query->num_rows > 0) {
@@ -65,7 +64,7 @@ class DB
 	}
 	public function lastId()
 	{
-		return $this->kn->insert_id;
+		return $this->connection->insert_id;
 	}
 
 	public function create($table, $data)
@@ -78,7 +77,7 @@ class DB
 			}
 			$dataValue = implode(',', $dataValue);
 			$sql       = "INSERT INTO $table($dataKey) VALUES($dataValue) ";
-			$created = $this->kn->query($sql);
+			$created = $this->connection->query($sql);
 			if ($created) {
 				return true;
 			} else {
@@ -98,7 +97,7 @@ class DB
 			$dataUpdate = implode(',', $dataUpdate);
 
 			$sql       = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
-			$updated = $this->kn->query($sql);
+			$updated = $this->connection->query($sql);
 			if ($updated) {
 				return true;
 			} else {
@@ -118,7 +117,7 @@ class DB
 			$dataUpdate = implode(',', $dataUpdate);
 
 			$sql       = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
-			$updated = $this->kn->query($sql);
+			$updated = $this->connection->query($sql);
 			if ($updated) {
 				return 'Cập nhật thành công';
 			} else {
@@ -133,7 +132,7 @@ class DB
 	{
 		if (!empty($where)) {
 			$sql = "DELETE FROM $table WHERE $where[0] = '$id'";
-			$deleted = $this->kn->query($sql);
+			$deleted = $this->connection->query($sql);
 			if ($deleted) {
 				return true;
 			} else {
@@ -142,7 +141,7 @@ class DB
 		} else {
 
 			$sql = "DELETE FROM $table WHERE id = '$id'";
-			$deleted = $this->kn->query($sql);
+			$deleted = $this->connection->query($sql);
 			if ($deleted) {
 				return true;
 			} else {
@@ -153,7 +152,7 @@ class DB
 	public function find($table, $id)
 	{
 		$sql       = "SELECT * FROM $table WHERE id = '$id'";
-		$dataTable = $this->kn->query($sql);
+		$dataTable = $this->connection->query($sql);
 		if ($dataTable->num_rows > 0) {
 			while ($row = $dataTable->fetch_object()) {
 				$data = $row;
@@ -166,7 +165,7 @@ class DB
 	public function findBanner($table, $status)
 	{
 		$sql       = "SELECT * FROM $table WHERE trang_thai = '$status'";
-		$dataTable = $this->kn->query($sql);
+		$dataTable = $this->connection->query($sql);
 		if ($dataTable->num_rows > 0) {
 			while ($row = $dataTable->fetch_object()) {
 				$data = $row;
@@ -180,7 +179,7 @@ class DB
 	public function all($table)
 	{
 		$sql       = "SELECT * FROM $table";
-		$dataTable = $this->kn->query($sql);
+		$dataTable = $this->connection->query($sql);
 		$data = [];
 		if ($dataTable->num_rows > 0) {
 			while ($row = $dataTable->fetch_object()) {
@@ -195,7 +194,7 @@ class DB
 	{
 		if (empty($where)) {
 			$sql = "SELECT count(id) as count FROM $table";
-			$dataTable = $this->kn->query($sql);
+			$dataTable = $this->connection->query($sql);
 			if ($dataTable->num_rows > 0) {
 				while ($row = $dataTable->fetch_object()) {
 					$data = $row;
@@ -210,7 +209,7 @@ class DB
 			}
 
 			$sql = "SELECT count(id) as count FROM $table Where $where ";
-			$dataTable = $this->kn->query($sql);
+			$dataTable = $this->connection->query($sql);
 			if ($dataTable->num_rows > 0) {
 				while ($row = $dataTable->fetch_object()) {
 					$data = $row;
@@ -230,7 +229,7 @@ class DB
 		}
 
 		$sql = "SELECT count(id) as count FROM $table Where $where ";
-		$dataTable = $this->kn->query($sql);
+		$dataTable = $this->connection->query($sql);
 		if ($dataTable->num_rows > 0) {
 			while ($row = $dataTable->fetch_object()) {
 				$data = $row;
@@ -243,6 +242,6 @@ class DB
 	}
 	public function getInsertID()
 	{
-		return $this->kn->insert_id;
+		return $this->connection->insert_id;
 	}
 }

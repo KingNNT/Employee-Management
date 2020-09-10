@@ -1,4 +1,7 @@
 <?php
+
+namespace EmployeeManagement\helpers;
+
 session_start();
 
 class Auth
