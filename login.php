@@ -1,40 +1,32 @@
 <?php
 require_once("./autoload/autoload.php");
 
-if (isset($_POST["login"])) {
-    $id = $_POST["id"];
-    $password = $_POST["password"];
-    mysqli_real_escape_string($conn, $id);
-    mysqli_real_escape_string($conn, $password);
 
-    $sql = "SELECT * FROM employee WHERE id = '$id' AND password = '$password'";
-    $query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-    $num_rows = mysqli_num_rows($query);
+if (Auth::customer()) {
 
-    if ($num_rows == 0) {
-        echo "
-            <div class='popupContainer' id='popuplogin'>
-                <h2>Lỗi đăng nhập</h2>
-                <p>Sai id hoặc password. <br> Vui lòng nhập lại!!!</p>
-                <a  href=''>Đóng</a>
-            </div>
-            ";
-    } else {
-        $row = mysqli_fetch_array($query);
-
-        $_SESSION['id'] = $row['id'];
-        $_SESSION['password'] = $row['password'];
-        $_SESSION['level'] = $row['level'];
-        $_SESSION['name'] = $row['name'];
-        $_SESSION['address'] = $row['address'];
-        $_SESSION['birthday'] = $row['birthday'];
-
-        if ($_SESSION['level'] == "1")
-            header('location: ' . BASE_URI . 'layouts/admin/index.php');
-        else
-            header('Location: ' . BASE_URI . 'index.php');
-    }
+    Redirect::url('');
 }
+if (Input::hasPost('login')) {
+
+    $email = Input::post('email');
+    $password = md5(Input::post('password'));
+
+
+    $sql = "SELECT * FROM khachhang WHERE email = '$email' && password = '$password'";
+
+    $data = $DB->query($sql);
+
+    if (is_array($data)) {
+
+        Session::put('customer', $data);
+        Redirect::url('');
+    }
+
+    $error = "Sai tên đăng nhập hoặc mật khẩu";
+}
+
+$title = "Đăng nhập ";
+include('./layouts/page/header.php');
 ?>
 
 <!DOCTYPE html>

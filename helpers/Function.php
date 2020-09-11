@@ -1,6 +1,4 @@
 <?php
-
-namespace EmployeeManagement\helpers;
 /*======================== TABLE OF CONTENT ============================
  1.
  2.

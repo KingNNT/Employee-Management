@@ -6,34 +6,9 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitf462f7137fac4452ba8966b60a524f13
 {
-    public static $prefixLengthsPsr4 = array (
-        'E' => 
-        array (
-            'EmployeeManagement\\' => 19,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'EmployeeManagement\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/helpers',
-        ),
-    );
-
-    public static $classMap = array (
-        'EmployeeManagement\\helpers\\Auth' => __DIR__ . '/../..' . '/helpers/Auth.php',
-        'EmployeeManagement\\helpers\\DB' => __DIR__ . '/../..' . '/helpers/DB.php',
-        'EmployeeManagement\\helpers\\Input' => __DIR__ . '/../..' . '/helpers/input.php',
-        'EmployeeManagement\\helpers\\Redirect' => __DIR__ . '/../..' . '/helpers/Redirect.php',
-        'EmployeeManagement\\helpers\\Session' => __DIR__ . '/../..' . '/helpers/Season.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf462f7137fac4452ba8966b60a524f13::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf462f7137fac4452ba8966b60a524f13::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitf462f7137fac4452ba8966b60a524f13::$classMap;
 
         }, null, ClassLoader::class);
     }

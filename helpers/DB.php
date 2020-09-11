@@ -1,6 +1,4 @@
 <?php
-
-namespace EmployeeManagement\helpers;
 class DB
 {
 	private $connection = null;

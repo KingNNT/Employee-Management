@@ -1,6 +1,5 @@
 <?php
 
-namespace EmployeeManagement\helpers;
 class Input
 {
 

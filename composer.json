@@ -1,8 +1,6 @@
 {
 	"autoload": {
-		"psr-4": {
-			"EmployeeManagement\\": "helpers/"
-		}
+		"psr-4": {}
 	},
 	"config": {
 		"optimize-autoloader": true

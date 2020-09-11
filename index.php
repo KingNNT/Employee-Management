@@ -30,12 +30,6 @@ require_once("./layouts/page/header.php");
         </a>
     </div>
 </div>
-<!-- <div class="popupContainer" id="popup">
-    <h2>Thông báo</h2>
-    <p>Cập nhật thông tin thành công!!!</p>
-    <a href="#" onclick='popupEvent()'>Đóng</a>
-</div> -->
-
 <?php
 require_once("./layouts/page/footer.php");
 ?>

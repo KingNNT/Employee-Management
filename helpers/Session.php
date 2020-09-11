@@ -1,7 +1,5 @@
 <?php
 
-namespace EmployeeManagement\helpers;
-
 class Session
 {
 	public function __construct()

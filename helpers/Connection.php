@@ -1,4 +1,6 @@
+
 <?php
+
 require_once("./config/database.php");
 $conn = mysqli_connect(Database::$host, Database::$username, Database::$password, Database::$dbname);
 if ($conn->connect_error) {
