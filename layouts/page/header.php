@@ -54,8 +54,6 @@ EOT;
                 </h1>
             </div>
             <?php
-
-
                 $arr = explode("/", $_SERVER['PHP_SELF']);
                 $fileName = $arr[count($arr) - 1];
                 if ($fileName == "index.php") {

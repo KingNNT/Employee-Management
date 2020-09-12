@@ -5,7 +5,6 @@ if (Auth::isLogin() !== false) {
     Redirect::url("index.php");
 } else {
     if (Input::hasPost('login')) {
-
         $id = Input::post('id');
         $password = md5(Input::post('password'));
 
@@ -76,7 +75,11 @@ if (Auth::isLogin() !== false) {
                 <input type="submit" name="login" class="login login-submit" value="Login">
             </form>
             <?echo $error?>
-            <a href="#">Forgot Password</a>
+            <div class="row d-flex justify-content-around text-center">
+                <a href="#">Forgot Password</a>
+                <a href="./signup.php" class="font-weight-bold">Sign Up</a>
+            </div>
+
         </div>
     </div>
 
