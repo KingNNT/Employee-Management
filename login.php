@@ -10,13 +10,14 @@ if (Auth::isLogin() !== false) {
         // $password = md5(Input::post('password'));
         $password = Input::post('password');
 
-
         $sql = "SELECT * FROM employee WHERE id = $id AND password = '$password'";
 
+        // $data is a object
         $data = $DB->query($sql);
+
         if ($data !== false) {
-            if (is_array($data)) {
-                Session::put('id', $data['id']);
+            if (is_object($data)) {
+                Session::set('id', $data->id);
                 Redirect::url('index.php');
             }
         } else {

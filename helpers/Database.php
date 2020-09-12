@@ -27,18 +27,11 @@ class Database
 				while ($row = $query->fetch_object()) {
 					$data[] = $row;
 				}
-				return $data;
+				return $data[0];
 			}
 		} else {
 			return false;
 		}
-
-
-		// if ($query === true) {
-		// 	$sql = explode(' ', $sql);
-		// 	if ($sql[0] == 'SELECT') {
-		// 		return "Không có bản ghi nào ";
-		// 	}
 	}
 
 	public function queryOne($sql)

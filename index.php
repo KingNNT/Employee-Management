@@ -1,7 +1,6 @@
 <?php
 require_once("./login.php");
 require_once("./layouts/page/header.php");
-echo Session::get('id');
 ?>
 
 <div class="content">
