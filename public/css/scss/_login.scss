@@ -1,6 +1,6 @@
 body {
 	background: url("#{$urlImage}/background.png");
-	background-color: rgb(150, 150, 150);
+	background-color: $bgColor;
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
