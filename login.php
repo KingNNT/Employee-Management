@@ -1,32 +1,29 @@
 <?php
-require_once("./autoload/autoload.php");
+require_once "./autoload/autoload.php";
 
+if (Auth::isLogin() != false) {
+    Redirect::url("index.php");
+} else {
+    if (Input::hasPost('login')) {
 
-if (Auth::customer()) {
+        $email = Input::post('email');
+        $password = md5(Input::post('password'));
 
-    Redirect::url('');
-}
-if (Input::hasPost('login')) {
+        $sql = "SELECT * FROM khachhang WHERE email = '$email' && password = '$password'";
 
-    $email = Input::post('email');
-    $password = md5(Input::post('password'));
+        $data = $DB->query($sql);
 
+        if (is_array($data)) {
 
-    $sql = "SELECT * FROM khachhang WHERE email = '$email' && password = '$password'";
+            Session::put('customer', $data);
+            Redirect::url('');
+        }
 
-    $data = $DB->query($sql);
-
-    if (is_array($data)) {
-
-        Session::put('customer', $data);
-        Redirect::url('');
+        $error = "Sai tên đăng nhập hoặc mật khẩu";
     }
-
-    $error = "Sai tên đăng nhập hoặc mật khẩu";
 }
 
-$title = "Đăng nhập ";
-include('./layouts/page/header.php');
+// $title = "Đăng nhập ";
 ?>
 
 <!DOCTYPE html>

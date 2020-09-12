@@ -6,15 +6,22 @@ class Auth
 	public static function user()
 	{
 		if (Session::get('id')) {
-			return Session::get('id')[0];
+			return Session::get('id');
 		}
 		return false;
 	}
 
-	public static function customer()
+	public static function admin()
 	{
-		if (Session::get('customer')) {
-			return Session::get('customer')[0];
+		if (Session::get('id')) {
+			return Session::get('id');
+		}
+		return false;
+	}
+	public static function isLogin()
+	{
+		if (Session::get('id')) {
+			return Session::get('id');
 		}
 		return false;
 	}

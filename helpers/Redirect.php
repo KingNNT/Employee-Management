@@ -1,5 +1,4 @@
 <?php
-
 class Redirect
 {
 	public static function back()
@@ -12,3 +11,4 @@ class Redirect
 		header('Location: ' . BASE_URL . '/' . $to);
 	}
 }
+?>
