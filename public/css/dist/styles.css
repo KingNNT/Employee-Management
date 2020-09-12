@@ -1,33 +1,18 @@
-header h1 {
-  background-color: #34ace0;
-  color: navy;
-  font-family: "Chonburi", cursive !important;
-  text-transform: uppercase;
-  min-height: 8vh;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  margin: 0 !important;
+header .container-fluid {
+  width: 100%;
 }
-header .contentBox {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  color: white;
-  background-color: #008d4c;
+header .container-fluid h1 {
+  font-family: "Chonburi", cursive !important;
+  min-height: 6vh;
+}
+header .container-fluid .contentBox {
+  background-color: rgba(112, 112, 112, 0.562);
   height: 8vh;
 }
-header .contentBox .imgBox {
-  display: flex;
-  align-items: center;
-  padding: 2px 8px;
-}
-header .contentBox .imgBox img {
-  width: 60px;
+header .container-fluid .contentBox .imgBox img {
+  width: 50px;
   height: 50px;
-  margin-right: 5px;
+  border-radius: 5px;
 }
 
 .main {
@@ -192,6 +177,7 @@ input {
 .wraper .form-top .right img {
   width: 100%;
   margin: -5px 0 5px 0;
+  border-radius: 5px;
 }
 .wraper .form-bottom {
   padding: 10px 30px 20px;

@@ -1,6 +1,25 @@
 <?php
 require_once "./autoload/autoload.php";
 Session::start();
+
+$name = Session::get('name');
+$icon = PUBLIC_URI . 'images/HRManager.jpg';
+$imgLogout = PUBLIC_URI . 'images/logout.png';
+$logout = BASE_URL . "logout.php";
+$topBar = <<<EOT
+<div class="contentBox row d-flex align-items-center text-light justify-content-between p-4 m-0">
+    <div class="imgBox">
+        <img src="$icon">
+    </div>
+
+    <div class="formInfo">
+        <span class="font-weight-bold"> Xin chào $name</span>
+        <a href="$logout">
+            <img src="$imgLogout">
+        </a>
+    </div>
+</div>
+EOT;
 ?>
 
 <!DOCTYPE html>
@@ -28,17 +47,24 @@ Session::start();
 
 <body>
     <header>
-        <div class="animateTitle sticky-top">
-            <h1>Quản Lý Nhân Viên</h1>
-        </div>
-        <div class="contentBox">
-            <div class="imgBox">
-                <img src="<?php echo PUBLIC_URI . 'images/HRManager.jpg' ?>">
-                <h2>HR Manager</h2>
+        <div class="container-fluid p-0 m-0">
+            <div class="sticky-top">
+                <h1 class="bg-dark text-light text-center m-0 d-flex justify-content-center align-items-center">
+                    HR Manager
+                </h1>
             </div>
+            <?php
 
-            <div class="formInfo"><?php echo '<span class="font-weight-bold"> Xin chào, ' . Session::get('name') . '</span>'; ?></div>
+
+                $arr = explode("/", $_SERVER['PHP_SELF']);
+                $fileName = $arr[count($arr) - 1];
+                if ($fileName == "index.php") {
+                    echo $topBar;
+                }
+            ?>
+
         </div>
+
     </header>
 
     <!-- content -->
