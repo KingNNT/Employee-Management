@@ -76,7 +76,7 @@ if (Auth::isLogin() !== false) {
                 <input type="submit" name="login" class="login login-submit" value="Login">
             </form>
             <?echo $error?>
-            <a href="#">Quên mật khẩu?</a>
+            <a href="#">Forgot Password</a>
         </div>
     </div>
 

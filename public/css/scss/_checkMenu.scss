@@ -1,0 +1,11 @@
+#checkMenu {
+	display: none;
+	visibility: hidden;
+	&:checked {
+		~ {
+			.menuBar {
+				left: 0px;
+			}
+		}
+	}
+}

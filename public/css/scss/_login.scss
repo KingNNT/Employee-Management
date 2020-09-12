@@ -24,9 +24,10 @@ input {
 		h1 {
 			display: inline-block;
 			font-weight: 600;
-			border-radius: 10px;
-			color: black;
-			background: lightblue;
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px;
+			color: rgb(0, 0, 0);
+			background: rgb(169, 216, 231);
 			padding: 5px 7px;
 		}
 		p {

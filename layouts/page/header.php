@@ -11,7 +11,6 @@ Session::start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lí Nhân Viên</title>
 
-    <link rel="stylesheet" href="./public/style.css">
     <link rel="stylesheet" href="<?echo PUBLIC_URI . "css/dist/styles.css"?>">
 
     <!--    Bootstrap 4 CDN -->
@@ -33,14 +32,9 @@ Session::start();
             <h1>Quản Lý Nhân Viên</h1>
         </div>
         <div class="contentBox">
-            <div class="menuHambuger">
-                <label for="checkMenu" class="menuBtn">
-                    <div class="btnHambuger"></div>
-                </label>
-            </div>
             <div class="imgBox">
-                <img src="./public/images/logo1.png">
-                <h2>VLUTE</h2>
+                <img src="<?php echo PUBLIC_URI . 'images/HRManager.jpg' ?>">
+                <h2>HR Manager</h2>
             </div>
 
             <div class="formInfo"><?php echo '<span class="font-weight-bold"> Xin chào, ' . Session::get('name') . '</span>'; ?></div>

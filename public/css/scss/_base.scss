@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Times New Roman", Times, serif;
+}
+body {
+	background-color: #eee;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none !important;
+	}
+}
+p {
+	margin-bottom: 0 !important;
+}

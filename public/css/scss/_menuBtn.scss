@@ -1,0 +1,55 @@
+/* Open menu */
+.menuBtn {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	.btnHambuger {
+		width: 30px;
+		margin: auto;
+		height: 4px;
+		border-radius: 3px;
+		transition: all 0.3s ease;
+		background-color: white;
+		&::before {
+			position: absolute;
+			content: "";
+			width: 30px;
+			margin: auto;
+			height: 4px;
+			transition: all 0.3s ease;
+			border-radius: 3px;
+			background-color: white;
+			width: 17px;
+			transform: translateY(-10px);
+		}
+		&::after {
+			position: absolute;
+			content: "";
+			width: 30px;
+			margin: auto;
+			height: 4px;
+			transition: all 0.3s ease;
+			border-radius: 3px;
+			background-color: white;
+			width: 17px;
+			transform: translateY(10px);
+			right: 0;
+		}
+	}
+}
+.menuBtn.openmenu {
+	.btnHambuger {
+		&::before {
+			transform: rotate(80deg) translate(-5.8px, -6.5px);
+		}
+		&::after {
+			transform: rotate(80deg) translate(5.8px, 6.5px);
+		}
+		transform: rotate(-40deg);
+	}
+}

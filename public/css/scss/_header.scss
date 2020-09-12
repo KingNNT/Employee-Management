@@ -1,0 +1,33 @@
+.header {
+	h1 {
+		background-color: #34ace0;
+		color: navy;
+		font-family: "Chonburi", cursive !important;
+		text-transform: uppercase;
+		min-height: 8vh;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		margin: 0 !important;
+	}
+	.contentBox {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 10px;
+		color: white;
+		background-color: #008d4c;
+		height: 8vh;
+		.imgBox {
+			display: flex;
+			align-items: center;
+			padding: 2px 8px;
+			img {
+				width: 60px;
+				height: 50px;
+				margin-right: 5px;
+			}
+		}
+	}
+}
