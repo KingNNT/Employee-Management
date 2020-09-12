@@ -27,7 +27,7 @@ Session::start();
 </head>
 
 <body>
-    <div class="header">
+    <header>
         <div class="animateTitle sticky-top">
             <h1>Quản Lý Nhân Viên</h1>
         </div>
@@ -39,8 +39,7 @@ Session::start();
 
             <div class="formInfo"><?php echo '<span class="font-weight-bold"> Xin chào, ' . Session::get('name') . '</span>'; ?></div>
         </div>
-    </div>
-    <!-- header end -->
+    </header>
 
     <!-- content -->
     <div class="containerMain" id="container">
