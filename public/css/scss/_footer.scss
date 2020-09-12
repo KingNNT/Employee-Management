@@ -1,0 +1,45 @@
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	background-color: #008d4c;
+	padding: 5px 30px;
+	min-height: 6vh;
+	color: whitesmoke !important;
+	a {
+		color: whitesmoke;
+		margin: 0 !important;
+	}
+	p {
+		margin: 0 !important;
+		span {
+			color: gold;
+			padding-left: 5px;
+		}
+	}
+}
+
+@media (max-width: 468px) {
+	.main {
+		.containerMain {
+			.content {
+				margin-top: 10px;
+			}
+		}
+	}
+	.footer {
+		p {
+			font-size: 14px;
+			margin: 7px;
+		}
+		padding: 10px 30px;
+	}
+	.header {
+		.contentBox {
+			h2 {
+				display: none;
+			}
+		}
+	}
+}

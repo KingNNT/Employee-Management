@@ -1,14 +1,13 @@
 <?php
 require_once "./autoload/autoload.php";
-
+$error = "";
 if (Auth::isLogin() !== false) {
     Redirect::url("index.php");
 } else {
     if (Input::hasPost('login')) {
 
         $id = Input::post('id');
-        // $password = md5(Input::post('password'));
-        $password = Input::post('password');
+        $password = md5(Input::post('password'));
 
         $sql = "SELECT * FROM employee WHERE id = $id AND password = '$password'";
 
@@ -24,7 +23,6 @@ if (Auth::isLogin() !== false) {
             }
         } else {
             $error = "Sai tên đăng nhập hoặc mật khẩu";
-            echo $error;
         }
     }
 }
@@ -68,6 +66,7 @@ if (Auth::isLogin() !== false) {
                 </div>
                 <input type="submit" name="login" class="login login-submit" value="Login">
             </form>
+            <?echo $error?>
             <a href="#">Quên mật khẩu?</a>
         </div>
     </div>

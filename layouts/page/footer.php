@@ -4,21 +4,17 @@
 </div>
 <div class="footer">
     <div class="footerLeft">
-        <p><span>Power by</span> </p>
-        <a href="#">
-            <p>Author</p>
-        </a>
+
     </div>
     <p><span>@Copyright.</span> All right reserved</p>
     <div class="footerRight">
-        <p><span>Power by</span> </p>
-        <a href="#">
-            <p></p>
-        </a>
+            <span>Power by</span>
+            <a href="#">
+                <p>Author</p>
+            </a>
     </div>
 </div>
 
-<script src="main.js"></script>
 </body>
 
 </html>

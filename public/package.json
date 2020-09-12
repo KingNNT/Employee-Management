@@ -1,0 +1,13 @@
+{
+	"name": "",
+	"version": "0.0.1",
+	"dependencies": {
+		"normalize.css": "^8.0.1",
+		"sass": ""
+	},
+	"scripts": {
+		"scss": "sass --watch ./css/scss/styles.scss ./css/dist/styles.css"
+	},
+	"author": "KingNNT",
+	"license": "ISC"
+}
