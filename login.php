@@ -3,7 +3,6 @@ require_once "./autoload/autoload.php";
 
 if (Auth::isLogin() !== false) {
     // Redirect::url("index.php");
-    echo "K" . $_SESSION['id'];
 } else {
     if (Input::hasPost('login')) {
 
@@ -17,16 +16,15 @@ if (Auth::isLogin() !== false) {
         $data = $DB->query($sql);
         if ($data !== false) {
             if (is_array($data)) {
-                Session::put('id', $data);
+                Session::put('id', $data['id']);
                 Redirect::url('index.php');
             }
         } else {
             $error = "Sai tên đăng nhập hoặc mật khẩu";
+            echo $error;
         }
     }
 }
-
-// $title = "Đăng nhập ";
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +39,6 @@ if (Auth::isLogin() !== false) {
 </head>
 
 <body>
-
-
     <div class="wraper">
         <div class="title">
             <h1>VLUTE</h1><span style="font-weight: 100;font-size: 30px;"> Manager</span>
@@ -67,7 +63,6 @@ if (Auth::isLogin() !== false) {
                     <input type="password" name="password" required>
                     <label for="">Password</label>
                 </div>
-                <!-- <input type="button" value="Đăng nhập"> -->
                 <input type="submit" name="login" class="login login-submit" value="Login">
             </form>
             <a href="#">Quên mật khẩu?</a>
