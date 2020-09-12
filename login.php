@@ -2,7 +2,7 @@
 require_once "./autoload/autoload.php";
 
 if (Auth::isLogin() !== false) {
-    // Redirect::url("index.php");
+    Redirect::url("index.php");
 } else {
     if (Input::hasPost('login')) {
 
@@ -18,6 +18,8 @@ if (Auth::isLogin() !== false) {
         if ($data !== false) {
             if (is_object($data)) {
                 Session::set('id', $data->id);
+                Session::set('level', $data->level);
+                Session::set('name', $data->name);
                 Redirect::url('index.php');
             }
         } else {
