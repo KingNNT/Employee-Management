@@ -6,18 +6,21 @@ if (Auth::isLogin() != false) {
 } else {
     if (Input::hasPost('login')) {
 
-        $email = Input::post('email');
-        $password = md5(Input::post('password'));
+        $id = Input::post('id');
+        // $password = md5(Input::post('password'));
+        $password = Input::post('password');
 
-        $sql = "SELECT * FROM khachhang WHERE email = '$email' && password = '$password'";
+
+        $sql = "SELECT * FROM employee WHERE id = $id AND password = '$password'";
+        $sql = "SELECT * FROM employee";
 
         $data = $DB->query($sql);
+        print_r($data);
+        // if (is_array($data)) {
 
-        if (is_array($data)) {
-
-            Session::put('customer', $data);
-            Redirect::url('');
-        }
+        //     Session::put('customer', $data);
+        //     Redirect::url('');
+        // }
 
         $error = "Sai tên đăng nhập hoặc mật khẩu";
     }

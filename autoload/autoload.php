@@ -3,7 +3,7 @@ session_start();
 
 $loadHelper = [
 	'Auth',
-	'DB',
+	'Database',
 	'Function',
 	'Input',
 	'Redirect',
@@ -17,7 +17,8 @@ $posUrl =  strpos("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 'admin');
 // } 
 
 require_once('./config/Config.php');
-require_once('./config/Database.php');
 foreach ($loadHelper as $item) {
 	require_once("./helpers/$item.php");
 }
+
+$DB = new Database();

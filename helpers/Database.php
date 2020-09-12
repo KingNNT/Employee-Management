@@ -1,5 +1,5 @@
 <?php
-class DB
+class Database
 {
 	private $connection = null;
 
@@ -10,18 +10,19 @@ class DB
 
 	private function connect()
 	{
-		$this->connection = new mysqli(DB['server'], DB['username'], DB['password'], DB['name']);
+		$this->connection = new mysqli(DB['host'], DB['username'], DB['password'], DB['dbname']);
 		mysqli_set_charset($this->connection, "utf8");
-		if (!$this->connection) {
-			echo ('Lỗi kết nối cơ sở dữ liệu');
-			return;
+		if ($connection->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		} else {
+			echo "Connected " . DB['dbname'];
 		}
 	}
 
 	public function query($sql)
 	{
 		$query = $this->connection->query($sql);
-		if ($query) {
+		if ($query === true) {
 			if (is_object($query)) {
 				if ($query->num_rows > 0) {
 					while ($row = $query->fetch_object()) {
@@ -36,9 +37,11 @@ class DB
 			}
 			return 'Xử lý thành công ';
 		} else {
+			echo "Error: " . $sql . "<br>" . $connection->error . "LLL";
 			return 'Thao tác thất bại !';
 		}
 	}
+
 	public function queryOne($sql)
 	{
 		$query = $this->connection->query($sql);
@@ -68,13 +71,13 @@ class DB
 	public function create($table, $data)
 	{
 		if (is_array($data)) {
-			$dataKey   = implode(',', array_keys($data));
+			$dataKey = implode(',', array_keys($data));
 			$dataValue = [];
 			foreach ($data as $value) {
 				$dataValue[] = "'$value'";
 			}
 			$dataValue = implode(',', $dataValue);
-			$sql       = "INSERT INTO $table($dataKey) VALUES($dataValue) ";
+			$sql = "INSERT INTO $table($dataKey) VALUES($dataValue) ";
 			$created = $this->connection->query($sql);
 			if ($created) {
 				return true;
@@ -94,7 +97,7 @@ class DB
 
 			$dataUpdate = implode(',', $dataUpdate);
 
-			$sql       = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
+			$sql = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
 			$updated = $this->connection->query($sql);
 			if ($updated) {
 				return true;
@@ -114,7 +117,7 @@ class DB
 
 			$dataUpdate = implode(',', $dataUpdate);
 
-			$sql       = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
+			$sql = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
 			$updated = $this->connection->query($sql);
 			if ($updated) {
 				return 'Cập nhật thành công';
@@ -137,7 +140,6 @@ class DB
 				return 'Xóa thất bại';
 			}
 		} else {
-
 			$sql = "DELETE FROM $table WHERE id = '$id'";
 			$deleted = $this->connection->query($sql);
 			if ($deleted) {
@@ -149,7 +151,7 @@ class DB
 	}
 	public function find($table, $id)
 	{
-		$sql       = "SELECT * FROM $table WHERE id = '$id'";
+		$sql = "SELECT * FROM $table WHERE id = '$id'";
 		$dataTable = $this->connection->query($sql);
 		if ($dataTable->num_rows > 0) {
 			while ($row = $dataTable->fetch_object()) {
@@ -162,7 +164,7 @@ class DB
 	}
 	public function findBanner($table, $status)
 	{
-		$sql       = "SELECT * FROM $table WHERE trang_thai = '$status'";
+		$sql = "SELECT * FROM $table WHERE trang_thai = '$status'";
 		$dataTable = $this->connection->query($sql);
 		if ($dataTable->num_rows > 0) {
 			while ($row = $dataTable->fetch_object()) {
@@ -176,7 +178,7 @@ class DB
 
 	public function all($table)
 	{
-		$sql       = "SELECT * FROM $table";
+		$sql = "SELECT * FROM $table";
 		$dataTable = $this->connection->query($sql);
 		$data = [];
 		if ($dataTable->num_rows > 0) {
@@ -201,7 +203,6 @@ class DB
 				$data = 'ID Không tồn tại !';
 			}
 		} else {
-
 			foreach ($where as $key => $value) {
 				$where = $key .= " = $value ";
 			}
@@ -221,7 +222,6 @@ class DB
 	}
 	public function CountRecordLike($table, $where = [])
 	{
-
 		foreach ($where as $key => $value) {
 			$where = $key .= " LIKE '$value' ";
 		}
