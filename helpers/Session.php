@@ -21,4 +21,9 @@ class Session
 	{
 		return $_SESSION[$name] ?? false;
 	}
+
+	public static function destroy()
+	{
+		session_destroy();
+	}
 }

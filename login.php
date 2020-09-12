@@ -1,8 +1,9 @@
 <?php
 require_once "./autoload/autoload.php";
 
-if (Auth::isLogin() != false) {
-    Redirect::url("index.php");
+if (Auth::isLogin() !== false) {
+    // Redirect::url("index.php");
+    echo "K" . $_SESSION['id'];
 } else {
     if (Input::hasPost('login')) {
 
@@ -12,17 +13,16 @@ if (Auth::isLogin() != false) {
 
 
         $sql = "SELECT * FROM employee WHERE id = $id AND password = '$password'";
-        $sql = "SELECT * FROM employee";
 
         $data = $DB->query($sql);
-        print_r($data);
-        // if (is_array($data)) {
-
-        //     Session::put('customer', $data);
-        //     Redirect::url('');
-        // }
-
-        $error = "Sai tên đăng nhập hoặc mật khẩu";
+        if ($data !== false) {
+            if (is_array($data)) {
+                Session::put('id', $data);
+                Redirect::url('index.php');
+            }
+        } else {
+            $error = "Sai tên đăng nhập hoặc mật khẩu";
+        }
     }
 }
 

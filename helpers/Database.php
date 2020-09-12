@@ -10,36 +10,35 @@ class Database
 
 	private function connect()
 	{
-		$this->connection = new mysqli(DB['host'], DB['username'], DB['password'], DB['dbname']);
+		$this->connection = new mysqli(DB['host'], DB['username'], DB['password'], DB['database']);
+
 		mysqli_set_charset($this->connection, "utf8");
 		if ($connection->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
-		} else {
-			echo "Connected " . DB['dbname'];
 		}
 	}
 
 	public function query($sql)
 	{
 		$query = $this->connection->query($sql);
-		if ($query === true) {
-			if (is_object($query)) {
-				if ($query->num_rows > 0) {
-					while ($row = $query->fetch_object()) {
-						$data[] = $row;
-					}
-					return $data;
+
+		if (is_object($query)) {
+			if ($query->num_rows > 0) {
+				while ($row = $query->fetch_object()) {
+					$data[] = $row;
 				}
+				return $data;
 			}
-			$sql = explode(' ', $sql);
-			if ($sql[0] == 'SELECT') {
-				return "Không có bản ghi nào ";
-			}
-			return 'Xử lý thành công ';
 		} else {
-			echo "Error: " . $sql . "<br>" . $connection->error . "LLL";
-			return 'Thao tác thất bại !';
+			return false;
 		}
+
+
+		// if ($query === true) {
+		// 	$sql = explode(' ', $sql);
+		// 	if ($sql[0] == 'SELECT') {
+		// 		return "Không có bản ghi nào ";
+		// 	}
 	}
 
 	public function queryOne($sql)

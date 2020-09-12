@@ -20,7 +20,7 @@ class Auth
 	}
 	public static function isLogin()
 	{
-		if (Session::get('id')) {
+		if (Session::get('id') !== "") {
 			return Session::get('id');
 		}
 		return false;

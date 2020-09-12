@@ -6,5 +6,5 @@ const DB = [
 	'host' => 'localhost',
 	'username' => 'root',
 	'password' => '123456',
-	'dbname' => 'EmployeeManagement'
+	'database' => 'EmployeeManagement'
 ];
