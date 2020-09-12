@@ -60,14 +60,14 @@ if (Auth::isLogin() !== false) {
                 <p>Hệ thống quản lý nhân viên - HRM</p>
             </div>
             <div class="right">
-                <img src="./public/images/vlute_icon96.png" alt="">
+                <img src="./public/images/HRManager.jpg" alt="icon">
             </div>
         </div>
         <div class="form-bottom">
             <form method="POST">
                 <div class="input-box">
                     <input type="text" name="id" required autocomplete="none">
-                    <label for="">Username</label>
+                    <label for="">ID</label>
                 </div>
                 <div class="input-box">
                     <input type="password" name="password" required>
