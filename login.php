@@ -34,21 +34,30 @@ if (Auth::isLogin() !== false) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/css/styleLogin.css">
-    <link rel="stylesheet" href="./public/css/stylePopup.css">
+
     <title>Đăng nhập hệ thống</title>
+
+    <!--    Bootstrap 4 CDN -->
+
+    <!--    CSS Bootstrap   -->
+    <link rel="stylesheet" href="<?echo PUBLIC_URI . "node_modules/bootstrap/dist/css/bootstrap.min.css"?>" crossorigin="anonymous" />
+    <!--    JS Bootstrap   -->
+    <script src="<?echo PUBLIC_URI . "node_modules/jquery/dist/jquery.min.js"?>" crossorigin="anonymous"></script>
+    <script src="<?echo PUBLIC_URI . "node_modules/popper.js/dist/umd/popper.min.js"?>" crossorigin="anonymous"></script>
+    <script src="<?echo PUBLIC_URI . "node_modules/bootstrap/dist/js/bootstrap.min.js"?>" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="<?echo PUBLIC_URI . "css/dist/styles.css"?>">
 </head>
 
 <body>
     <div class="wraper">
         <div class="title">
-            <h1>VLUTE</h1><span style="font-weight: 100;font-size: 30px;"> Manager</span>
-            <p></p>
+            <h1>HR</h1><span class="text-primary bg-dark p-2 rounded font-italic"> Manager</span>
         </div>
         <div class="form-top">
             <div class="left">
                 <h3>Đăng nhập hệ thống</h3>
-                <p>Hệ thống quản lý nhân viên - VLUTE</p>
+                <p>Hệ thống quản lý nhân viên - HRM</p>
             </div>
             <div class="right">
                 <img src="./public/images/vlute_icon96.png" alt="">

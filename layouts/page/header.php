@@ -13,8 +13,6 @@ Session::start();
 
     <link rel="stylesheet" href="./public/style.css">
     <link rel="stylesheet" href="<?echo PUBLIC_URI . "css/dist/styles.css"?>">
-    <link rel="stylesheet" href="./public/css/styleHoso.css">
-    <link rel="stylesheet" type="text/css" href="./public/css/stylePopup.css">
 
     <!--    Bootstrap 4 CDN -->
 
