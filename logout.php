@@ -2,4 +2,4 @@
 require_once "./autoload/autoload.php";
 
 Session::destroy();
-Redirect::url("login.php");
+Redirect::url("index.php");

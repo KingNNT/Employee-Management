@@ -1,9 +1,12 @@
 <?php
 require_once "./autoload/autoload.php";
 
-// if (Auth::isLogin() === false) {
-//     Redirect::url("login.php");
-// }
+if (LOGIN_REQUIREMENT === true) {
+    if (Auth::isLogin() === false) {
+        Redirect::url("login.php");
+    }
+}
+
 
 require_once "./layouts/page/header.php";
 ?>
