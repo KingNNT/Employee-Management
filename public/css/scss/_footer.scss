@@ -1,9 +1,5 @@
 footer {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	text-align: center;
-	background-color: #008d4c;
+	background-color: $bgFooter;
 	padding: 5px 30px;
 	min-height: 6vh;
 	color: whitesmoke !important;
