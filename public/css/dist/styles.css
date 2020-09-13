@@ -1,18 +1,21 @@
-header .container-fluid {
-  width: 100%;
+header nav {
+  background-color: rgba(119, 119, 119, 0.562);
 }
-header .container-fluid h1 {
-  font-family: "Chonburi", cursive !important;
-  min-height: 6vh;
-}
-header .container-fluid .contentBox {
-  background-color: rgba(112, 112, 112, 0.562);
-  height: 8vh;
-}
-header .container-fluid .contentBox .imgBox img {
+header nav .container-fluid a img {
   width: 50px;
   height: 50px;
   border-radius: 5px;
+}
+header nav .container-fluid #navbarNav a:hover {
+  color: #724a4a;
+}
+header nav .container-fluid #navbarNav #right-side a {
+  font-size: 1.1em;
+  font-weight: bold;
+  font-style: italic;
+}
+header nav .container-fluid #navbarNav #right-side #infoUser span {
+  color: #524b24;
 }
 
 .main {

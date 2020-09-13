@@ -25,6 +25,9 @@ if (Auth::isLogin() !== false) {
         }
     }
 }
+
+$title = $title = "Login - " . APP_NAME;
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +37,7 @@ if (Auth::isLogin() !== false) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Đăng nhập hệ thống</title>
+    <title><?echo $title?></title>
 
     <!--    Bootstrap 4 CDN -->
 
@@ -55,7 +58,7 @@ if (Auth::isLogin() !== false) {
         </div>
         <div class="form-top">
             <div class="left">
-                <h3>Đăng nhập hệ thống</h3>
+                <h3>Đăng Nhập Hệ Thống</h3>
                 <p>Hệ thống quản lý nhân viên - HRM</p>
             </div>
             <div class="right">
@@ -79,10 +82,8 @@ if (Auth::isLogin() !== false) {
                 <a href="#">Forgot Password</a>
                 <a href="./signup.php" class="font-weight-bold">Sign Up</a>
             </div>
-
         </div>
     </div>
-
 </body>
 
 </html>
