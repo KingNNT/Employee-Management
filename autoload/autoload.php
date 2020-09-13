@@ -4,8 +4,10 @@ $loadHelper = [
     'Auth',
     'Database',
     'Function',
+    'HTTP',
     'Input',
     'Redirect',
+    'RestfulAPI',
     'Session',
 ];
 $loadConfig = [
