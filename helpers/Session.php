@@ -24,7 +24,9 @@ class Session
 
     public static function start()
     {
-        session_start();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
     }
 
     public static function destroy()
