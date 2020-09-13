@@ -19,9 +19,11 @@ $unLogin = <<<EOT
 EOT;
 $login = <<<EOT
 <li class="nav-item" id="infoUser">
-    <span > Xin chào $name</span>
-    <a href="./logout.php">
-        <img src="$imgLogout">
+    <span> Xin chào 
+        <a href="#">$name<a/>
+    </span>
+    <a href="./logout.php" class="ml-4">
+        <img src="$imgLogout" alt="logout">
     </a>
 </li>
 EOT;
@@ -77,11 +79,9 @@ EOT;
                     </ul>
                     <ul class="navbar-nav ml-auto" id="right-side">
                     <?php
-                        if (Auth::isLogin() !== false)
-                        {
+                        if (Auth::isLogin() !== false) {
                             echo $login;
-                        }
-                        else {
+                        } else {
                             echo $unLogin;
                         }
                     ?>

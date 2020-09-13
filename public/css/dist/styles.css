@@ -15,15 +15,19 @@ header nav .container-fluid #navbarNav #right-side a {
   font-style: italic;
 }
 header nav .container-fluid #navbarNav #right-side #infoUser span {
-  color: #524b24;
+  color: #36685b;
+}
+header nav .container-fluid #navbarNav #right-side #infoUser span a {
+  color: #2e6f9b;
 }
 
-.main {
+main {
   display: flex;
   position: relative;
   width: 100%;
+  min-height: 87%;
 }
-.main .containerMain {
+main .containerMain {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./images/bg.jpg);
   min-height: 78vh;
   width: 100%;
@@ -34,7 +38,7 @@ header nav .container-fluid #navbarNav #right-side #infoUser span {
   transition: 0.5s ease-in-out;
   overflow: hidden !important;
 }
-.main .containerMain .content {
+main .containerMain .content {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -42,7 +46,7 @@ header nav .container-fluid #navbarNav #right-side #infoUser span {
   margin-top: 50px;
   flex-wrap: wrap;
 }
-.main .containerMain .content .box {
+main .containerMain .content .box {
   border-radius: 10px;
   background-color: #eee;
   transition: 0.5s;
@@ -50,13 +54,13 @@ header nav .container-fluid #navbarNav #right-side #infoUser span {
   margin: 10px;
   overflow: hidden;
 }
-.main .containerMain .content .box a {
+main .containerMain .content .box a {
   display: block;
 }
-.main .containerMain .content .box:hover .title {
+main .containerMain .content .box:hover .title {
   box-shadow: 0 0 0 10em teal;
 }
-.main .containerMain .content .box .title {
+main .containerMain .content .box .title {
   font-size: 25px;
   color: white;
   font-weight: 700;
@@ -66,14 +70,14 @@ header nav .container-fluid #navbarNav #right-side #infoUser span {
   border-radius: 0 0 20px 20px;
   transition: 0.5s linear;
 }
-.main .containerMain .content .imgBox {
+main .containerMain .content .imgBox {
   margin-top: 20px;
   max-width: 200px;
   max-height: 200px;
   padding: 10px;
   margin: auto;
 }
-.main .containerMain .content .imgBox img {
+main .containerMain .content .imgBox img {
   width: 100%;
   height: 100%;
 }
