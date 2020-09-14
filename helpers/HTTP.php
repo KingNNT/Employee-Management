@@ -48,4 +48,12 @@ class HTTP
     {
         return (isset($this->codes[$status])) ? $this->codes[$status] : "";
     }
+
+    public static function sendResponse($status = 200, $body = "", $content_type = "text/html")
+    {
+        $status_header = "HTTP/1.1 " . $status . " " . $this->getStatusCodeMeeage($status);
+        header($status_header);
+        header("Content-type: " . $content_type);
+        echo $body;
+    }
 }

@@ -28,5 +28,4 @@ foreach ($loadConfig as $item) {
 foreach ($loadHelper as $item) {
     require_once("./helpers/$item.php");
 }
-
 $DB = new Database();

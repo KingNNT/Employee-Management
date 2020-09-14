@@ -18,7 +18,7 @@ class Database
         }
     }
 
-    public function query($sql)
+    public function queryOne($sql)
     {
         $query = $this->connection->query($sql);
 
@@ -34,27 +34,24 @@ class Database
         }
     }
 
-    public function queryOne($sql)
+    public function query($sql)
     {
         $query = $this->connection->query($sql);
-        if ($query) {
-            if (is_object($query)) {
-                if ($query->num_rows > 0) {
-                    while ($row = $query->fetch_object()) {
-                        $data = $row;
-                    }
-                    return $data;
+
+        if (is_object($query)) {
+            if ($query->num_rows > 0) {
+                while ($row = $query->fetch_object()) {
+                    $data[] = $row;
                 }
+                /* $data is an array*/
+                return $data;
             }
-            $sql = explode(' ', $sql);
-            if ($sql[0] == 'SELECT') {
-                return "Không có bản ghi nào ";
-            }
-            return 'Xử lý thành công ';
         } else {
-            return 'Thao tác thất bại !';
+            return false;
         }
     }
+
+
     public function lastId()
     {
         return $this->connection->insert_id;

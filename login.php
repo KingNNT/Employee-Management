@@ -11,7 +11,7 @@ if (Auth::isLogin() !== false) {
         $sql = "SELECT * FROM employee WHERE id = $id AND password = '$password'";
 
         // $data is a object
-        $data = $DB->query($sql);
+        $data = $DB->queryOne($sql);
 
         if ($data !== false) {
             if (is_object($data)) {
