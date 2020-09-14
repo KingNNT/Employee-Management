@@ -5,7 +5,7 @@ class userModel
     public function __construct()
     {
     }
-    public static function getEmployee()
+    public static function getEmployees()
     {
         $DB = new Database();
         $sql = "SELECT * FROM employee ";
