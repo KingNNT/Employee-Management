@@ -24,7 +24,7 @@ function toSlug($str)
 
 function formatDate($time)
 {
-    return date('d/m/yy', strtotime($time));
+    return date('Y/m/d', strtotime($time));
 }
 
 

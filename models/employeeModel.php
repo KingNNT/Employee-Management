@@ -8,6 +8,9 @@ class employeeModel
     /* CRUD */
     public static function create()
     {
+        /*
+            $_POST: mm/dd/yyyy
+        */
         $condition = isset($_POST['id']) &&
                 isset($_POST['password']) &&
                 isset($_POST['level']) &&
@@ -18,11 +21,12 @@ class employeeModel
         if ($condition) {
             $id = $_POST['id'];
             $name = $_POST['name'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
             $level = $_POST['level'];
             $name = $_POST['name'];
             $address = $_POST['address'];
-            $birthday = $_POST['birthday'];
+            $birthday = formatDate($_POST['birthday']);
+            
 
             $data = array(
                     'id' => $id,
@@ -36,8 +40,10 @@ class employeeModel
         } else {
             $data = "No Data";
         }
-        print_r($data);
-        // $DB::create("employee", $data);
+        // print_r($data);
+        $DB = new Database();
+        $result = $DB->create("employee", $data);
+        echo $result;
     }
     public static function read()
     {

@@ -3,10 +3,10 @@
     require_once("./models/employeeModel.php");
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
-            case 'getEmployees':
+            case 'read':
                 employeeModel::read();
                 break;
-            case 'createEmployee':
+            case 'create':
                 employeeModel::create();
                 break;
             

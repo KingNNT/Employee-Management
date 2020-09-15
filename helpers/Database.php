@@ -67,7 +67,11 @@ class Database
             }
             $dataValue = implode(',', $dataValue);
             $sql = "INSERT INTO $table($dataKey) VALUES($dataValue) ";
+            echo $sql;
             $created = $this->connection->query($sql);
+            if ($created == null) {
+                echo "NULL";
+            }
             if ($created) {
                 return true;
             } else {
