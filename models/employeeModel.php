@@ -40,11 +40,12 @@ class employeeModel
         } else {
             $data = "No Data";
         }
-        // print_r($data);
+
         $DB = new Database();
         $result = $DB->create("employee", $data);
         echo $result;
     }
+    
     public static function read()
     {
         $DB = new Database();
