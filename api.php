@@ -1,21 +1,23 @@
 <?php
     require_once "./autoload/autoload.php";
     $loadAPIFile = [
-        'getEmployee',
+        'employeeAPI',
     ];
 
     foreach ($loadAPIFile as $item) {
         require_once("./API/$item.php");
     }
-if (isset($_GET['action'])) {
-    switch ($_GET['action']) {
+if (isset($_POST['action'])) {
+    switch ($_POST['action']) {
         case 'getEmployees':
-            userModel::getEmployees();
-
+            employeeModel::read();
+            break;
+        case 'createEmployee':
+            employeeModel::create();
             break;
         
         default:
-            echo "Invalid Action: " . $_GET['action'];
+            echo "Invalid Action: " . $POST['action'];
             break;
     }
 } else {
