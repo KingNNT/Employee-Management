@@ -2,6 +2,7 @@
 require_once("./autoload/autoload.php");
 class employeeModel
 {
+    private static $table = "employee";
     public function __construct()
     {
     }
@@ -37,13 +38,12 @@ class employeeModel
                     'address' => $address,
                     'birthday' => $birthday
                 );
+            $DB = new Database();
+            $result = $DB->create(self::$table, $data);
+            echo $result;
         } else {
-            $data = "No Data";
+            echo "No Data";
         }
-
-        $DB = new Database();
-        $result = $DB->create("employee", $data);
-        echo $result;
     }
     
     public static function read()
@@ -63,7 +63,6 @@ class employeeModel
     public static function update()
     {
         $condition = isset($_POST['id']) &&
-                isset($_POST['password']) &&
                 isset($_POST['level']) &&
                 isset($_POST['name']) &&
                 isset($_POST['address']) &&
@@ -72,7 +71,6 @@ class employeeModel
         if ($condition) {
             $id = $_POST['id'];
             $name = $_POST['name'];
-            $password = md5($_POST['password']);
             $level = $_POST['level'];
             $name = $_POST['name'];
             $address = $_POST['address'];
@@ -81,7 +79,6 @@ class employeeModel
 
             $data = array(
                     'name' => $name,
-                    'password' => $password,
                     'level' => $level,
                     'name' => $name,
                     'address' => $address,
@@ -91,7 +88,19 @@ class employeeModel
             $data = "No Data";
         }
         $DB = new Database();
-        $result = $DB->update("employee", $data, $id);
+        $result = $DB->update(self::$table, $data, $id);
         echo $result;
+    }
+
+    public static function delete()
+    {
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
+            $DB = new Database();
+            $result = $DB->delete(self::$table, $id);
+            echo $result;
+        } else {
+            echo "No Data";
+        }
     }
 }

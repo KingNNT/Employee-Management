@@ -118,24 +118,14 @@ class Database
         }
     }
 
-    public function delete($table, $id, $where = [])
+    public function delete($table, $id)
     {
-        if (!empty($where)) {
-            $sql = "DELETE FROM $table WHERE $where[0] = '$id'";
-            $deleted = $this->connection->query($sql);
-            if ($deleted) {
-                return true;
-            } else {
-                return 'Xóa thất bại';
-            }
+        $sql = "DELETE FROM $table WHERE id = '$id'";
+        $deleted = $this->connection->query($sql);
+        if ($deleted) {
+            return true;
         } else {
-            $sql = "DELETE FROM $table WHERE id = '$id'";
-            $deleted = $this->connection->query($sql);
-            if ($deleted) {
-                return true;
-            } else {
-                return 'Xóa thất bại';
-            }
+            return 'Xóa thất bại';
         }
     }
     public function find($table, $id)
