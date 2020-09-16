@@ -48,14 +48,24 @@ class employeeModel
     
     public static function read()
     {
+        $field = array(
+            'id',
+            'level',
+            'name',
+            'address',
+            'birthday',
+        );
         $DB = new Database();
-        $sql = "SELECT id, level, name, address, birthday FROM employee ";
-
-        $data = $DB->query($sql);
+        $data = $DB->read($field, self::$table);
 
         if ($data !== false) {
-            if (is_array($data)) {
-                print_r(json_encode($data));
+            if (is_object($data)) {
+                if ($data->num_rows > 0) {
+                    while ($row = $data->fetch_object()) {
+                        $arrData[] = $row;
+                    }
+                    print_r(json_encode($arrData));
+                }
             }
         }
     }
@@ -84,12 +94,12 @@ class employeeModel
                     'address' => $address,
                     'birthday' => $birthday
                 );
+            $DB = new Database();
+            $result = $DB->update(self::$table, $data, $id);
+            echo $result;
         } else {
-            $data = "No Data";
+            echo "No Data";
         }
-        $DB = new Database();
-        $result = $DB->update(self::$table, $data, $id);
-        echo $result;
     }
 
     public static function delete()

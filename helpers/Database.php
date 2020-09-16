@@ -77,6 +77,23 @@ class Database
             die('Data bắt buộc phải là mảng !');
         }
     }
+
+    public function read($field, $table)
+    {
+        if (is_array($field)) {
+            foreach ($field as $value) {
+                $arrField[] = "$value";
+            }
+            $arrField = implode(',', $arrField);
+            $sql = "SELECT $arrField FROM $table";
+            $read = $this->connection->query($sql);
+            if ($read) {
+                return $read;
+            } else {
+                return false;
+            }
+        }
+    }
     public function update($table, $data, $id)
     {
         if (is_array($data)) {
