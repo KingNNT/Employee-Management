@@ -1,29 +1,13 @@
 <?php
 require_once "./autoload/autoload.php";
-$error = "";
+
 if (Auth::isLogin() !== false) {
     Redirect::url("index.php");
 } else {
-    if (Input::hasPost('login')) {
-        $id = Input::post('id');
-        $password = md5(Input::post('password'));
+    $id = Input::post('id');
+    $password = md5(Input::post('password'));
 
-        $sql = "SELECT * FROM employee WHERE id = $id AND password = '$password'";
-
-        // $data is a object
-        $data = Database::queryOne($sql);
-
-        if ($data !== false) {
-            if (is_object($data)) {
-                Session::set('id', $data->id);
-                Session::set('level', $data->level);
-                Session::set('name', $data->name);
-                Redirect::url('index.php');
-            }
-        } else {
-            $error = "Sai tên đăng nhập hoặc mật khẩu";
-        }
-    }
+    Auth::login($id, $password);
 }
 
 $title = $title = "Login - " . APP_NAME;
@@ -77,7 +61,7 @@ $title = $title = "Login - " . APP_NAME;
                 </div>
                 <input type="submit" name="login" class="login login-submit" value="Login">
             </form>
-            <?echo $error?>
+
             <div class="row d-flex justify-content-around text-center">
                 <a href="#">Forgot Password</a>
                 <a href="./signup.php" class="font-weight-bold">Sign Up</a>

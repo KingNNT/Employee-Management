@@ -49,17 +49,17 @@ require_once "./autoload/autoload.php";
                         <li class="nav-item active">
                             <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <!-- <?php if (Auth::isLogin() !== false) : ?>
+                        <?php if (Auth::isAdmin() == true): ?>
                             <li class="nav-item active">
-                                <a class="nav-link" href="./index.php">Quản Lý Nhân Viên <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="./layouts/admin/adminControl.php">Admin Control<span class="sr-only">(current)</span></a>
                             </li>
-                        <?php endif ?> -->
+                        <?php endif ?>
                     </ul>
                     <ul class="navbar-nav ml-auto" id="right-side">
                     <?php if (Auth::isLogin() !== false) : ?>
                         <li class="nav-item" id="infoUser">
                             <span> Xin chào 
-                                <a href="#"><? echo Session::get('name') ?><a/>
+                                <a href="./viewProfile.php"><? echo Session::get('name') ?><a/>
                             </span>
                             <a href="./logout.php" class="ml-4">
                                 <img src="<?php echo PUBLIC_URI . 'images/logout.png'; ?>" alt="logout">
