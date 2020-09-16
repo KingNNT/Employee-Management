@@ -44,14 +44,14 @@ class HTTP
         504 => "Gateway Timeout",
         505 => "HTTP Version Not Supporte"
         );
-    public static function getStatusCodeMesage($status)
+    public static function getStatusCodeMessage($status)
     {
-        return (isset($this->codes[$status])) ? $this->codes[$status] : "";
+        return (isset(self::$codes[$status])) ? self::$codes[$status] : "";
     }
 
     public static function sendResponse($status = 200, $body = "", $content_type = "text/html")
     {
-        $status_header = "HTTP/1.1 " . $status . " " . $this->getStatusCodeMeeage($status);
+        $status_header = "HTTP/1.1 " . $status . " " . self::getStatusCodeMessage($status);
         header($status_header);
         header("Content-type: " . $content_type);
         echo $body;

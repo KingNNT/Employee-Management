@@ -70,32 +70,44 @@ class Auth
         $field = "username";
         $value = $username;
         $result = Database::find($table, $field, $value);
-        if ($result === false) {
+        if ($result !== false) {
             return false;
-        } else {
-            $arrInfo = array(
+        }
+        
+        $arrInfo = array(
                 "name" => $name,
                 "address" => $address,
                 "birthday" => $birthday,
                 "level" => $level,
             );
-            $table = "infomation";
+        $table = "information";
 
-            $result = Database::create($table, $arrInfo);
-
-            $sql = "SELECT id FROM $table ORDER BY id DESC LIMIT 1;";
-            $result = Database::query($sql);
-            $id =  $result[0]->id;
-
-            $password = md5($password);
-            $arrAccount = array(
-            "id"=> $id,
-            "username" => $username,
-            "password" => $password
-        );
-
-            $table = "account";
-            $result = Database::create($table, $arrAccount);
+        $result = Database::create($table, $arrInfo);
+        if ($result === false) {
+            return false;
         }
+
+
+        $sql = "SELECT id FROM $table ORDER BY id DESC LIMIT 1;";
+        $result = Database::query($sql);
+        if ($result === false) {
+            return false;
+        }
+
+        $id =  $result[0]->id;
+
+        $arrAccount = array(
+                "id"=> $id,
+                "username" => $username,
+                "password" => md5($password)
+            );
+
+        $table = "account";
+        $result = Database::create($table, $arrAccount);
+        if ($result === false) {
+            return false;
+        }
+
+        return true;
     }
 }

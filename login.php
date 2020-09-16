@@ -13,8 +13,6 @@ if (Auth::isLogin() !== false) {
         $error = "Username and password incorrect";
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>

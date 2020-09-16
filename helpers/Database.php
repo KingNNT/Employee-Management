@@ -66,7 +66,9 @@ class Database
             }
             $dataValue = implode(',', $dataValue);
             $sql = "INSERT INTO $table($dataKey) VALUES ($dataValue) ";
-            echo $sql;
+
+
+
             return self::$connection->query($sql);
         } else {
             return false;
@@ -145,6 +147,7 @@ class Database
     public function find($table, $field, $value)
     {
         $sql = "SELECT * FROM $table WHERE $field = '$value'";
+
         $dataTable = self::$connection->query($sql);
 
         if ($dataTable->num_rows > 0) {

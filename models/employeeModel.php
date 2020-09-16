@@ -2,7 +2,6 @@
 require_once("./autoload/autoload.php");
 class employeeModel
 {
-    private static $table = "user";
     public function __construct()
     {
     }
@@ -12,37 +11,29 @@ class employeeModel
         /*
             $_POST: mm/dd/yyyy
         */
-        $condition = isset($_POST['id']) &&
+        $condition = isset($_POST['username']) &&
                 isset($_POST['password']) &&
-                isset($_POST['level']) &&
                 isset($_POST['name']) &&
                 isset($_POST['address']) &&
-                isset($_POST['birthday']);
+                isset($_POST['birthday']) &&
+                isset($_POST['level']);
                 
         if ($condition) {
-            $id = $_POST['id'];
-            $name = $_POST['name'];
-            $password = md5($_POST['password']);
-            $level = $_POST['level'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
             $name = $_POST['name'];
             $address = $_POST['address'];
             $birthday = formatDate($_POST['birthday']);
+            $level = $_POST['level'];
             
-
-            $data = array(
-                    'id' => $id,
-                    'name' => $name,
-                    'password' => $password,
-                    'level' => $level,
-                    'name' => $name,
-                    'address' => $address,
-                    'birthday' => $birthday
-                );
-
-            $result = Database::create(self::$table, $data);
-            echo $result;
+            $result = Auth::signup($username, $password, $name, $address, $birthday, $level);
+            if ($result === false) {
+                return false;
+            }
+            
+            HTTP::sendResponse(200, "Create Account Successful");
         } else {
-            echo "No Data";
+            HTTP::sendResponse(500, "Don't have Request");
         }
     }
     
@@ -50,13 +41,13 @@ class employeeModel
     {
         $field = array(
             'id',
-            'level',
             'name',
             'address',
             'birthday',
+            'level',
         );
-
-        $data = Database::read($field, self::$table);
+        $table = "information";
+        $data = Database::read($field, $table);
 
         if ($data !== false) {
             if (is_object($data)) {
@@ -67,19 +58,21 @@ class employeeModel
                     print_r(json_encode($arrData));
                 }
             }
+        } else {
+            HTTP::sendResponse(500, "Don't have Request");
         }
     }
 
     public static function update()
     {
-        $condition = isset($_POST['id']) &&
+        $condition = isset($_POST['username']) &&
                 isset($_POST['level']) &&
                 isset($_POST['name']) &&
                 isset($_POST['address']) &&
                 isset($_POST['birthday']);
                 
         if ($condition) {
-            $id = $_POST['id'];
+            $username = $_POST['username'];
             $name = $_POST['name'];
             $level = $_POST['level'];
             $name = $_POST['name'];
@@ -95,7 +88,7 @@ class employeeModel
                     'birthday' => $birthday
                 );
 
-            $result = Database::update(self::$table, $data, $id);
+            $result = Database::update(self::$table, $data, $username);
             echo $result;
         } else {
             echo "No Data";
@@ -104,9 +97,9 @@ class employeeModel
 
     public static function delete()
     {
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
-            $result = Database::delete(self::$table, $id);
+        if (isset($_POST['username'])) {
+            $username = $_POST['username'];
+            $result = Database::delete(self::$table, $username);
             echo $result;
         } else {
             echo "No Data";
