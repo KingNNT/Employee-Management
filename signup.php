@@ -21,6 +21,9 @@ if (Input::hasPost("signUp")) {
         $position = Input::post('position');
 
         $result = Auth::signUp($username, $password, $name, $address, $birthday, $position);
+        if ($result == true) {
+            Redirect::url("login.php");
+        }
     } else {
         $error = "Please Check Again";
     }
@@ -68,7 +71,7 @@ if (Input::hasPost("signUp")) {
             <form method="POST" id="formSubmit">
                 <div class="input-box">
                     <input type="text" name="username" required autocomplete="none">
-                    <label for="">ID</label>
+                    <label for="">Username</label>
                 </div>
                 <div class="input-box">
                     <input type="password" name="password" id="password">
