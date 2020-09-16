@@ -59,7 +59,7 @@ require_once "./autoload/autoload.php";
                     <?php if (Auth::isLogin() !== false) : ?>
                         <li class="nav-item" id="infoUser">
                             <span> Xin chào 
-                                <a href="./viewProfile.php"><? echo Session::get('name') ?><a/>
+                                <a href="./profile.php"><? echo Session::get('name') ?><a/>
                             </span>
                             <a href="./logout.php" class="ml-4">
                                 <img src="<?php echo PUBLIC_URI . 'images/logout.png'; ?>" alt="logout">

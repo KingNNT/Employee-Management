@@ -18,7 +18,7 @@ class Database
         }
     }
 
-    public function queryOne($sql)
+    public static function queryOne($sql)
     {
         $query = self::$connection->query($sql);
 
@@ -34,7 +34,7 @@ class Database
         }
     }
 
-    public function query($sql)
+    public static function query($sql)
     {
         $query = self::$connection->query($sql);
 
@@ -51,13 +51,12 @@ class Database
         }
     }
 
-
     // public function lastId()
     // {
     //     return self::$connection->insert_id;
     // }
 
-    public function create($table, $data)
+    public static function create($table, $data)
     {
         if (is_array($data)) {
             $dataKey = implode(',', array_keys($data));
@@ -67,18 +66,14 @@ class Database
             }
             $dataValue = implode(',', $dataValue);
             $sql = "INSERT INTO $table($dataKey) VALUES ($dataValue) ";
-            $created = self::$connection->query($sql);
-            if ($created) {
-                return true;
-            } else {
-                return 'Thêm mới thất bại';
-            }
+            echo $sql;
+            return self::$connection->query($sql);
         } else {
-            die('Data bắt buộc phải là mảng !');
+            return false;
         }
     }
 
-    public function read($field, $table)
+    public static function read($field, $table)
     {
         if (is_array($field)) {
             foreach ($field as $value) {
@@ -94,7 +89,7 @@ class Database
             }
         }
     }
-    public function update($table, $data, $id)
+    public static function update($table, $data, $id)
     {
         if (is_array($data)) {
             foreach ($data as $key => $value) {
@@ -135,7 +130,7 @@ class Database
     //     }
     // }
 
-    public function delete($table, $id)
+    public static function delete($table, $id)
     {
         $sql = "DELETE FROM $table WHERE id = '$id'";
         $deleted = self::$connection->query($sql);
@@ -145,19 +140,20 @@ class Database
             return 'Xóa thất bại';
         }
     }
-    // public function find($table, $id)
-    // {
-    //     $sql = "SELECT * FROM $table WHERE id = '$id'";
-    //     $dataTable = $this->connection->query($sql);
-    //     if ($dataTable->num_rows > 0) {
-    //         while ($row = $dataTable->fetch_object()) {
-    //             $data = $row;
-    //         }
-    //     } else {
-    //         $data = 'ID Không tồn tại !';
-    //     }
-    //     return $data;
-    // }
+
+    public function find($table, $field, $value)
+    {
+        $sql = "SELECT * FROM $table WHERE $field = '$value'";
+        $dataTable = self::$connection->query($sql);
+        if ($dataTable->num_rows > 0) {
+            while ($row = $dataTable->fetch_object()) {
+                $data = $row;
+            }
+            return $data;
+        } else {
+            return false;
+        }
+    }
 
     // public function findBanner($table, $status)
     // {

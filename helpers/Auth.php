@@ -46,4 +46,39 @@ class Auth
             }
         }
     }
+
+    public static function signup($username, $password, $name, $address, $birthday, $level)
+    {
+        $table = "account";
+        $field = "username";
+        $value = $username;
+        $result = Database::find($table, $field, $value);
+        if ($result === false) {
+            return false;
+        } else {
+            $arrInfo = array(
+                "name" => $name,
+                "address" => $address,
+                "birthday" => $birthday,
+                "level" => $level,
+            );
+            $table = "infomation";
+
+            $result = Database::create($table, $arrInfo);
+
+            $sql = "SELECT id FROM $table ORDER BY id DESC LIMIT 1;";
+            $result = Database::query($sql);
+            $id =  $result[0]->id;
+
+            $password = md5($password);
+            $arrAccount = array(
+            "id"=> $id,
+            "username" => $username,
+            "password" => $password
+        );
+
+            $table = "account";
+            $result = Database::create($table, $arrAccount);
+        }
+    }
 }

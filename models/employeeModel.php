@@ -2,7 +2,7 @@
 require_once("./autoload/autoload.php");
 class employeeModel
 {
-    private static $table = "employee";
+    private static $table = "user";
     public function __construct()
     {
     }

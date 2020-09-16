@@ -1,6 +1,18 @@
 <?php
 require_once "./autoload/autoload.php";
 Session::destroy();
+
+$username = Input::post('username');
+$password = md5(Input::post('password'));
+$name = Input::post('name');
+$address = Input::post('address');
+$birthday = formatDate(Input::post('birthday'));
+$position = Input::post('position');
+
+$result = Auth::signUp($username, $password, $name, $address, $birthday, $position);
+
+
+
 $title = "Sign Up - " . APP_NAME;
 ?>
 
@@ -41,17 +53,17 @@ $title = "Sign Up - " . APP_NAME;
             </div>
         </div>
         <div class="form-bottom">
-            <form method="POST">
+            <form method="POST" id="formSubmit">
                 <div class="input-box">
-                    <input type="text" name="id" required autocomplete="none">
+                    <input type="text" name="username" required autocomplete="none">
                     <label for="">ID</label>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" required>
+                    <input type="password" name="password" id="password">
                     <label for="">Password</label>
 				</div>
 				<div class="input-box">
-                    <input type="password" name="password" required>
+                    <input type="password" name="passwordConfirm">
                     <label for="">Confirm Password</label>
 				</div>
 					<div class="input-box">
@@ -71,10 +83,11 @@ $title = "Sign Up - " . APP_NAME;
                     <input type="text" name="position" required autocomplete="none">
                     <label for="">Position</label>
                 </div>
-                <input type="submit" name="Sign Up" class="login login-submit" value="Sign Up">
+                <button type="" name="signUp" class="login login-submit" id="btnSignUp">Sign Up</button>
             </form>
         </div>
     </div>
+    <script src="<?echo PUBLIC_URI . "js/signup/checkPassword.js"?>" crossorigin="anonymous"></script>
 </body>
 
 </html>
