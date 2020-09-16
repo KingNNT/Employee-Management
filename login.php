@@ -1,16 +1,19 @@
 <?php
 require_once "./autoload/autoload.php";
 
+$title = $title = "Login - " . APP_NAME;
+$error = "";
 if (Auth::isLogin() !== false) {
     Redirect::url("index.php");
 } else {
-    $id = Input::post('id');
+    $id = Input::post('username');
     $password = md5(Input::post('password'));
 
-    Auth::login($id, $password);
+    if (Auth::login($id, $password) === false) {
+        $error = "Username and password incorrect";
+    }
 }
 
-$title = $title = "Login - " . APP_NAME;
 
 ?>
 
@@ -52,12 +55,15 @@ $title = $title = "Login - " . APP_NAME;
         <div class="form-bottom">
             <form method="POST">
                 <div class="input-box">
-                    <input type="text" name="id" required autocomplete="none">
-                    <label for="">ID</label>
+                    <input type="text" name="username" required autocomplete="none">
+                    <label for="">Username</label>
                 </div>
                 <div class="input-box">
                     <input type="password" name="password" required>
                     <label for="">Password</label>
+                </div>
+                <div>
+                    <?php echo $error?>
                 </div>
                 <input type="submit" name="login" class="login login-submit" value="Login">
             </form>

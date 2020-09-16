@@ -51,10 +51,10 @@ class Database
         }
     }
 
-    // public function lastId()
-    // {
-    //     return self::$connection->insert_id;
-    // }
+    public static function lastId()
+    {
+        return self::$connection->insert_id;
+    }
 
     public static function create($table, $data)
     {
@@ -89,6 +89,7 @@ class Database
             }
         }
     }
+
     public static function update($table, $data, $id)
     {
         if (is_array($data)) {
@@ -103,10 +104,10 @@ class Database
             if ($updated) {
                 return true;
             } else {
-                return 'Cập nhật thất bại';
+                return false;
             }
         } else {
-            echo('Data bắt buộc phải là mảng !');
+            echo('Data must be an array');
         }
     }
     // public function updateComment($table, $data, $id)
@@ -145,6 +146,7 @@ class Database
     {
         $sql = "SELECT * FROM $table WHERE $field = '$value'";
         $dataTable = self::$connection->query($sql);
+
         if ($dataTable->num_rows > 0) {
             while ($row = $dataTable->fetch_object()) {
                 $data = $row;

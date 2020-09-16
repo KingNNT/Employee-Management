@@ -1,19 +1,31 @@
 <?php
 require_once "./autoload/autoload.php";
-Session::destroy();
-
-$username = Input::post('username');
-$password = md5(Input::post('password'));
-$name = Input::post('name');
-$address = Input::post('address');
-$birthday = formatDate(Input::post('birthday'));
-$position = Input::post('position');
-
-$result = Auth::signUp($username, $password, $name, $address, $birthday, $position);
 
 
-
+$error = "";
 $title = "Sign Up - " . APP_NAME;
+
+
+if (Input::hasPost("signUp")) {
+    $password = Input::post('password');
+    $passwordConfirm = Input::post('passwordConfirm');
+
+    if ($password === $passwordConfirm) {
+        Session::destroy();
+        $username = Input::post('username');
+        $password = md5(Input::post('password'));
+
+        $name = Input::post('name');
+        $address = Input::post('address');
+        $birthday = formatDate(Input::post('birthday'));
+        $position = Input::post('position');
+
+        $result = Auth::signUp($username, $password, $name, $address, $birthday, $position);
+    } else {
+        $error = "Please Check Again";
+    }
+}
+
 ?>
 
 
@@ -75,7 +87,7 @@ $title = "Sign Up - " . APP_NAME;
                     <label for="">Address</label>
 				</div>
 				<div class="input-box">
-                    <input type="text" name="birthday" required autocomplete="none">
+                    <input type="text" name="birthday" id="datepicker" required autocomplete="none">
                     <label for="">Birhday</label>
 				</div>
 				
@@ -83,11 +95,22 @@ $title = "Sign Up - " . APP_NAME;
                     <input type="text" name="position" required autocomplete="none">
                     <label for="">Position</label>
                 </div>
-                <button type="" name="signUp" class="login login-submit" id="btnSignUp">Sign Up</button>
+                <div class="mt-2">
+                    <?php echo $error ?>
+                </div>
+                <input type="submit" name="signUp" class="login login-submit" id="btnSignUp" value="Sign Up"></input>
             </form>
         </div>
     </div>
-    <script src="<?echo PUBLIC_URI . "js/signup/checkPassword.js"?>" crossorigin="anonymous"></script>
+
+    <!-- <script type="text/javascript" src="<?echo PUBLIC_URI . "node_modules/Propeller/dist/propeller.min.js"?>"></script>
+    <script type="text/javascript" src="<?echo PUBLIC_URI . "node_modules/datetimepicker/dist/DateTimePicker.min.js"?>"></script>
+    <script type="text/javascript" src="<?echo PUBLIC_URI . "node_modules/datetimepicker/dist/DateTimePicker.min.css"?>"></script>
+    <script src="<?echo PUBLIC_URI . "js/dateTimePicker.js"?>"></script> -->
+
+    <!-- <script src="<?echo PUBLIC_URI . "js/signup/checkPassword.js"?>" crossorigin="anonymous"></script> -->
+    <!-- <script src="<?echo PUBLIC_URI . "node_modules/jquery-validation/dist/jquery.validate.min.js"?>" crossorigin="anonymous"></script> -->
+
 </body>
 
 </html>
