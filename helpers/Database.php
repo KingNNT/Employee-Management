@@ -67,8 +67,6 @@ class Database
             $dataValue = implode(',', $dataValue);
             $sql = "INSERT INTO $table($dataKey) VALUES ($dataValue) ";
 
-
-
             return self::$connection->query($sql);
         } else {
             return false;
@@ -83,12 +81,7 @@ class Database
             }
             $arrField = implode(',', $arrField);
             $sql = "SELECT $arrField FROM $table";
-            $read = self::$connection->query($sql);
-            if ($read) {
-                return $read;
-            } else {
-                return false;
-            }
+            return self::$connection->query($sql);
         }
     }
 
@@ -102,12 +95,7 @@ class Database
             $dataUpdate = implode(',', $dataUpdate);
 
             $sql = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
-            $updated = self::$connection->query($sql);
-            if ($updated) {
-                return true;
-            } else {
-                return false;
-            }
+            return self::$connection->query($sql);
         } else {
             // echo('Data must be an array');
             return false;
@@ -137,12 +125,8 @@ class Database
     public static function delete($table, $id)
     {
         $sql = "DELETE FROM $table WHERE id = '$id'";
-        $deleted = self::$connection->query($sql);
-        if ($deleted) {
-            return true;
-        } else {
-            return 'Xóa thất bại';
-        }
+
+        return self::$connection->query($sql);
     }
 
     public function find($table, $field, $value)

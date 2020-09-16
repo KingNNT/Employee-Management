@@ -99,12 +99,17 @@ class employeeModel
 
     public static function delete()
     {
-        if (isset($_POST['username'])) {
-            $username = $_POST['username'];
-            $result = Database::delete(self::$table, $username);
-            echo $result;
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
+            $table = "information";
+            $result = Database::delete($table, $id);
+            if ($result === false) {
+                HTTP::sendResponse(500, "Delete is failed");
+            } else {
+                HTTP::sendResponse(200, "Delete Account Successful");
+            }
         } else {
-            echo "No Data";
+            HTTP::sendResponse(500, "Don't have Request");
         }
     }
 }
