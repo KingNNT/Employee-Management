@@ -29,3 +29,4 @@ foreach ($loadHelper as $item) {
     require_once("./helpers/$item.php");
 }
 $DB = new Database();
+Session::start();

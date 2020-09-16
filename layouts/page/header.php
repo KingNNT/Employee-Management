@@ -1,32 +1,5 @@
 <?php
 require_once "./autoload/autoload.php";
-Session::start();
-
-$name = Session::get('name');
-$imgLogout = PUBLIC_URI . 'images/logout.png';
-$logout = BASE_URL . "logout.php";
-$unLogin = <<<EOT
-<li class="nav-item">
-    <a class="nav-link" href="./login.php">
-        Login <span class="sr-only">(current)</span>
-    </a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="./signup.php">
-        Signup <span class="sr-only">(current)</span>
-    </a>
-</li>
-EOT;
-$login = <<<EOT
-<li class="nav-item" id="infoUser">
-    <span> Xin chào 
-        <a href="#">$name<a/>
-    </span>
-    <a href="./logout.php" class="ml-4">
-        <img src="$imgLogout" alt="logout">
-    </a>
-</li>
-EOT;
 ?>
 
 <!DOCTYPE html>
@@ -76,16 +49,34 @@ EOT;
                         <li class="nav-item active">
                             <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
+                        <!-- <?php if (Auth::isLogin() !== false) : ?>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./index.php">Quản Lý Nhân Viên <span class="sr-only">(current)</span></a>
+                            </li>
+                        <?php endif ?> -->
                     </ul>
                     <ul class="navbar-nav ml-auto" id="right-side">
-                    <?php
-                        if (Auth::isLogin() !== false) {
-                            echo $login;
-                        } else {
-                            echo $unLogin;
-                        }
-                    ?>
-
+                    <?php if (Auth::isLogin() !== false) : ?>
+                        <li class="nav-item" id="infoUser">
+                            <span> Xin chào 
+                                <a href="#"><? echo Session::get('name') ?><a/>
+                            </span>
+                            <a href="./logout.php" class="ml-4">
+                                <img src="<?php echo PUBLIC_URI . 'images/logout.png'; ?>" alt="logout">
+                            </a>
+                        </li>
+                    <? else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./login.php">
+                                Login <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./signup.php">
+                                Signup <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    <? endif ?>
                     </ul>
                 </div>
             </div>

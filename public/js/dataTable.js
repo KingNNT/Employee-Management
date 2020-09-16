@@ -1,6 +1,6 @@
 function initTableData() {
-	endpoint =
-		"http://localhost:8080/Project/Employee-Management/api.php?category=employee";
+	baseUrl = "http://localhost:8080/Project/Employee-Management/api.php";
+	endpoint = `${baseUrl}?category=employee`;
 
 	let ajax = jQuery.ajax({
 		type: "POST",
