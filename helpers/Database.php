@@ -20,7 +20,7 @@ class Database
 
     public function queryOne($sql)
     {
-        $query = $this->connection->query($sql);
+        $query = self::$connection->query($sql);
 
         if (is_object($query)) {
             if ($query->num_rows > 0) {
