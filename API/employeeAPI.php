@@ -9,9 +9,12 @@
             case 'create':
                 employeeModel::create();
                 break;
+            case 'update':
+                employeeModel::update();
+                break;
             
             default:
-                echo "Invalid Action: " . $POST['action'];
+                echo "Invalid Action: " . $_POST['action'];
                 break;
         }
     } else {
