@@ -2,7 +2,9 @@
 	"name": "",
 	"version": "0.0.1",
 	"dependencies": {
+		"Propeller": "^0.3.2",
 		"bootstrap": "^4.5.2",
+		"datetimepicker": "^0.1.39",
 		"jquery": "^3.5.1",
 		"jquery-validation": "^1.19.2",
 		"normalize.css": "^8.0.1",
