@@ -65,33 +65,35 @@ class employeeModel
 
     public static function update()
     {
-        $condition = isset($_POST['username']) &&
-                isset($_POST['level']) &&
+        $condition = isset($_POST['id']) &&
                 isset($_POST['name']) &&
                 isset($_POST['address']) &&
-                isset($_POST['birthday']);
+                isset($_POST['birthday']) &&
+                isset($_POST['level']);
                 
         if ($condition) {
-            $username = $_POST['username'];
-            $name = $_POST['name'];
-            $level = $_POST['level'];
+            $id = $_POST['id'];
             $name = $_POST['name'];
             $address = $_POST['address'];
             $birthday = formatDate($_POST['birthday']);
-            
+            $level = $_POST['level'];
 
             $data = array(
-                    'name' => $name,
-                    'level' => $level,
+                    'id' => $id,
                     'name' => $name,
                     'address' => $address,
-                    'birthday' => $birthday
+                    'birthday' => $birthday,
+                    'level' => $level,
                 );
-
-            $result = Database::update(self::$table, $data, $username);
-            echo $result;
+            $table = "information";
+            $result = Database::update($table, $data, $id);
+            if ($result === false) {
+                HTTP::sendResponse(500, "Update is failed");
+            } else {
+                HTTP::sendResponse(200, "Update Account Successful");
+            }
         } else {
-            echo "No Data";
+            HTTP::sendResponse(500, "Don't have Request");
         }
     }
 

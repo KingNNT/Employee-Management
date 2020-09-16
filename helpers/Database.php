@@ -109,7 +109,8 @@ class Database
                 return false;
             }
         } else {
-            echo('Data must be an array');
+            // echo('Data must be an array');
+            return false;
         }
     }
     // public function updateComment($table, $data, $id)
