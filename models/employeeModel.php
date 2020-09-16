@@ -38,8 +38,8 @@ class employeeModel
                     'address' => $address,
                     'birthday' => $birthday
                 );
-            $DB = new Database();
-            $result = $DB->create(self::$table, $data);
+
+            $result = Database::create(self::$table, $data);
             echo $result;
         } else {
             echo "No Data";
@@ -55,8 +55,8 @@ class employeeModel
             'address',
             'birthday',
         );
-        $DB = new Database();
-        $data = $DB->read($field, self::$table);
+
+        $data = Database::read($field, self::$table);
 
         if ($data !== false) {
             if (is_object($data)) {
@@ -94,8 +94,8 @@ class employeeModel
                     'address' => $address,
                     'birthday' => $birthday
                 );
-            $DB = new Database();
-            $result = $DB->update(self::$table, $data, $id);
+
+            $result = Database::update(self::$table, $data, $id);
             echo $result;
         } else {
             echo "No Data";
@@ -106,8 +106,7 @@ class employeeModel
     {
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            $DB = new Database();
-            $result = $DB->delete(self::$table, $id);
+            $result = Database::delete(self::$table, $id);
             echo $result;
         } else {
             echo "No Data";
