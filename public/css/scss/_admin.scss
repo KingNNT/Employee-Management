@@ -1,0 +1,37 @@
+main {
+	.container {
+		background-color: $bgColor;
+		.search {
+			form {
+				button[type="submit"] {
+					img {
+						height: 25px;
+						width: auto;
+					}
+					border: none;
+					border-radius: 2px;
+				}
+			}
+		}
+		.info {
+			form {
+				.container-fluid {
+					.row {
+						margin: 5px 0px 5px 0px;
+					}
+				}
+				.btn {
+					button {
+						margin: 5px;
+						img {
+							height: 25px;
+							width: auto;
+						}
+						border: none;
+						border-radius: 2px;
+					}
+				}
+			}
+		}
+	}
+}

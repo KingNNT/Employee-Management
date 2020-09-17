@@ -51,7 +51,7 @@ require_once "./autoload/autoload.php";
                         </li>
                         <?php if (Auth::isAdmin() == true): ?>
                             <li class="nav-item active">
-                                <a class="nav-link" href="./layouts/admin/adminControl.php">Admin Control<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="./admin.php">Admin Control<span class="sr-only">(current)</span></a>
                             </li>
                         <?php endif ?>
                     </ul>

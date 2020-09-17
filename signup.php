@@ -69,7 +69,7 @@ if (Input::hasPost("signUp")) {
         </div>
         <div class="form-bottom">
             <form method="POST" id="formSubmit">
-                <div class="input-box">
+                <div class="input-box"> 
                     <input type="text" name="username" required autocomplete="none">
                     <label for="">Username</label>
                 </div>
