@@ -6,12 +6,12 @@
     {
         switch ($result) {
             case true: {
-                HTTP::sendResponse(200, "$action Account Successful");
+                HTTP::sendResponse(200, "$action account successful");
                 break;
             }
 
             case false: {
-                HTTP::sendResponse(500, "$action Account Failed");
+                HTTP::sendResponse(500, "$action account failed");
                 break;
             }
 
@@ -32,7 +32,7 @@
         $result = json_encode($result);
         switch ($result) {
             case false: {
-                HTTP::sendResponse(500, "$action Account Failed");
+                HTTP::sendResponse(500, "$action account failed");
                 break;
             }
 
@@ -73,7 +73,7 @@
 
             case 'delete': {
                 $result = employeeModel::delete();
-                send($result, $action);
+                sendMessage($result, $action);
                 break;
             }
 
