@@ -15,6 +15,9 @@
             case 'delete':
                 employeeModel::delete();
                 break;
+            case 'search':
+                employeeModel::search();
+                break;
             default:
                 echo "Invalid Action: " . $_POST['action'];
                 break;

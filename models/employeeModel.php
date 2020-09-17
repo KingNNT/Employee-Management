@@ -112,4 +112,23 @@ class employeeModel
             HTTP::sendResponse(500, "Don't have Request");
         }
     }
+
+    public static function search()
+    {
+        if (isset($_POST['id'])) {
+            $table = "information";
+            $field = "id";
+            $value = $_POST['id'];
+
+            $result = Database::find($table, $field, $value);
+            if ($result !== false) {
+                if (is_object($result)) {
+                    $result = json_encode($result);
+                    HTTP::sendResponse(200, $result, "json");
+                }
+            }
+        } else {
+            HTTP::sendResponse(500, "Don't have Request");
+        }
+    }
 }
