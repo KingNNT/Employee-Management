@@ -27,39 +27,37 @@ class Auth
 
     public static function login($username, $password)
     {
-        if (Input::hasPost('login')) {
-            $sql = "SELECT * FROM account WHERE username = $username AND password = '$password'";
+        $sql = "SELECT * FROM account WHERE username = '$username' AND password = '$password'";
 
-            // $data is a object
-            $data = Database::queryOne($sql);
+        // $data is a object
+        $data = Database::queryOne($sql);
 
-            if ($data == null) {
-                return false;
-            } else {
-                if ($data !== false) {
-                    if (is_object($data)) {
-                        Session::set('id', $data->id);
-                        Session::set('username', $data->username);
+        if ($data == null) {
+            return false;
+        } else {
+            if ($data !== false) {
+                if (is_object($data)) {
+                    Session::set('id', $data->id);
+                    Session::set('username', $data->username);
 
-                        $table = "information";
-                        $field = "id";
-                        $value = $data->id;
-                        $info = Database::find($table, $field, $value);
+                    $table = "information";
+                    $field = "id";
+                    $value = $data->id;
+                    $info = Database::find($table, $field, $value);
 
-                        if ($info === false) {
-                            return false;
-                        } else {
-                            Session::set('name', $info->name);
-                            Session::set('address', $info->address);
-                            Session::set('birthday', $info->birthday);
-                            Session::set('level', $info->level);
-                            Redirect::url('index.php');
-                            return true;
-                        }
+                    if ($info === false) {
+                        return false;
+                    } else {
+                        Session::set('name', $info->name);
+                        Session::set('address', $info->address);
+                        Session::set('birthday', $info->birthday);
+                        Session::set('level', $info->level);
+                        Redirect::url('index.php');
+                        return true;
                     }
-                } else {
-                    return false;
                 }
+            } else {
+                return false;
             }
         }
     }

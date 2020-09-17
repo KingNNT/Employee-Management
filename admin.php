@@ -3,7 +3,7 @@
     require_once("./models/employeeModel.php");
     
     $title = "";
-    require_once("./layouts/page/header.php");
+    require_once("./views/layouts/user/header.php");
     
     
     if (!Auth::isAdmin()) {
@@ -37,7 +37,6 @@
     
     if (Input::hasPost("edit")) {
         $_POST["id"] = Session::get("searchID");
-        
         $resultEdit = employeeModel::update();
     }
     
@@ -45,8 +44,6 @@
         $_POST["id"] = Session::get("searchID");
         $resultRemove = employeeModel::delete();
     }
-
-
 ?>
 
 <main>
@@ -118,5 +115,5 @@
 </main>
 
 <?php
-    require_once("./layouts/page/footer.php");
+    require_once("./views/layouts/user/footer.php");
 ?>

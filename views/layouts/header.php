@@ -1,5 +1,6 @@
 <?php
 require_once "./autoload/autoload.php";
+$title = "";
 ?>
 
 <!DOCTYPE html>
@@ -8,18 +9,26 @@ require_once "./autoload/autoload.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo APP_NAME ?></title>
+    <title>
+        <?php
+            if ($title == "") {
+                echo APP_NAME;
+            } else {
+                echo $title . " - " . APP_NAME;
+            }
+        ?>
+    </title>
 
-    <link rel="stylesheet" href="<?echo PUBLIC_URI . 'css/dist/styles.css'?>">
+    <link rel="stylesheet" href="<?echo PUBLIC_URL . 'css/dist/styles.css'?>">
 
     <!--    Bootstrap 4 CDN -->
 
     <!--    CSS Bootstrap   -->
-    <link rel="stylesheet" href="<?echo PUBLIC_URI . 'node_modules/bootstrap/dist/css/bootstrap.min.css'?>" crossorigin="anonymous" />
+    <link rel="stylesheet" href="<?echo PUBLIC_URL . 'node_modules/bootstrap/dist/css/bootstrap.min.css'?>" crossorigin="anonymous" />
     <!--    JS Bootstrap   -->
-    <script src="<?echo PUBLIC_URI . 'node_modules/jquery/dist/jquery.min.js'?>" crossorigin="anonymous"></script>
-    <script src="<?echo PUBLIC_URI . 'node_modules/popper.js/dist/umd/popper.min.js'?>" crossorigin="anonymous"></script>
-    <script src="<?echo PUBLIC_URI . "node_modules/bootstrap/dist/js/bootstrap.min.js"?>" crossorigin="anonymous"></script>
+    <script src="<?echo PUBLIC_URL . 'node_modules/jquery/dist/jquery.min.js'?>" crossorigin="anonymous"></script>
+    <script src="<?echo PUBLIC_URL . 'node_modules/popper.js/dist/umd/popper.min.js'?>" crossorigin="anonymous"></script>
+    <script src="<?echo PUBLIC_URL . "node_modules/bootstrap/dist/js/bootstrap.min.js"?>" crossorigin="anonymous"></script>
 
     <!-- GG Font -->
     <link href="https://fonts.googleapis.com/css2?family=Chonburi&display=swap" rel="stylesheet">
@@ -30,7 +39,7 @@ require_once "./autoload/autoload.php";
         <nav class="navbar navbar-expand-lg navbar-light sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./index.php">
-                    <img src="<?php echo PUBLIC_URI . 'images/HRManager.jpg'?>" alt="icon" />
+                    <img src="<?php echo PUBLIC_URL . 'images/HRManager.jpg'?>" alt="icon" />
                 </a>
                 
                 <button 
@@ -62,7 +71,7 @@ require_once "./autoload/autoload.php";
                                 <a href="./profile.php"><? echo Session::get('name') ?><a/>
                             </span>
                             <a href="./logout.php" class="ml-4">
-                                <img src="<?php echo PUBLIC_URI . 'images/logout.png'; ?>" alt="logout">
+                                <img src="<?php echo PUBLIC_URL . 'images/logout.png'; ?>" alt="logout">
                             </a>
                         </li>
                     <? else: ?>
