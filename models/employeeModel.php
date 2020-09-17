@@ -80,14 +80,15 @@ class employeeModel
             $level = $_POST['level'];
 
             $data = array(
-                    'id' => $id,
                     'name' => $name,
                     'address' => $address,
                     'birthday' => $birthday,
                     'level' => $level,
                 );
             $table = "information";
+
             $result = Database::update($table, $data, $id);
+
             if ($result === false) {
                 return false;
             } else {

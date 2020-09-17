@@ -16,9 +16,12 @@
     $birthday = "";
     $level = "";
     
+    $resultEdit = $resultRemove = false;
+    
     if (Input::hasPost("search")) {
         if (isset($_POST["id"])) {
             $id = $_POST["id"];
+            Session::set("searchID", $id);
             $response = employeeModel::search($id);
             
             if ($response !== false) {
@@ -31,6 +34,18 @@
             }
         }
     }
+    
+    if (Input::hasPost("edit")) {
+        $_POST["id"] = Session::get("searchID");
+        
+        $resultEdit = employeeModel::update();
+    }
+    
+    if (Input::hasPost("remove")) {
+        $_POST["id"] = Session::get("searchID");
+        $resultRemove = employeeModel::delete();
+    }
+
 
 ?>
 
@@ -75,7 +90,7 @@
 						<div class="col-6">
 							<div class="input-box">
 								<label for="">Position</label>
-								<input type="text" name="position" class="text-center" value="<?php echo$level?>">
+								<input type="text" name="level" class="text-center" value="<?php echo$level?>">
 							</div>
 						</div>
 					</div>
@@ -91,7 +106,14 @@
 
 			</form>
 		</div>
-
+		<div class="d-flex justify-content-center">
+			<?php if ($resultEdit !== false): ?>
+				<h5>Update Successful</h5>
+			<?php endif ?>
+			<?php if ($resultRemove !== false): ?>
+				<h5>Remove Successful</h5>
+			<?php endif ?>
+		</div>
 	</div>
 </main>
 
