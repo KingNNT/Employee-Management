@@ -55,7 +55,7 @@ class employeeModel
                     while ($row = $data->fetch_object()) {
                         $arrData[] = $row;
                     }
-                    print_r(json_encode($arrData));
+                    HTTP::sendResponse(200, json_encode($arrData), "json");
                 }
             }
         } else {
