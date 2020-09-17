@@ -124,11 +124,11 @@ class employeeModel
             if ($result !== false) {
                 if (is_object($result)) {
                     $result = json_encode($result);
-                    HTTP::sendResponse(200, $result, "json");
+                    return $result;
                 }
             }
         } else {
-            HTTP::sendResponse(500, "Don't have Request");
+            return false;
         }
     }
 }

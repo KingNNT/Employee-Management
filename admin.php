@@ -1,5 +1,6 @@
 <?php
     require_once("./autoload/autoload.php");
+    require_once("./models/employeeModel.php");
     require_once("./layouts/page/header.php");
     
     $title = "";
@@ -7,6 +8,30 @@
     if (!Auth::isAdmin()) {
         Redirect::url("index.php");
     }
+    
+    $id = "";
+    $name = "";
+    $address = "";
+    $birthday = "";
+    $level = "";
+    
+    if (Input::hasPost("search")) {
+        if (isset($_POST["id"])) {
+            $id = $_POST["id"];
+            $response = employeeModel::search($id);
+            
+            if ($response !== false) {
+                $data = json_decode($response);
+                if (is_object($data)) {
+                    $name = $data->name;
+                    $address = $data->address;
+                    $birthday = $data->birthday;
+                    $level = $data->level;
+                }
+            }
+        }
+    }
+
 ?>
 
 <main>
@@ -14,9 +39,9 @@
 		<div class="search d-flex justify-content-center">
 			<form method="POST">
 				<div class="input-box">
-					<label for="">Username</label>
-					<input type="text" name="username" class="m-2" required autocomplete="none">
-					<button type="submit" name="find" class="login login-submit" id="btnFind">
+					<label for="">ID</label>
+					<input type="text" name="id" class="m-2" value = "<?php echo $id?>">
+					<button type="submit" name="search" class="login login-submit" id="btnSearch">
 						<img src="<?php echo PUBLIC_URI . "images/loupe.png"?>" />
 					</button>
 				</div>
@@ -30,13 +55,13 @@
 						<div class="col-6">
 							<div class="input-box">
 								<label for="" class="mr-2">Name</label>
-								<input type="text" name="name" required autocomplete="none">
+								<input type="text" name="name" value="<?php echo$name?>">
 							</div>
 						</div>
 						<div class="col-6">
 							<div class="input-box">
 								<label for="">Address</label>
-								<input type="text" name="address" required autocomplete="none">
+								<input type="text" name="address" value="<?php echo$address?>">
 							</div>
 						</div>
 					</div>
@@ -44,13 +69,13 @@
 						<div class="col-6">
 							<div class="input-box">
 								<label for="">Birhday</label>
-								<input type="text" name="birthday" id="datepicker" required autocomplete="none">
+								<input type="text" name="birthday" id="datepicker" value="<?php echo$birthday?>">
 							</div>
 						</div>
 						<div class="col-6">
 							<div class="input-box">
 								<label for="">Position</label>
-								<input type="text" name="position" required autocomplete="none">
+								<input type="text" name="position" value="<?php echo$level?>">
 							</div>
 						</div>
 					</div>

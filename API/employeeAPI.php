@@ -16,7 +16,12 @@
                 employeeModel::delete();
                 break;
             case 'search':
-                employeeModel::search();
+                $result = employeeModel::search();
+                if ($result !== false) {
+                    HTTP::sendResponse(200, $result, "json");
+                } else {
+                    HTTP::sendResponse(500, "Don't have Request");
+                }
                 break;
             default:
                 echo "Invalid Action: " . $_POST['action'];
