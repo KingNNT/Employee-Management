@@ -22,12 +22,11 @@
             $response = employeeModel::search($id);
             
             if ($response !== false) {
-                $data = json_decode($response);
-                if (is_object($data)) {
-                    $name = $data->name;
-                    $address = $data->address;
-                    $birthday = $data->birthday;
-                    $level = $data->level;
+                if (is_object($response)) {
+                    $name = $response->name;
+                    $address = $response->address;
+                    $birthday = $response->birthday;
+                    $level = $response->level;
                 }
             }
         }
