@@ -30,10 +30,9 @@ class employeeModel
             if ($result === false) {
                 return false;
             }
-            
-            HTTP::sendResponse(200, "Create Account Successful");
+            return true;
         } else {
-            HTTP::sendResponse(500, "Don't have Request");
+            return -1;
         }
     }
     
@@ -55,11 +54,13 @@ class employeeModel
                     while ($row = $data->fetch_object()) {
                         $arrData[] = $row;
                     }
-                    HTTP::sendResponse(200, json_encode($arrData), "json");
+                    return $arrData;
+                } else {
+                    return false;
                 }
             }
         } else {
-            HTTP::sendResponse(500, "Don't have Request");
+            return -1;
         }
     }
 
@@ -88,12 +89,12 @@ class employeeModel
             $table = "information";
             $result = Database::update($table, $data, $id);
             if ($result === false) {
-                HTTP::sendResponse(500, "Update is failed");
+                return false;
             } else {
-                HTTP::sendResponse(200, "Update Account Successful");
+                return true;
             }
         } else {
-            HTTP::sendResponse(500, "Don't have Request");
+            return -1;
         }
     }
 
@@ -104,12 +105,12 @@ class employeeModel
             $table = "information";
             $result = Database::delete($table, $id);
             if ($result === false) {
-                HTTP::sendResponse(500, "Delete is failed");
+                return false;
             } else {
-                HTTP::sendResponse(200, "Delete Account Successful");
+                return true;
             }
         } else {
-            HTTP::sendResponse(500, "Don't have Request");
+            return -1;
         }
     }
 
@@ -125,10 +126,12 @@ class employeeModel
                 if (is_object($result)) {
                     $result = json_encode($result);
                     return $result;
+                } else {
+                    return false;
                 }
             }
         } else {
-            return false;
+            return -1;
         }
     }
 }
