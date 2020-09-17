@@ -1,9 +1,10 @@
 <?php
     require_once("./autoload/autoload.php");
     require_once("./models/employeeModel.php");
-    require_once("./layouts/page/header.php");
     
     $title = "";
+    require_once("./layouts/page/header.php");
+    
     
     if (!Auth::isAdmin()) {
         Redirect::url("index.php");
@@ -40,7 +41,7 @@
 			<form method="POST">
 				<div class="input-box">
 					<label for="">ID</label>
-					<input type="text" name="id" class="m-2" value = "<?php echo $id?>">
+					<input type="text" name="id" class="m-2 text-center" value = "<?php echo $id?>">
 					<button type="submit" name="search" class="login login-submit" id="btnSearch">
 						<img src="<?php echo PUBLIC_URI . "images/loupe.png"?>" />
 					</button>
@@ -55,13 +56,13 @@
 						<div class="col-6">
 							<div class="input-box">
 								<label for="" class="mr-2">Name</label>
-								<input type="text" name="name" value="<?php echo$name?>">
+								<input type="text" name="name" class="text-center" value="<?php echo$name?>">
 							</div>
 						</div>
 						<div class="col-6">
 							<div class="input-box">
 								<label for="">Address</label>
-								<input type="text" name="address" value="<?php echo$address?>">
+								<input type="text" name="address" class="text-center" value="<?php echo$address?>">
 							</div>
 						</div>
 					</div>
@@ -69,13 +70,13 @@
 						<div class="col-6">
 							<div class="input-box">
 								<label for="">Birhday</label>
-								<input type="text" name="birthday" id="datepicker" value="<?php echo$birthday?>">
+								<input type="text" name="birthday" id="datepicker" class="text-center" value="<?php echo$birthday?>">
 							</div>
 						</div>
 						<div class="col-6">
 							<div class="input-box">
 								<label for="">Position</label>
-								<input type="text" name="position" value="<?php echo$level?>">
+								<input type="text" name="position" class="text-center" value="<?php echo$level?>">
 							</div>
 						</div>
 					</div>

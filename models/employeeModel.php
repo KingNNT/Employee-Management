@@ -124,7 +124,6 @@ class employeeModel
             $result = Database::find($table, $field, $value);
             if ($result !== false) {
                 if (is_object($result)) {
-                    $result = json_encode($result);
                     return $result;
                 } else {
                     return false;
