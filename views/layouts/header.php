@@ -12,9 +12,9 @@ $title = "";
     <title>
         <?php
             if ($title == "") {
-                echo APP_NAME;
+                echo APP['fullName'];
             } else {
-                echo $title . " - " . APP_NAME;
+                echo $title . " - " . APP['fullName'];
             }
         ?>
     </title>

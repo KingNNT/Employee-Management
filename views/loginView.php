@@ -37,12 +37,12 @@
 <body>
     <div class="wraper">
         <div class="title">
-            <h1>HR</h1><span class="text-primary bg-dark p-2 rounded font-italic"> Manager</span>
+            <h1><?php echo APP['firstName'] ?></h1><span class="text-primary bg-dark p-2 rounded font-italic"><?php echo APP['lastName'] ?></span>
         </div>
         <div class="form-top">
             <div class="left">
                 <h3>Đăng Nhập Hệ Thống</h3>
-                <p>Hệ thống quản lý nhân viên - HRM</p>
+                <p><?echo APP['slogan']?></p>
             </div>
             <div class="right">
                 <img src="./public/images/HRManager.jpg" alt="icon">

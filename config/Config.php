@@ -5,7 +5,12 @@ const MOdELS_URL = BASE_URL . "models/";
 const VIEW_URL = BASE_URL . "views/";
 const CONTROLLER_URL = BASE_URL . "controllers/";
 
-const APP_NAME = "HR Manager";
+const APP = [
+    'firstName' => "HR",
+    'lastName' => "Management",
+    'fullName' => "HR Management",
+    'slogan' => "Hệ thống quản lý nhân viên - HRM"
+];
 
 const DB = [
     'host' => 'localhost',
