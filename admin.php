@@ -3,7 +3,7 @@
     require_once("./models/employeeModel.php");
     
     $title = "";
-    require_once("./views/layouts/user/header.php");
+    require_once("./views/layouts/header.php");
     
     
     if (!Auth::isAdmin()) {
@@ -54,7 +54,7 @@
 					<label for="">ID</label>
 					<input type="text" name="id" class="m-2 text-center" value = "<?php echo $id?>">
 					<button type="submit" name="search" class="login login-submit" id="btnSearch">
-						<img src="<?php echo PUBLIC_URI . "images/loupe.png"?>" />
+						<img src="<?php echo PUBLIC_URL . "images/loupe.png"?>" />
 					</button>
 				</div>
 			</form>
@@ -94,10 +94,10 @@
 				</div>
 				<div class="btn d-flex justify-content-center">
 					<button type="submit" name="edit" class="login login-submit" id="btnEdit">
-						<img src="<?php echo PUBLIC_URI . "images/check.png"?>" />
+						<img src="<?php echo PUBLIC_URL . "images/check.png"?>" />
 					</button>
 					<button type="submit" name="remove" class="login login-submit" id="btnEdit">
-						<img src="<?php echo PUBLIC_URI . "images/bin.png"?>" />
+						<img src="<?php echo PUBLIC_URL . "images/bin.png"?>" />
 					</button>
 				</div>
 
@@ -115,5 +115,5 @@
 </main>
 
 <?php
-    require_once("./views/layouts/user/footer.php");
+    require_once("./views/layouts/footer.php");
 ?>
