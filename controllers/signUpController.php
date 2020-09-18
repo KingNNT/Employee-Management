@@ -12,7 +12,6 @@ class signUpController
             if ($password === $passwordConfirm) {
                 Session::destroy();
                 $username = Input::post('username');
-                $password = md5(Input::post('password'));
 
                 $name = Input::post('name');
                 $address = Input::post('address');

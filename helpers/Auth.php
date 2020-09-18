@@ -64,6 +64,7 @@ class Auth
 
     public static function signup($username, $password, $name, $address, $birthday, $level)
     {
+        /* Password must be not encrypted */
         $table = "account";
         $field = "username";
         $value = $username;
