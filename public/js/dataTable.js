@@ -14,10 +14,10 @@ function initTableData() {
 		let modifiedUsers = response.map((eachUser) => {
 			return {
 				id: eachUser.id,
-				level: eachUser.level,
 				name: eachUser.name,
 				address: eachUser.address,
 				birthday: eachUser.birthday,
+				level: eachUser.level,
 			};
 		});
 		let table = jQuery("#tableData").DataTable({
