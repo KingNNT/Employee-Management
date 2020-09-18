@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 17, 2020 at 04:16 PM
+-- Generation Time: Sep 18, 2020 at 10:18 PM
 -- Server version: 8.0.21-0ubuntu0.20.04.4
 -- PHP Version: 7.4.3
 
@@ -41,7 +41,7 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`password`, `username`, `id`) VALUES
 ('c4ca4238a0b923820dcc509a6f75849b', '1', 1),
 ('c81e728d9d4c2f636f067f89cc14862c', '2', 2),
-('c4ca4238a0b923820dcc509a6f75849b', 'Test', 24);
+('098f6bcd4621d373cade4e832627b4f6', 'test', 3);
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ CREATE TABLE `information` (
 INSERT INTO `information` (`id`, `name`, `address`, `birthday`, `level`) VALUES
 (1, 'name1', '1', '2000-01-01', 1),
 (2, '2', '2', '2000-02-02', 2),
-(24, 'Test', 'Ha Noi', '2000-01-01', 1);
+(3, 'test', 'Ha Noi', '2020-01-01', 1);
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,7 @@ ALTER TABLE `job`
 -- AUTO_INCREMENT for table `information`
 --
 ALTER TABLE `information`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
