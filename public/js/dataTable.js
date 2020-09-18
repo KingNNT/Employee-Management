@@ -25,10 +25,10 @@ function initTableData() {
 			data: modifiedUsers,
 			columns: [
 				{ data: "id" },
-				{ data: "level" },
 				{ data: "name" },
 				{ data: "address" },
 				{ data: "birthday" },
+				{ data: "level" },
 			],
 		});
 	}).fail(function (jqXHR, textStatus, errorThrown) {

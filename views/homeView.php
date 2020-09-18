@@ -17,9 +17,9 @@
                                 <tr id="list-header">
                                     <th id="ID">ID</th>
                                     <th id="Name">Name</th>
-                                    <th id="Position">Position</th>
                                     <th id="Address">Address</th>
                                     <th id="Birthday">Birthday</th>
+                                    <th id="Position">Position</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
