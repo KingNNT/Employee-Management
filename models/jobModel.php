@@ -73,6 +73,39 @@
         }
         public static function update()
         {
+            /*
+                $_POST: mm/dd/yyyy
+            */
+            $condition = isset($_POST['id']) &&
+                isset($_POST['name']) &&
+                isset($_POST['expectedCompletionDate']) &&
+                isset($_POST['actualCompletionDate']) &&
+                isset($_POST['isDone']);
+                
+            if ($condition) {
+                $id = $_POST['id'];
+                $name = $_POST['name'];
+                $expectedCompletionDate = formatDate($_POST['expectedCompletionDate']);
+                $actualCompletionDate = formatDate($_POST['actualCompletionDate']);
+                $isDone = $_POST['isDone'];
+
+                $data = array(
+                    "name" => $name,
+                    "expected_completion_date" => $expectedCompletionDate,
+                    "actual_completion_date" => $actualCompletionDate,
+                    "is_done" => $isDone,
+                );
+
+                $table = "job";
+            
+                $result = Database::update($table, $data, $id);
+                if ($result === false) {
+                    return false;
+                }
+                return true;
+            } else {
+                return -1;
+            }
         }
         public static function delete()
         {
