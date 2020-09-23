@@ -1,28 +1,28 @@
 function initTableData() {
 	baseUrl = "http://localhost:8080/Project/Employee-Management/api.php";
-	endpoint = `${baseUrl}?category=employee`;
+	endpointEmployee = `${baseUrl}?category=employee`;
 
 	let ajax = jQuery.ajax({
 		type: "POST",
-		url: endpoint,
+		url: endpointEmployee,
 		data: {
 			action: "read",
 		},
 		dataType: "json",
 	});
 	ajax.done(function (response) {
-		let modifiedUsers = response.map((eachUser) => {
+		let listEmployees = response.map((eachEmployee) => {
 			return {
-				id: eachUser.id,
-				name: eachUser.name,
-				address: eachUser.address,
-				birthday: eachUser.birthday,
-				level: eachUser.level,
+				id: eachEmployee.id,
+				name: eachEmployee.name,
+				address: eachEmployee.address,
+				birthday: eachEmployee.birthday,
+				level: eachEmployee.level,
 			};
 		});
 		let table = jQuery("#tableDataEmployee").DataTable({
 			processing: true,
-			data: modifiedUsers,
+			data: listEmployees,
 			columns: [
 				{ data: "id" },
 				{ data: "name" },
@@ -32,7 +32,7 @@ function initTableData() {
 			],
 		});
 	}).fail(function (jqXHR, textStatus, errorThrown) {
-		console.log(textStatus + ": " + errorThrown);
+		console.log("Error: " + textStatus + ": " + errorThrown);
 	});
 }
 

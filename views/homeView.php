@@ -58,7 +58,7 @@
 <script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/dataTable/jquery.dataTables.js' ?>"></script>
 
 
-<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxEmployee.js'?>"></script>
+<!-- <script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxEmployee.js'?>"></script> -->
 <script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxJob.js'?>"></script>
 
 <?php
