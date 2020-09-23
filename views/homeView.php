@@ -53,12 +53,18 @@
     </div>
 </main>
 
+   <!--    DataTable    -->
+<!-- <link rel="stylesheet" type="text/css"	href="<?echo PUBLIC_URL . 'css/dataTable/jquery.dataTables.css' ?>"/>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/dataTable/jquery.dataTables.js' ?>"></script> -->
+
+
    <!--    DataTable CDN   -->
-<link rel="stylesheet" type="text/css"	href="<?echo PUBLIC_URL . 'css/dataTable/jquery.dataTables.css' ?>"/>
-<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/dataTable/jquery.dataTables.js' ?>"></script>
+<link rel="stylesheet" type="text/css"	href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"/>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
 
-<!-- <script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxEmployee.js'?>"></script> -->
+
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxEmployee.js'?>"></script>
 <script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxJob.js'?>"></script>
 
 <?php
