@@ -20,7 +20,7 @@ function initTableData() {
 				level: eachUser.level,
 			};
 		});
-		let table = jQuery("#tableData").DataTable({
+		let table = jQuery("#tableDataEmployee").DataTable({
 			processing: true,
 			data: modifiedUsers,
 			columns: [

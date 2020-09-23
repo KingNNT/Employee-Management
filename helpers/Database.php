@@ -81,6 +81,7 @@ class Database
             }
             $arrField = implode(',', $arrField);
             $sql = "SELECT $arrField FROM $table";
+
             return self::$connection->query($sql);
         }
     }

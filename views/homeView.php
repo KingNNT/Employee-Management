@@ -11,7 +11,7 @@
                     <div class="mt-4">
                         <table
                             class="table table-striped table-bordered table-hover table-inverse"
-                            id="tableData"
+                            id="tableDataEmployee"
                         >
                             <thead>
                                 <tr id="list-header">
@@ -33,15 +33,15 @@
                     <div class="mt-4">
                         <table
                             class="table table-striped table-bordered table-hover table-inverse"
-                            id="tableData"
+                            id="tableDataJob"
                         >
                             <thead>
                                 <tr id="list-header">
                                     <th id="ID">ID</th>
                                     <th id="Name">Name</th>
-                                    <th id="Position">Position</th>
-                                    <th id="Address">Address</th>
-                                    <th id="Birthday">Birthday</th>
+                                    <th id="Position">Expected Completion Date</th>
+                                    <th id="Address">Actual Completion Date</th>
+                                    <th id="Birthday">Is Done</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -54,11 +54,12 @@
 </main>
 
    <!--    DataTable CDN   -->
-<link rel="stylesheet" type="text/css"	href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"/>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<link rel="stylesheet" type="text/css"	href="<?echo PUBLIC_URL . 'css/dataTable/jquery.dataTables.css' ?>"/>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/dataTable/jquery.dataTables.js' ?>"></script>
 
 
-<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/dataTable.js'?>"></script>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxEmployee.js'?>"></script>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxJob.js'?>"></script>
 
 <?php
     require_once "./views/layouts/footer.php";

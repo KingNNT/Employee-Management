@@ -9,9 +9,22 @@
     // }
 
     if (isset($_REQUEST['category'])) {
-        if ($_REQUEST['category'] === "employee") {
-            require_once("./API/employeeAPI.php");
-        } else {
-            echo "Don't Have Category";
+        switch ($_REQUEST['category']) {
+            case 'employee': {
+                require_once("./API/employeeAPI.php");
+                break;
+            }
+            case 'job': {
+                if (isset($_REQUEST['id'])) {
+                    require_once("./API/jobAPI.php");
+                } else {
+                    echo "Don't have ID parameter";
+                }
+            break;
+            }
+            
+            default:
+                echo "Don't Have Category";
+                break;
         }
     }
