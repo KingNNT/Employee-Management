@@ -1,6 +1,23 @@
-function initTableDataJob(id) {
-	let baseUrl = "http://localhost:8080/Project/Employee-Management/api.php";
-	let endpoint = `${baseUrl}?category=job`;
+let idTableJob = "#tableDataJob";
+
+function initTableDataJob(data) {
+	let tableJob = jQuery(idTableJob).DataTable({
+		processing: true,
+		data: data,
+		columns: [
+			{ data: "id" },
+			{ data: "name" },
+			{ data: "expectedCompletionDate" },
+			{ data: "actualCompletionDate" },
+			{ data: "isDone" },
+		],
+	});
+}
+
+function getDataJob(id) {
+	let baseUrl = "http://localhost:8080/Project/Employee-Management/";
+	let category = "job";
+	let endpoint = baseUrl + "api.php?category=" + category;
 
 	let ajaxJob = jQuery.ajax({
 		type: "POST",
@@ -11,6 +28,7 @@ function initTableDataJob(id) {
 		},
 		dataType: "json",
 	});
+	let dataJob = [];
 	ajaxJob
 		.done(function (response) {
 			let listJob = response.map((eachJob) => {
@@ -22,17 +40,8 @@ function initTableDataJob(id) {
 					isDone: eachJob.is_done,
 				};
 			});
-			let tableJob = jQuery("#tableDataJob").DataTable({
-				processing: true,
-				data: listJob,
-				columns: [
-					{ data: "id" },
-					{ data: "name" },
-					{ data: "expectedCompletionDate" },
-					{ data: "actualCompletionDate" },
-					{ data: "isDone" },
-				],
-			});
+
+			initTableDataJob(listJob);
 		})
 		.fail(function (jqXHR, textStatus, errorThrown) {
 			console.log("Error" + textStatus + ": " + errorThrown);
@@ -42,5 +51,5 @@ function initTableDataJob(id) {
 $(document).ready(function () {
 	// $.noConflict();
 	let id = 1;
-	initTableDataJob(id);
+	getDataJob(id);
 });

@@ -1,3 +1,5 @@
+let idTableEmployee = "#tableDataEmployee";
+
 function initTableDataEmployee() {
 	let baseUrl = "http://localhost:8080/Project/Employee-Management/api.php";
 	let endpointEmployee = `${baseUrl}?category=employee`;
@@ -21,7 +23,7 @@ function initTableDataEmployee() {
 					level: eachEmployee.level,
 				};
 			});
-			let tableEmployee = jQuery("#tableDataEmployee").DataTable({
+			let tableEmployee = $(idTableEmployee).DataTable({
 				processing: true,
 				data: listEmployees,
 				columns: [
@@ -31,6 +33,13 @@ function initTableDataEmployee() {
 					{ data: "birthday" },
 					{ data: "level" },
 				],
+			});
+			let element = idTableEmployee + " tbody";
+
+			$(element).on("click", "tr", function () {
+				let data = tableEmployee.row(this).data();
+				alert("You clicked on " + data["id"] + " row");
+				initTableDataJob(data["id"]);
 			});
 		})
 		.fail(function (jqXHR, textStatus, errorThrown) {
