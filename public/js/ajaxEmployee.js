@@ -1,8 +1,29 @@
 let idTableEmployee = "#tableDataEmployee";
 
-function initTableDataEmployee() {
-	let baseUrl = "http://localhost:8080/Project/Employee-Management/api.php";
-	let endpointEmployee = `${baseUrl}?category=employee`;
+function initTableDataEmployee(data) {
+	let tableEmployee = $(idTableEmployee).DataTable({
+		processing: true,
+		data: data,
+		columns: [
+			{ data: "id" },
+			{ data: "name" },
+			{ data: "address" },
+			{ data: "birthday" },
+			{ data: "level" },
+		],
+	});
+	let element = idTableEmployee + " tbody";
+
+	$(element).on("click", "tr", function () {
+		let data = tableEmployee.row(this).data();
+		alert("You clicked on " + data["id"] + " row");
+		initTableDataJob(data["id"]);
+	});
+}
+function getDataEmployee() {
+	let baseUrl = "http://localhost:8080/Project/Employee-Management/";
+	let category = "employee";
+	let endpointEmployee = baseUrl + "api.php?category=" + category;
 
 	let ajaxEmployee = jQuery.ajax({
 		type: "POST",
@@ -23,24 +44,8 @@ function initTableDataEmployee() {
 					level: eachEmployee.level,
 				};
 			});
-			let tableEmployee = $(idTableEmployee).DataTable({
-				processing: true,
-				data: listEmployees,
-				columns: [
-					{ data: "id" },
-					{ data: "name" },
-					{ data: "address" },
-					{ data: "birthday" },
-					{ data: "level" },
-				],
-			});
-			let element = idTableEmployee + " tbody";
 
-			$(element).on("click", "tr", function () {
-				let data = tableEmployee.row(this).data();
-				alert("You clicked on " + data["id"] + " row");
-				initTableDataJob(data["id"]);
-			});
+			initTableDataEmployee(listEmployees);
 		})
 		.fail(function (jqXHR, textStatus, errorThrown) {
 			console.log("Error: " + textStatus + ": " + errorThrown);
@@ -49,5 +54,5 @@ function initTableDataEmployee() {
 
 $(document).ready(function () {
 	// $.noConflict();
-	initTableDataEmployee();
+	getDataEmployee();
 });

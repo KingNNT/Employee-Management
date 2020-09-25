@@ -17,11 +17,11 @@ function initTableDataJob(data) {
 function getDataJob(id) {
 	let baseUrl = "http://localhost:8080/Project/Employee-Management/";
 	let category = "job";
-	let endpoint = baseUrl + "api.php?category=" + category;
+	let endpointJob = baseUrl + "api.php?category=" + category;
 
 	let ajaxJob = jQuery.ajax({
 		type: "POST",
-		url: endpoint,
+		url: endpointJob,
 		data: {
 			action: "read",
 			id: id,
