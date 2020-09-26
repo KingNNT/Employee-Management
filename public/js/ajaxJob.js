@@ -3,19 +3,26 @@ let tableJob;
 
 let baseUrl = "http://localhost:8080/Project/Employee-Management/";
 let category = "job";
-let endpointJob = baseUrl + "api.php?category=" + category;
+let action = "search";
 
-function initTableDataJob(id) {
+let endpointJob =
+	baseUrl + "api.php?category=" + category + "&action=" + action;
+
+console.log(endpointJob);
+
+function initTableDataJob(id = 1) {
+	e = endpointJob + "&id=" + id;
+
 	tableJob = jQuery(idTableJob).DataTable({
 		processing: true,
 		// data: data,
 		ajax: {
-			url: endpointJob,
+			url: e,
 			method: "POST",
-			data: {
-				action: "read",
-				id: id,
-			},
+			// data: {
+			// 	action: action,
+			// 	id: id,
+			// },
 			dataSrc: "",
 		},
 		columns: [
@@ -29,8 +36,7 @@ function initTableDataJob(id) {
 }
 
 function reloadTableDataJob(id) {
-	urlReload = endpointJob + "&action=read&id=" + id;
-	console.log(urlReload);
+	urlReload = endpointJob + "&action=" + action + "&id=" + id;
 	tableJob.ajax.url(urlReload).load();
 }
 
@@ -43,7 +49,7 @@ function reloadTableDataJob(id) {
 // 		type: "POST",
 // 		url: endpointJob,
 // 		data: {
-// 			action: "read",
+// 			action: action,
 // 			id: id,
 // 		},
 // 		dataType: "json",
@@ -70,7 +76,6 @@ function reloadTableDataJob(id) {
 
 $(document).ready(function () {
 	// $.noConflict();
-	let id = 1;
 	// getDataJob(id);
-	initTableDataJob(id);
+	initTableDataJob();
 });

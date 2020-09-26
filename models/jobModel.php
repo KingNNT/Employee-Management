@@ -110,7 +110,24 @@
         public static function delete()
         {
         }
-        public static function find()
+        public static function search()
         {
+            if (isset($_REQUEST['id'])) {
+                $table = "job";
+                $field = "id";
+                $value = $_REQUEST['id'];
+
+                $result = Database::find($table, $field, $value);
+
+                if ($result !== false) {
+                    if (is_object($result)) {
+                        return $result;
+                    } else {
+                        return false;
+                    }
+                }
+            } else {
+                return -1;
+            }
         }
     }
