@@ -1,10 +1,11 @@
 let idTableJob = "#tableDataJob";
 let tableJob;
-function initTableDataJob(id) {
-	let baseUrl = "http://localhost:8080/Project/Employee-Management/";
-	let category = "job";
-	let endpointJob = baseUrl + "api.php?category=" + category;
 
+let baseUrl = "http://localhost:8080/Project/Employee-Management/";
+let category = "job";
+let endpointJob = baseUrl + "api.php?category=" + category;
+
+function initTableDataJob(id) {
 	tableJob = jQuery(idTableJob).DataTable({
 		processing: true,
 		// data: data,
@@ -28,8 +29,9 @@ function initTableDataJob(id) {
 }
 
 function reloadTableDataJob(id) {
-	alert("reloadTableData");
-	tableJob.ajax.reload();
+	urlReload = endpointJob + "&action=read&id=" + id;
+	console.log(urlReload);
+	tableJob.ajax.url(urlReload).load();
 }
 
 // function getDataJob(id) {

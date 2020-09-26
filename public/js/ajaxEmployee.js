@@ -16,8 +16,9 @@ function initTableDataEmployee(data) {
 
 	$(element).on("click", "tr", function () {
 		let data = tableEmployee.row(this).data();
-		alert("You clicked on " + data["id"] + " row");
-		reloadTableDataJob(data["id"]);
+		let id = data["id"];
+		reloadTableDataJob(id);
+		// initTableDataJob(id);
 	});
 }
 function getDataEmployee() {
