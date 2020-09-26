@@ -21,6 +21,11 @@ header nav .container-fluid #navbarNav #right-side #infoUser span a {
   color: #2e6f9b;
 }
 
+#tableDataEmployee tr:hover {
+  background-color: #428f5c;
+  cursor: pointer;
+}
+
 main {
   display: flex;
   position: relative;
