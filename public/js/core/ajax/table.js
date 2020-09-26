@@ -5,7 +5,7 @@ const BASE_URL = "http://localhost:8080/Project/Employee-Management/";
 
 function initEmployee() {
 	let endpoint = BASE_URL + "api.php?category=employee&action=read";
-	console.log(endpoint);
+	console.log("endpoint ajax of Employee: " + endpoint);
 
 	let tableEmployee = $(ID_TABLE_EMPLOYEE).DataTable({
 		processing: true,
@@ -34,19 +34,19 @@ function initEmployee() {
 
 /* JOB */
 
-let tempAction = "read";
+let tempAction = "search";
 let endpointJob =
 	BASE_URL + "api.php?category=job&action=" + tempAction + "&id=";
 
 function initJob(id = 1) {
 	let endpoint = endpointJob + id;
-	console.log(endpoint);
+	console.log("endpoint ajax of Job: " + endpoint);
 
-	tableJob = jQuery(ID_TABLE_JOB).DataTable({
+	tableJob = $(ID_TABLE_JOB).DataTable({
 		processing: true,
 		ajax: {
 			url: endpoint,
-			method: "POST",
+			method: "GET",
 			dataSrc: "",
 		},
 		columns: [
