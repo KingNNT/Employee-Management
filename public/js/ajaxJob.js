@@ -8,11 +8,9 @@ let action = "search";
 let endpointJob =
 	baseUrl + "api.php?category=" + category + "&action=" + action;
 
-console.log(endpointJob);
-
 function initTableDataJob(id = 1) {
-	e = endpointJob + "&id=" + id;
-
+	let e = endpointJob + "&id=" + id;
+	console.log(e);
 	tableJob = jQuery(idTableJob).DataTable({
 		processing: true,
 		// data: data,
