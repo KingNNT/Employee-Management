@@ -2,7 +2,6 @@
     $title = $error = "";
     require_once "./controllers/loginController.php";
     $responseLogin = loginController::index();
-
 ?>
 
 <!DOCTYPE html>

@@ -18,12 +18,12 @@
     
     $resultEdit = $resultRemove = false;
     
-    if (Input::hasPost("search")) {
-        if (isset($_POST["id"])) {
-            $id = $_POST["id"];
+    if (Input::hasGet("search")) {
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
             Session::set("searchID", $id);
             $response = employeeModel::search($id);
-            
+                        
             if ($response !== false) {
                 if (is_object($response)) {
                     $name = $response->name;
@@ -49,7 +49,7 @@
 <main>
 	<div class="container p-4">
 		<div class="search d-flex justify-content-center">
-			<form method="POST">
+			<form method="GET">
 				<div class="input-box">
 					<label for="">ID</label>
 					<input type="text" name="id" class="m-2 text-center" value = "<?php echo $id?>">

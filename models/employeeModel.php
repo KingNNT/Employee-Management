@@ -45,7 +45,7 @@ class employeeModel
             'birthday',
             'level',
         );
-        
+
         $table = "information";
         $data = Database::read($field, $table);
 
@@ -118,18 +118,15 @@ class employeeModel
 
     public static function search()
     {
-        if (isset($_POST['id'])) {
+        if (isset($_GET['id'])) {
             $table = "information";
             $field = "id";
-            $value = $_POST['id'];
+            $value = $_GET['id'];
 
             $result = Database::find($table, $field, $value);
+            /* $result is an array*/
             if ($result !== false) {
-                if (is_object($result)) {
-                    return $result;
-                } else {
-                    return false;
-                }
+                return $result[0];
             }
         } else {
             return -1;

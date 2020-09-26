@@ -43,11 +43,13 @@ class Auth
                     $table = "information";
                     $field = "id";
                     $value = $data->id;
-                    $info = Database::find($table, $field, $value);
-
-                    if ($info === false) {
+                    $result = Database::find($table, $field, $value);
+                    /* $result is a array*/
+                    
+                    if ($result === false) {
                         return false;
                     } else {
+                        $info = $result[0];
                         Session::set('name', $info->name);
                         Session::set('address', $info->address);
                         Session::set('birthday', $info->birthday);
