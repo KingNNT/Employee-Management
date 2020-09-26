@@ -118,13 +118,9 @@
                 $value = $_GET['id'];
 
                 $result = Database::find($table, $field, $value);
-
+                /* $result is a array */
                 if ($result !== false) {
-                    if (is_object($result)) {
-                        return $result;
-                    } else {
-                        return false;
-                    }
+                    return $result;
                 }
             } else {
                 return -1;

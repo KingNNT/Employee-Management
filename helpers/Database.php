@@ -130,16 +130,25 @@ class Database
         return self::$connection->query($sql);
     }
 
+    /*
+        Function  find return a list object
+    */
     public function find($table, $field, $value)
     {
         $sql = "SELECT * FROM $table WHERE $field = '$value'";
 
         $dataTable = self::$connection->query($sql);
 
+        $data = [];
         if ($dataTable->num_rows > 0) {
             while ($row = $dataTable->fetch_object()) {
-                $data = $row;
+                // $data = $row;
+                array_push($data, $row);
             }
+ 
+            // $data = (Object) $data;
+
+            // print_r($data);
             return $data;
         } else {
             return false;

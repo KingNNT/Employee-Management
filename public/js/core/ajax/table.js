@@ -12,7 +12,11 @@ function initEmployee() {
 		ajax: {
 			url: endpoint,
 			method: "GET",
-			dataSrc: "",
+			dataSrc: function (response) {
+				let data = JSON.stringify(response);
+				console.log(data);
+				return JSON.parse(data);
+			},
 		},
 		columns: [
 			{ data: "id" },
@@ -47,7 +51,11 @@ function initJob(id = 1) {
 		ajax: {
 			url: endpoint,
 			method: "GET",
-			dataSrc: "",
+			dataSrc: function (response) {
+				let data = JSON.stringify(response);
+				console.log(data);
+				return JSON.parse(data);
+			},
 		},
 		columns: [
 			{ data: "id" },
