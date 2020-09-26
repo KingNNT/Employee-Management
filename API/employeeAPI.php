@@ -50,8 +50,9 @@
 
     /*  */
 
-    if (isset($_POST['action'])) {
-        $action = $_POST['action'];
+    if (isset($_REQUEST['action'])) {
+        $action = $_REQUEST['action'];
+        
         switch ($action) {
             case 'create': {
                 $result = employeeModel::create();
@@ -60,6 +61,7 @@
             }
 
             case 'read': {
+                /* Method: GET */
                 $result = employeeModel::read();
                 sendData($result, $action);
                 break;

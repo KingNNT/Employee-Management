@@ -45,6 +45,7 @@ class employeeModel
             'birthday',
             'level',
         );
+        
         $table = "information";
         $data = Database::read($field, $table);
 

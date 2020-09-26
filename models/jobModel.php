@@ -112,10 +112,10 @@
         }
         public static function search()
         {
-            if (isset($_REQUEST['id'])) {
+            if (isset($_GET['id'])) {
                 $table = "job";
                 $field = "id";
-                $value = $_REQUEST['id'];
+                $value = $_GET['id'];
 
                 $result = Database::find($table, $field, $value);
 

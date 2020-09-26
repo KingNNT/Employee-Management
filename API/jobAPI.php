@@ -60,6 +60,7 @@
             }
 
             case 'read': {
+                /* Method: GET */
                 $result = jobModel::read();
                 sendData($result, $action);
                 break;
@@ -78,6 +79,7 @@
             }
 
             case 'search': {
+                /* Method: GET */
                 $result = jobModel::search();
                 sendData($result, $action);
                 break;

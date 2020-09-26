@@ -4,17 +4,14 @@ const ID_TABLE_JOB = "#tableDataJob";
 const BASE_URL = "http://localhost:8080/Project/Employee-Management/";
 
 function initEmployee() {
-	let endpoint = BASE_URL + "api.php?category=employee";
+	let endpoint = BASE_URL + "api.php?category=employee&action=read";
 	console.log(endpoint);
 
 	let tableEmployee = $(ID_TABLE_EMPLOYEE).DataTable({
 		processing: true,
 		ajax: {
 			url: endpoint,
-			method: "POST",
-			data: {
-				action: "read",
-			},
+			method: "GET",
 			dataSrc: "",
 		},
 		columns: [
@@ -34,9 +31,13 @@ function initEmployee() {
 		reloadTableDataJob(id);
 	});
 }
+
+/* JOB */
+
 let tempAction = "read";
 let endpointJob =
 	BASE_URL + "api.php?category=job&action=" + tempAction + "&id=";
+
 function initJob(id = 1) {
 	let endpoint = endpointJob + id;
 	console.log(endpoint);
@@ -63,6 +64,7 @@ function reloadTableDataJob(id) {
 	tableJob.ajax.url(endpoint).load();
 }
 
+/* Loaded */
 $(document).ready(function () {
 	initEmployee();
 	initJob();
