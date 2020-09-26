@@ -1,8 +1,10 @@
 #tableDataEmployee {
-	tr {
-		&:hover {
-			background-color: #428f5c;
-			cursor: pointer;
+	tbody {
+		tr {
+			&:hover {
+				background-color: #428f5c;
+				cursor: pointer;
+			}
 		}
 	}
 }
