@@ -64,8 +64,7 @@
 
 
 
-<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxEmployee.js'?>"></script>
-<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/ajaxJob.js'?>"></script>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/core/ajax/table.js'?>"></script>
 
 <?php
     require_once "./views/layouts/footer.php";
