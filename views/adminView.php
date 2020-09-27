@@ -1,5 +1,5 @@
 <?php
-    require_once "./controllers/admin/AdminController.php";
+    require_once "./controllers/admin/adminController.php";
         
     
     AdminController::checkAuth();
@@ -121,6 +121,7 @@
 				<thead>
 					<tr id="list-header">
 						<th id="ID">ID</th>
+						<th id="ID">Employee</th>
 						<th id="Name">Name</th>
 						<th id="Position">Expected Completion Date</th>
 						<th id="Address">Actual Completion Date</th>
@@ -144,7 +145,7 @@
 
 
 
-<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/core/ajax/table.js'?>"></script>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/core/ajax/jobTable.js'?>"></script>
 
 <?php
     require_once("./views/layouts/footer.php");
