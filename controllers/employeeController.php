@@ -1,6 +1,6 @@
 <?php
-    require_once("./autoload/autoload.php");
-    require_once("./models/employeeModel.php");
+    require_once "./autoload/autoload.php";
+    require_once "./models/employeeModel.php";
 
     if (Input::hasRequest('action')) {
         $action = Input::request('action');

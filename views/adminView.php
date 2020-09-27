@@ -1,8 +1,8 @@
 <?php
-    require_once("./controllers/admin/adminController.php");
+    require_once "./controllers/admin/AdminController.php";
         
     
-    adminController::checkAuth();
+    AdminController::checkAuth();
     
     $id = "";
     $name = "";
@@ -15,7 +15,7 @@
 
 
     if (Input::hasGet("search")) {
-        $data = adminController::search();
+        $data = AdminController::search();
         if ($data !== false) {
             $id = $data->id;
             $name = $data->name;
@@ -28,13 +28,13 @@
     }
     
     if (Input::hasPost("edit")) {
-        if (adminController::edit()) {
+        if (AdminController::edit()) {
             $resultEdit = true;
         }
     }
     
     if (Input::hasPost("remove")) {
-        if (adminController::remove()) {
+        if (AdminController::remove()) {
             $resultRemove = true;
         }
     }
