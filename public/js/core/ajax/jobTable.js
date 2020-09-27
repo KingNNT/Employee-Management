@@ -6,7 +6,7 @@ let tempAction = "search";
 let endpointJob =
 	BASE_URL + "api.php?category=job&action=" + tempAction + "&idEmployee=";
 
-function initJob(id = 1) {
+function initJob(id) {
 	let endpoint = endpointJob + id;
 	console.log("endpoint ajax of Job: " + endpoint);
 
@@ -32,7 +32,19 @@ function initJob(id = 1) {
 	});
 }
 
+$.urlParam = function (name) {
+	var results = new RegExp("[?&]" + name + "=([^&#]*)").exec(
+		window.location.href
+	);
+	if (results == null) {
+		return null;
+	} else {
+		return results[1] || 0;
+	}
+};
+
 /* Loaded */
 $(document).ready(function () {
-	initJob();
+	let id = $.urlParam("id");
+	initJob(id);
 });

@@ -47,7 +47,7 @@
 			<form method="GET">
 				<div class="input-box">
 					<label for="id" class = "mr-1">ID</label>
-					<input type="text" name="id" class="m-2 text-center" value = "<?php echo $id?>" placeholder="Nhập ID cần tìm kiếm">
+					<input type="text" name="id" class="m-2 text-center" id="idSearch" value = "<?php echo $id?>" placeholder="Nhập ID cần tìm kiếm">
 					<button type="submit" name="search" class="login login-submit" id="btnSearch">
 						<img src="<?php echo PUBLIC_URL . "images/loupe.png"?>" />
 					</button>
@@ -93,7 +93,7 @@
 					<button type="submit" name="edit" class="login login-submit" id="btnEdit">
 						<img src="<?php echo PUBLIC_URL . "images/check.png"?>" />
 					</button>
-					<button type="submit" name="remove" class="login login-submit" id="btnEdit">
+					<button type="submit" name="remove" class="login login-submit" id="btnRemove">
 						<img src="<?php echo PUBLIC_URL . "images/bin.png"?>" />
 					</button>
 				</div>
