@@ -108,10 +108,12 @@
             self::loadData();
             if (self::$idEmployee != null) {
                 $table = "job";
-                $field = "id";
-                $value = $_GET['idEmployee'];
+                $field = "id_employee";
+                $value = Input::get('idEmployee');
 
                 $result = Database::find($table, $field, $value);
+
+                
                 /* $result is a array */
                 if ($result !== false) {
                     return $result;

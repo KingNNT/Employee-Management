@@ -10,7 +10,7 @@ function initJob(id = 1) {
 	let endpoint = endpointJob + id;
 	console.log("endpoint ajax of Job: " + endpoint);
 
-	tableJob = $(ID_TABLE_JOB).DataTable({
+	let tableJob = $(ID_TABLE_JOB).DataTable({
 		processing: true,
 		ajax: {
 			url: endpoint,
