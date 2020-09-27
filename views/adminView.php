@@ -10,6 +10,7 @@
     $birthday = "";
     $level = "";
     
+    $resultSearch = true;
     $resultEdit = $resultRemove = false;
 
 
@@ -21,6 +22,8 @@
             $address = $data->address;
             $birthday = $data->birthday;
             $level = $data->level;
+        } else {
+            $resultSearch = false;
         }
     }
     
@@ -49,7 +52,7 @@
 		</div>
 		<hr/>
 		<h3 class="text-center mb-4">Thông Tin Nhân Viên</h3>
-		<div class="info border">
+		<div class="info">
 			<form method="POST" id="formSubmit">
 				<div class="container-fluid">
 					<div class="row">
@@ -94,6 +97,9 @@
 			</form>
 		</div>
 		<div class="d-flex justify-content-center">
+			<?php if ($resultSearch === false): ?>
+				<h5>Error: 404 Not Fpund</h5>
+			<?php endif ?>
 			<?php if ($resultEdit !== false): ?>
 				<h5>Update Successful</h5>
 			<?php endif ?>
@@ -101,6 +107,7 @@
 				<h5>Remove Successful</h5>
 			<?php endif ?>
 		</div>
+		<hr/>
 		<h3 class="text-center mt-3">Danh Sách Công Việc Nhân Viên <?php echo $name ?></h3>
 		<div class="">
 			<table

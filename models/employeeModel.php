@@ -106,9 +106,13 @@ class employeeModel
             $value = Input::get('id');
 
             $result = Database::find($table, $field, $value);
+
+
             /* $result is an array*/
             if ($result !== false) {
                 return $result[0];
+            } else {
+                return false;
             }
         } else {
             return -1;

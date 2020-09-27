@@ -14,11 +14,11 @@ class adminController
     }
     public static function search()
     {
-        if (isset($_GET["id"])) {
-            $id = $_GET["id"];
+        if (Input::hasGet('id')) {
+            $id = Input::get('id');
 
             Session::set("searchID", $id);
-            $response = employeeModel::search($id);
+            $response = employeeModel::search();
                         
             if ($response !== false) {
                 return $response;

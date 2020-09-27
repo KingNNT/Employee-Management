@@ -142,13 +142,9 @@ class Database
         $data = [];
         if ($dataTable->num_rows > 0) {
             while ($row = $dataTable->fetch_object()) {
-                // $data = $row;
                 array_push($data, $row);
             }
  
-            // $data = (Object) $data;
-
-            // print_r($data);
             return $data;
         } else {
             return false;
