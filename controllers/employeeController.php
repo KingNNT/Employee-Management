@@ -42,6 +42,4 @@
                 break;
             }
         }
-    } else {
-        HTTP::sendResponse(500, "Don't Have Request Post Action");
     }

@@ -132,6 +132,7 @@
 		</div>
 	</div>
 </main>
+
  <!--    DataTable    -->
 <!-- <link rel="stylesheet" type="text/css"	href="<?echo PUBLIC_URL . 'css/dataTable/jquery.dataTables.css' ?>"/>
 <script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/dataTable/jquery.dataTables.js' ?>"></script> -->
