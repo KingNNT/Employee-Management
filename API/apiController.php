@@ -15,12 +15,8 @@ class apiController
                     break;
                 }
                 case 'job': {
-                    if (Input::hasRequest('id')) {
-                        require_once("./controllers/jobController.php");
-                    } else {
-                        echo "Don't have ID parameter";
-                    }
-                break;
+                    require_once("./controllers/jobController.php");
+                    break;
                 }
                 
                 default:

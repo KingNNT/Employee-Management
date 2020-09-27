@@ -38,6 +38,7 @@
                             <thead>
                                 <tr id="list-header">
                                     <th id="ID">ID</th>
+                                    <th id="IDEmployee">Employee</th>
                                     <th id="Name">Name</th>
                                     <th id="Position">Expected Completion Date</th>
                                     <th id="Address">Actual Completion Date</th>

@@ -3,6 +3,7 @@
     class jobModel
     {
         private static $id;
+        private static $idEmployee;
         private static $name;
         private static $expectedCompletionDate;
         private static $actualCompletionDate;
@@ -16,6 +17,7 @@
         public function loadData()
         {
             self::$id = Input::request('id');
+            self::$idEmployee = Input::request('idEmployee');
             self::$name = Input::request('name');
 
             if (Input::hasRequest('expectedCompletionDate')) {
@@ -30,8 +32,9 @@
         /* CRUD */
         public static function create()
         {
+            self::loadData();
             $data = array(
-                    "id" => self::$id,
+                    "id_employee" => self::$idEmployee,
                     "name" => self::$name,
                     "expected_completion_date" => self::$expectedCompletionDate,
                     "actual_completion_date" => self::$actualCompletionDate,
@@ -47,7 +50,7 @@
         public static function read()
         {
             $field = array(
-                'id',
+                'id_employee',
                 'name',
                 'expected_completion_date',
                 'actual_completion_date',
@@ -56,6 +59,7 @@
             $table = "job";
             $data = Database::read($field, $table);
 
+
             if ($data !== false) {
                 if (is_object($data)) {
                     if ($data->num_rows > 0) {
@@ -63,6 +67,8 @@
                             $arrData[] = $row;
                         }
                         return $arrData;
+                    } elseif ($data->num_rows == 0) {
+                        return null;
                     } else {
                         return false;
                     }
@@ -71,15 +77,18 @@
                 return -1;
             }
         }
+
         public static function update()
         {
+            self::loadData();
             $data = array(
-                    "name" => $name,
-                    "expected_completion_date" => $expectedCompletionDate,
-                    "actual_completion_date" => $actualCompletionDate,
-                    "is_done" => $isDone,
+                    "id_employee" => self::$idEmployee,
+                    "name" => self::$name,
+                    "expected_completion_date" => self::$expectedCompletionDate,
+                    "actual_completion_date" => self::$actualCompletionDate,
+                    "is_done" => self::$isDone,
                 );
-
+            $id = self::$id;
             $table = "job";
             
             $result = Database::update($table, $data, $id);
@@ -88,13 +97,19 @@
         }
         public static function delete()
         {
+            self::loadData();
+            $id = self::$id;
+            $table = "job";
+            $result = Database::delete($table, $id);
+            return $result !== false;
         }
         public static function search()
         {
-            if (self::$id != null) {
+            self::loadData();
+            if (self::$idEmployee != null) {
                 $table = "job";
                 $field = "id";
-                $value = $_GET['id'];
+                $value = $_GET['idEmployee'];
 
                 $result = Database::find($table, $field, $value);
                 /* $result is a array */

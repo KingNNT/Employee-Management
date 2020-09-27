@@ -102,26 +102,6 @@ class Database
             return false;
         }
     }
-    // public function updateComment($table, $data, $id)
-    // {
-    //     if (is_array($data)) {
-    //         foreach ($data as $key => $value) {
-    //             $dataUpdate[] = "$key = $value";
-    //         }
-
-    //         $dataUpdate = implode(',', $dataUpdate);
-
-    //         $sql = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
-    //         $updated = $this->connection->query($sql);
-    //         if ($updated) {
-    //             return 'Cập nhật thành công';
-    //         } else {
-    //             return 'Cập nhật thất bại';
-    //         }
-    //     } else {
-    //         echo('Data bắt buộc phải là mảng !');
-    //     }
-    // }
 
     public static function delete($table, $id)
     {

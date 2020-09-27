@@ -61,17 +61,17 @@ class HTTP
     {
         switch ($result) {
             case true: {
-                HTTP::sendResponse(200, "$action account successful");
+                HTTP::sendResponse(200, "$action successful");
                 break;
             }
 
             case false: {
-                HTTP::sendResponse(500, "$action account failed");
+                HTTP::sendResponse(500, "$action failed");
                 break;
             }
 
             case -1: {
-                HTTP::sendResponse(500, "Don't have Request");
+                HTTP::sendResponse(500, "Don't have request");
                 break;
             }
 
@@ -87,7 +87,7 @@ class HTTP
         $result = json_encode($result);
         switch ($result) {
             case false: {
-                HTTP::sendResponse(500, "$action job failed");
+                HTTP::sendResponse(500, "$action failed");
                 break;
             }
 

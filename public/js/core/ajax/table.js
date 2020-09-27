@@ -14,7 +14,7 @@ function initEmployee() {
 			method: "GET",
 			dataSrc: function (response) {
 				let data = JSON.stringify(response);
-				console.log(data);
+				console.log("Data Employee: " + data);
 				return JSON.parse(data);
 			},
 		},
@@ -40,7 +40,7 @@ function initEmployee() {
 
 let tempAction = "search";
 let endpointJob =
-	BASE_URL + "api.php?category=job&action=" + tempAction + "&id=";
+	BASE_URL + "api.php?category=job&action=" + tempAction + "&idEmployee=";
 
 function initJob(id = 1) {
 	let endpoint = endpointJob + id;
@@ -53,12 +53,13 @@ function initJob(id = 1) {
 			method: "GET",
 			dataSrc: function (response) {
 				let data = JSON.stringify(response);
-				console.log(data);
+				console.log("Data Job: " + data);
 				return JSON.parse(data);
 			},
 		},
 		columns: [
 			{ data: "id" },
+			{ data: "id_employee" },
 			{ data: "name" },
 			{ data: "expected_completion_date" },
 			{ data: "actual_completion_date" },
