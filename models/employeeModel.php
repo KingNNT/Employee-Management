@@ -2,38 +2,38 @@
 require_once("./autoload/autoload.php");
 class employeeModel
 {
+    private static $id;
+    private static $username;
+    private static $password;
+    private static $name;
+    private static $address;
+    private static $birthday;
+    private static $level;
+
     public function __construct()
     {
+        self::loadData();
+    }
+
+    public static function loadData()
+    {
+        self::$id = Input::request('id');
+        self::$username = Input::post('username');
+        self::$password = Input::post('password');
+        self::$name = Input::post('name');
+        self::$address = Input::post('address');
+        if (Input::hasPost('birthday')) {
+            self::$birthday = formatDate(Input::post('birthday'));
+        }
+        self::$level = Input::post('level');
     }
     /* CRUD */
     public static function create()
     {
-        /*
-            $_POST: mm/dd/yyyy
-        */
-        $condition = isset($_POST['username']) &&
-                isset($_POST['password']) &&
-                isset($_POST['name']) &&
-                isset($_POST['address']) &&
-                isset($_POST['birthday']) &&
-                isset($_POST['level']);
-                
-        if ($condition) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $name = $_POST['name'];
-            $address = $_POST['address'];
-            $birthday = formatDate($_POST['birthday']);
-            $level = $_POST['level'];
-            
-            $result = Auth::signup($username, $password, $name, $address, $birthday, $level);
-            if ($result === false) {
-                return false;
-            }
-            return true;
-        } else {
-            return -1;
-        }
+        self::loadData();
+        $result = Auth::signup(self::$username, self::$password, self::$name, self::$address, self::$birthday, self::$level);
+        
+        return $result !== false;
     }
     
     public static function read()
@@ -67,34 +67,20 @@ class employeeModel
 
     public static function update()
     {
-        $condition = isset($_POST['id']) &&
-                isset($_POST['name']) &&
-                isset($_POST['address']) &&
-                isset($_POST['birthday']) &&
-                isset($_POST['level']);
-                
-        if ($condition) {
-            $id = $_POST['id'];
-            $name = $_POST['name'];
-            $address = $_POST['address'];
-            $birthday = formatDate($_POST['birthday']);
-            $level = $_POST['level'];
-
+        self::loadData();
+        if (self::$id !== null) {
             $data = array(
-                    'name' => $name,
-                    'address' => $address,
-                    'birthday' => $birthday,
-                    'level' => $level,
+                    'name' => self::$name,
+                    'address' => self::$address,
+                    'birthday' => self::$birthday,
+                    'level' => self::$level,
                 );
             $table = "information";
+            $id = self::$id;
 
             $result = Database::update($table, $data, $id);
 
-            if ($result === false) {
-                return false;
-            } else {
-                return true;
-            }
+            return $result !== false;
         } else {
             return -1;
         }
@@ -102,15 +88,11 @@ class employeeModel
 
     public static function delete()
     {
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
+        if (Input::hasGet('id')) {
             $table = "information";
+            $id = Input::get('id');
             $result = Database::delete($table, $id);
-            if ($result === false) {
-                return false;
-            } else {
-                return true;
-            }
+            return $result !== false;
         } else {
             return -1;
         }
@@ -118,10 +100,10 @@ class employeeModel
 
     public static function search()
     {
-        if (isset($_GET['id'])) {
+        if (Input::hasGet('id')) {
             $table = "information";
             $field = "id";
-            $value = $_GET['id'];
+            $value = Input::get('id');
 
             $result = Database::find($table, $field, $value);
             /* $result is an array*/

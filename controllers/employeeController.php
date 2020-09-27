@@ -4,7 +4,7 @@
 
     if (Input::hasRequest('action')) {
         $action = Input::request('action');
-        
+        employeeModel::loadData();
         switch ($action) {
             case 'create': {
                 $result = employeeModel::create();
