@@ -2,6 +2,15 @@
 
 class Input
 {
+    public static function hasRequest($name)
+    {
+        return isset($_REQUEST[$name]);
+    }
+
+    public static function request($name)
+    {
+        return $_REQUEST[$name] ?? null;
+    }
     public static function hasGet($name)
     {
         return isset($_GET[$name]);

@@ -32,7 +32,6 @@
         adminController::remove();
     }
 
-    /* FIXME: Bug is large. Don't use all feature search, edit, remove */
 ?>
 <main>
 	<div class="container p-4">

@@ -52,6 +52,7 @@
 
     if (isset($_REQUEST['action'])) {
         $action = $_REQUEST['action'];
+        jobModel::loadData();
         switch ($action) {
             case 'create': {
                 $result = jobModel::create();
