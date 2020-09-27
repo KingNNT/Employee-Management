@@ -28,11 +28,15 @@
     }
     
     if (Input::hasPost("edit")) {
-        adminController::edit();
+        if (adminController::edit()) {
+            $resultEdit = true;
+        }
     }
     
     if (Input::hasPost("remove")) {
-        adminController::remove();
+        if (adminController::remove()) {
+            $resultRemove = true;
+        }
     }
 
 ?>

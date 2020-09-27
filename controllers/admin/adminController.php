@@ -34,11 +34,13 @@ class adminController
     {
         $_POST["id"] = Session::get("searchID");
         $resultEdit = employeeModel::update();
+        return $resultEdit;
     }
     
     public static function remove()
     {
         $_POST["id"] = Session::get("searchID");
         $resultRemove = employeeModel::delete();
+        return $resultRemove;
     }
 }
