@@ -36,11 +36,12 @@
 ?>
 <main>
 	<div class="container p-4">
+		<h3 class="text-center text-primary">Admin Dashboard</h3>
 		<div class="search d-flex justify-content-center">
 			<form method="GET">
 				<div class="input-box">
-					<label for="">ID</label>
-					<input type="text" name="id" class="m-2 text-center" value = "<?php echo $id?>">
+					<label for="id" class = "mr-1">ID</label>
+					<input type="text" name="id" class="m-2 text-center" value = "<?php echo $id?>" placeholder="Nhập ID cần tìm kiếm">
 					<button type="submit" name="search" class="login login-submit" id="btnSearch">
 						<img src="<?php echo PUBLIC_URL . "images/loupe.png"?>" />
 					</button>
@@ -48,7 +49,8 @@
 			</form>
 		</div>
 		<hr/>
-		<div class="info">
+		<h3 class="text-center mb-4">Thông Tin Nhân Viên</h3>
+		<div class="info border">
 			<form method="POST" id="formSubmit">
 				<div class="container-fluid">
 					<div class="row">
@@ -80,6 +82,7 @@
 						</div>
 					</div>
 				</div>
+				<hr/>
 				<div class="btn d-flex justify-content-center">
 					<button type="submit" name="edit" class="login login-submit" id="btnEdit">
 						<img src="<?php echo PUBLIC_URL . "images/check.png"?>" />
@@ -99,8 +102,39 @@
 				<h5>Remove Successful</h5>
 			<?php endif ?>
 		</div>
+		<h3 class="text-center mt-3">Danh Sách Công Việc Nhân Viên <?php echo $name ?></h3>
+		<div class="">
+			<table
+				class="table table-striped table-bordered table-hover table-inverse"
+				id="tableDataJob"
+			>
+				<thead>
+					<tr id="list-header">
+						<th id="ID">ID</th>
+						<th id="Name">Name</th>
+						<th id="Position">Expected Completion Date</th>
+						<th id="Address">Actual Completion Date</th>
+						<th id="Birthday">Is Done</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
 	</div>
 </main>
+ <!--    DataTable    -->
+<!-- <link rel="stylesheet" type="text/css"	href="<?echo PUBLIC_URL . 'css/dataTable/jquery.dataTables.css' ?>"/>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/dataTable/jquery.dataTables.js' ?>"></script> -->
+
+
+   <!--    DataTable CDN   -->
+<link rel="stylesheet" type="text/css"	href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"/>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+
+
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/core/ajax/table.js'?>"></script>
+
 <?php
     require_once("./views/layouts/footer.php");
 ?>
