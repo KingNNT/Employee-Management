@@ -56,4 +56,50 @@ class HTTP
         header("Content-type: " . $content_type);
         echo $body;
     }
+
+    public static function sendMessage($result, $action)
+    {
+        switch ($result) {
+            case true: {
+                HTTP::sendResponse(200, "$action account successful");
+                break;
+            }
+
+            case false: {
+                HTTP::sendResponse(500, "$action account failed");
+                break;
+            }
+
+            case -1: {
+                HTTP::sendResponse(500, "Don't have Request");
+                break;
+            }
+
+            default:{
+                // HTTP::sendResponse(200, "$action Account Successful");
+                break;
+            }
+        }
+    }
+
+    public static function sendData($result, $action)
+    {
+        $result = json_encode($result);
+        switch ($result) {
+            case false: {
+                HTTP::sendResponse(500, "$action job failed");
+                break;
+            }
+
+            case -1: {
+                HTTP::sendResponse(500, "Don't have Request");
+                break;
+            }
+
+            default:{
+                HTTP::sendResponse(200, $result, "json");
+                break;
+            }
+        }
+    }
 }
