@@ -65,7 +65,7 @@
 
 
 
-<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/core/ajax/table.js'?>"></script>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/core/ajax/home.js'?>"></script>
 
 <?php
     require_once "./views/layouts/footer.php";

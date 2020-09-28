@@ -1,6 +1,6 @@
 <?php
 require_once("./autoload/autoload.php");
-class employeeModel
+class EmployeeModel
 {
     private static $id;
     private static $username;
@@ -100,17 +100,18 @@ class employeeModel
 
     public static function search()
     {
-        if (Input::hasGet('id')) {
+        if (Input::hasGet('idEmployee')) {
             $table = "information";
             $field = "id";
-            $value = Input::get('id');
+            $value = Input::get('idEmployee');
 
             $result = Database::find($table, $field, $value);
 
 
             /* $result is an array*/
             if ($result !== false) {
-                return $result[0];
+                $data = $result[0];
+                return $data;
             } else {
                 return false;
             }

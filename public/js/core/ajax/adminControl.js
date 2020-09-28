@@ -160,7 +160,7 @@ function addEventAddJob() {
 }
 /* Loaded */
 $(document).ready(function () {
-	let id = $.urlParam("id");
+	let id = $.urlParam("idEmployee");
 	initJob(id);
 	addEventAddJob();
 });

@@ -4,6 +4,7 @@
     
     AdminController::checkAuth();
     
+
     $idEmployee = "";
     $name = "";
     $address = "";
@@ -17,7 +18,7 @@
     if (Input::hasGet("search")) {
         $data = AdminController::search();
         if ($data !== false) {
-            $id = $data->id;
+            $idEmployee = $data->id;
             $name = $data->name;
             $address = $data->address;
             $birthday = $data->birthday;
@@ -46,8 +47,8 @@
 		<div class="search d-flex justify-content-center">
 			<form method="GET">
 				<div class="input-box">
-					<label for="id" class = "mr-1">ID Employee</label>
-					<input type="text" name="id" class="m-2 text-center" id="idSearch" value = "<?php echo $idEmployee?>" placeholder="Nhập ID nhân viên cần tìm">
+					<label for="idEmployee" class = "mr-1">ID Employee</label>
+					<input type="text" name="idEmployee" class="m-2 text-center" id="idSearch" value = "<?php echo $idEmployee?>" placeholder="Nhập ID nhân viên cần tìm">
 					<button type="submit" name="search" class="login login-submit" id="btnSearch">
 						<img src="<?php echo PUBLIC_URL . "images/loupe.png"?>" />
 					</button>
@@ -76,8 +77,8 @@
 					<div class="row">
 						<div class="col-6">
 							<div class="input-box">
-								<label for="">Birhday (Y- M- d)</label>
-								<input type="text" name="birthday" id="datepicker" class="text-center" value="<?php echo$birthday?>">
+								<label for="">Birhday</label>
+								<input type="text" name="birthday" class="text-center" value="<?php echo$birthday?>">
 							</div>
 						</div>
 						<div class="col-6">
@@ -242,7 +243,7 @@
 
 
 
-<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/core/ajax/jobTable.js'?>"></script>
+<script type="text/javascript" charset="utf8" src="<?echo PUBLIC_URL . 'js/core/ajax/adminControl.js'?>"></script>
 
 <?php
     require_once("./views/layouts/footer.php");

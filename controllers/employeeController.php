@@ -4,35 +4,35 @@
 
     if (Input::hasRequest('action')) {
         $action = Input::request('action');
-        employeeModel::loadData();
+        EmployeeModel::loadData();
         switch ($action) {
             case 'create': {
-                $result = employeeModel::create();
+                $result = EmployeeModel::create();
                 HTTP::sendMessage($result, $action);
                 break;
             }
 
             case 'read': {
                 /* Method: GET */
-                $result = employeeModel::read();
+                $result = EmployeeModel::read();
                 HTTP::sendData($result, $action);
                 break;
             }
 
             case 'update': {
-                $result = employeeModel::update();
+                $result = EmployeeModel::update();
                 HTTP::sendMessage($result, $action);
                 break;
             }
 
             case 'delete': {
-                $result = employeeModel::delete();
+                $result = EmployeeModel::delete();
                 HTTP::sendMessage($result, $action);
                 break;
             }
 
             case 'search': {
-                $result = employeeModel::search();
+                $result = EmployeeModel::search();
                 HTTP::sendData($result, $action);
                 break;
             }
