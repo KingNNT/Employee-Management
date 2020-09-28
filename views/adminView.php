@@ -164,6 +164,9 @@
 						<label for="isDone">isDone</label>
 						<input type="text" name="isDone" class="text-center" id="isDone" value="">
 					</div>
+					<div id="resultAjax">
+						<h6 class="text-primary text-center"></h6>
+					</div>
 				</div>
 			</div>
 				<div class="modal-footer">

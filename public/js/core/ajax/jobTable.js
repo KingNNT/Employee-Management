@@ -48,8 +48,31 @@ function openModel(data) {
 	$("#actualCompletionDate").val(data.actual_completion_date);
 	$("#isDone").val(data.is_done);
 
-	$("btnSaveJob").click();
-	$("btnRemoveJob").click();
+	$("#btnSaveJob").click(() => {
+		let endpointAjax =
+			BASE_URL + "api.php?category=job&action=update&id=" + data.id;
+		$.ajax({
+			url: endpointAjax,
+			method: "POST",
+			data: {
+				idEmployee: $("#employee").val(),
+				name: $("#name").val(),
+				expectedCompletionDate: $("#expectedCompletionDate").val(),
+				actualCompletionDate: $("#actualCompletionDate").val(),
+				isDone: $("#isDone").val(),
+			},
+		})
+			.done(() => {
+				$("#resultAjax h6").html("Successfully updated");
+				setTimeout(() => {
+					location.reload(true);
+				}, 500);
+			})
+			.fail(() => {
+				console.log("Failed to update");
+			});
+	});
+	$("#btnRemoveJob").click(() => {});
 }
 
 $.urlParam = function (name) {
