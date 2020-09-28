@@ -30,6 +30,26 @@ function initJob(id) {
 			{ data: "is_done" },
 		],
 	});
+
+	let element = ID_TABLE_JOB + " tbody";
+
+	$(element).on("click", "tr", function () {
+		let data = tableJob.row(this).data();
+		openModel(data);
+	});
+}
+
+function openModel(data) {
+	$("#jobModal").modal();
+
+	$("#employee").val(data.id_employee);
+	$("#name").val(data.name);
+	$("#expectedCompletionDate").val(data.expected_completion_date);
+	$("#actualCompletionDate").val(data.actual_completion_date);
+	$("#isDone").val(data.is_done);
+
+	$("btnSaveJob").click();
+	$("btnRemoveJob").click();
 }
 
 $.urlParam = function (name) {

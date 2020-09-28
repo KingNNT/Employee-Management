@@ -26,6 +26,216 @@ header nav .container-fluid #navbarNav #right-side #infoUser span a {
   cursor: pointer;
 }
 
+.formInfo {
+  position: relative;
+  z-index: 999;
+}
+.formInfo img {
+  width: 20px;
+  position: relative;
+  margin-left: 5px;
+}
+.formInfo ul {
+  position: absolute;
+  right: 5px;
+  top: 60px;
+  display: flex;
+  width: 280px;
+  justify-content: space-around;
+  padding: 20px 5px;
+  border-radius: 5px;
+  background-color: #eee;
+  transition: 0.5s linear;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+}
+.formInfo ul li {
+  text-align: center;
+}
+.formInfo ul li:first-child {
+  margin-right: 20px;
+  border-right: 2px solid teal;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+.formInfo ul.loadInfo {
+  opacity: 1;
+  top: 40px;
+  visibility: visible;
+}
+.formInfo .btnInfo {
+  color: navy;
+  transition: 0.5s;
+  position: relative;
+  top: 4px;
+}
+.formInfo .btnInfo:hover {
+  color: tomato;
+}
+.formInfo .btnLogout {
+  border-radius: 5px;
+  padding: 5px 10px;
+  background: slateblue;
+  border: 1px solid slateblue;
+  color: white;
+  transition: 0.3s;
+}
+.formInfo .btnLogout:hover {
+  background-color: white;
+  color: slateblue;
+}
+
+/* Open menu */
+.menuBtn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.menuBtn .btnHambuger {
+  width: 30px;
+  margin: auto;
+  height: 4px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+.menuBtn .btnHambuger::before {
+  position: absolute;
+  content: "";
+  width: 30px;
+  margin: auto;
+  height: 4px;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+  background-color: white;
+  width: 17px;
+  transform: translateY(-10px);
+}
+.menuBtn .btnHambuger::after {
+  position: absolute;
+  content: "";
+  width: 30px;
+  margin: auto;
+  height: 4px;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+  background-color: white;
+  width: 17px;
+  transform: translateY(10px);
+  right: 0;
+}
+
+.menuBtn.openmenu .btnHambuger {
+  transform: rotate(-40deg);
+}
+.menuBtn.openmenu .btnHambuger::before {
+  transform: rotate(80deg) translate(-5.8px, -6.5px);
+}
+.menuBtn.openmenu .btnHambuger::after {
+  transform: rotate(80deg) translate(5.8px, 6.5px);
+}
+
+.menuBar {
+  position: relative;
+  background-color: #00a65a;
+  width: 150px;
+  height: 100%;
+  left: -100%;
+  transition: 0.5s ease-in-out;
+  z-index: 99999;
+}
+.menuBar .imgBox {
+  text-align: center;
+}
+.menuBar ul li {
+  position: relative;
+  background-color: #374a52;
+  border-bottom: 1px solid seagreen;
+  width: 100%;
+}
+.menuBar ul li a {
+  display: block;
+  padding: 8px 10px;
+  color: white;
+  font-size: 18px;
+  transition: 0.4s;
+  margin-left: 5px;
+}
+.menuBar ul li a:hover {
+  padding-left: 22px;
+}
+.menuBar ul li:hover {
+  border-left: 5px solid orange;
+}
+.menuBar ul li:hover ul {
+  display: block;
+  border-left: 1px solid white;
+  left: 100%;
+  top: 0px;
+}
+.menuBar ul li ul {
+  display: none;
+  position: absolute;
+}
+.menuBar ul li ul li {
+  width: 220px;
+}
+.menuBar ul img {
+  position: relative;
+  width: 22px;
+  bottom: 4px;
+  margin-right: 2px;
+}
+.menuBar ul li.active {
+  border-left: 5px solid orange;
+}
+
+#checkMenu {
+  display: none;
+  visibility: hidden;
+}
+#checkMenu:checked ~ .menuBar {
+  left: 0px;
+}
+
+main .container {
+  background-color: rgba(189, 186, 186, 0.973);
+}
+main .container .search form button[type=submit] {
+  border: none;
+  border-radius: 2px;
+}
+main .container .search form button[type=submit] img {
+  height: 25px;
+  width: auto;
+}
+main .container .info form .container-fluid .row {
+  margin: 5px 0px 5px 0px;
+}
+main .container .info form .btn button {
+  margin: 5px;
+  border: none;
+  border-radius: 2px;
+}
+main .container .info form .btn button img {
+  height: 25px;
+  width: auto;
+}
+
+#jobModal .modal-body .input-group {
+  margin: 5px;
+  display: grid;
+}
+#jobModal .modal-body .input-group input {
+  border: 1px solid #000000;
+}
+
 main {
   display: flex;
   position: relative;
@@ -229,208 +439,6 @@ a:hover {
 
 p {
   margin-bottom: 0 !important;
-}
-
-.formInfo {
-  position: relative;
-  z-index: 999;
-}
-.formInfo img {
-  width: 20px;
-  position: relative;
-  margin-left: 5px;
-}
-.formInfo ul {
-  position: absolute;
-  right: 5px;
-  top: 60px;
-  display: flex;
-  width: 280px;
-  justify-content: space-around;
-  padding: 20px 5px;
-  border-radius: 5px;
-  background-color: #eee;
-  transition: 0.5s linear;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-}
-.formInfo ul li {
-  text-align: center;
-}
-.formInfo ul li:first-child {
-  margin-right: 20px;
-  border-right: 2px solid teal;
-  padding-right: 15px;
-  padding-left: 5px;
-}
-.formInfo ul.loadInfo {
-  opacity: 1;
-  top: 40px;
-  visibility: visible;
-}
-.formInfo .btnInfo {
-  color: navy;
-  transition: 0.5s;
-  position: relative;
-  top: 4px;
-}
-.formInfo .btnInfo:hover {
-  color: tomato;
-}
-.formInfo .btnLogout {
-  border-radius: 5px;
-  padding: 5px 10px;
-  background: slateblue;
-  border: 1px solid slateblue;
-  color: white;
-  transition: 0.3s;
-}
-.formInfo .btnLogout:hover {
-  background-color: white;
-  color: slateblue;
-}
-
-/* Open menu */
-.menuBtn {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.menuBtn .btnHambuger {
-  width: 30px;
-  margin: auto;
-  height: 4px;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-  background-color: white;
-}
-.menuBtn .btnHambuger::before {
-  position: absolute;
-  content: "";
-  width: 30px;
-  margin: auto;
-  height: 4px;
-  transition: all 0.3s ease;
-  border-radius: 3px;
-  background-color: white;
-  width: 17px;
-  transform: translateY(-10px);
-}
-.menuBtn .btnHambuger::after {
-  position: absolute;
-  content: "";
-  width: 30px;
-  margin: auto;
-  height: 4px;
-  transition: all 0.3s ease;
-  border-radius: 3px;
-  background-color: white;
-  width: 17px;
-  transform: translateY(10px);
-  right: 0;
-}
-
-.menuBtn.openmenu .btnHambuger {
-  transform: rotate(-40deg);
-}
-.menuBtn.openmenu .btnHambuger::before {
-  transform: rotate(80deg) translate(-5.8px, -6.5px);
-}
-.menuBtn.openmenu .btnHambuger::after {
-  transform: rotate(80deg) translate(5.8px, 6.5px);
-}
-
-.menuBar {
-  position: relative;
-  background-color: #00a65a;
-  width: 150px;
-  height: 100%;
-  left: -100%;
-  transition: 0.5s ease-in-out;
-  z-index: 99999;
-}
-.menuBar .imgBox {
-  text-align: center;
-}
-.menuBar ul li {
-  position: relative;
-  background-color: #374a52;
-  border-bottom: 1px solid seagreen;
-  width: 100%;
-}
-.menuBar ul li a {
-  display: block;
-  padding: 8px 10px;
-  color: white;
-  font-size: 18px;
-  transition: 0.4s;
-  margin-left: 5px;
-}
-.menuBar ul li a:hover {
-  padding-left: 22px;
-}
-.menuBar ul li:hover {
-  border-left: 5px solid orange;
-}
-.menuBar ul li:hover ul {
-  display: block;
-  border-left: 1px solid white;
-  left: 100%;
-  top: 0px;
-}
-.menuBar ul li ul {
-  display: none;
-  position: absolute;
-}
-.menuBar ul li ul li {
-  width: 220px;
-}
-.menuBar ul img {
-  position: relative;
-  width: 22px;
-  bottom: 4px;
-  margin-right: 2px;
-}
-.menuBar ul li.active {
-  border-left: 5px solid orange;
-}
-
-#checkMenu {
-  display: none;
-  visibility: hidden;
-}
-#checkMenu:checked ~ .menuBar {
-  left: 0px;
-}
-
-main .container {
-  background-color: rgba(189, 186, 186, 0.973);
-}
-main .container .search form button[type=submit] {
-  border: none;
-  border-radius: 2px;
-}
-main .container .search form button[type=submit] img {
-  height: 25px;
-  width: auto;
-}
-main .container .info form .container-fluid .row {
-  margin: 5px 0px 5px 0px;
-}
-main .container .info form .btn button {
-  margin: 5px;
-  border: none;
-  border-radius: 2px;
-}
-main .container .info form .btn button img {
-  height: 25px;
-  width: auto;
 }
 
 /*# sourceMappingURL=styles.css.map */

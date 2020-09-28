@@ -132,6 +132,47 @@
 			</table>
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="jobModal" tabindex="-1" role="dialog" aria-labelledby="jobModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="jobModalLongTitle">Công Việc</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="input-group">
+						<label for="name">Employee</label>
+						<input type="text" name="employee" class="text-center" id="employee" value="">
+					</div>
+					<div class="input-group">
+						<label for="name">Name</label>
+						<input type="text" name="name" class="text-center" id="name" value="">
+					</div>
+					<div class="input-group">
+						<label for="expectedCompletionDate">Expected Completion Date</label>
+						<input type="text" name="expectedCompletionDate" class="text-center" id="expectedCompletionDate" value="">
+					</div>
+					<div class="input-group">
+						<label for="actualCompletionDate">Actual Completion Date</label>
+						<input type="text" name="actualCompletionDate" class="text-center" id="actualCompletionDate" value="">
+					</div>
+					<div class="input-group">
+						<label for="isDone">isDone</label>
+						<input type="text" name="isDone" class="text-center" id="isDone" value="">
+					</div>
+				</div>
+			</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="btnSaveJob">Save changes</button>
+					<button type="button" class="btn btn-warning" id="btnRemoveJob">Remove</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </main>
 
  <!--    DataTable    -->

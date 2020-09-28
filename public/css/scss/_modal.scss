@@ -1,0 +1,13 @@
+#jobModal {
+	.modal-body {
+		.input-group {
+			margin: 5px;
+			display: grid;
+			// grid-column-start: 1;
+			// grid-column-end: 2;
+			input {
+				border: 1px solid #000000;
+			}
+		}
+	}
+}
