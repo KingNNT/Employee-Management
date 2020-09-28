@@ -61,15 +61,25 @@ function openModalChanges(data) {
 			url: endpointAjax,
 			method: "POST",
 			data: {
-				idEmployee: $("#employee").val(),
-				name: $("#name").val(),
-				expectedCompletionDate: $("#expectedCompletionDate").val(),
-				actualCompletionDate: $("#actualCompletionDate").val(),
-				isDone: $("#isDone").val(),
+				idEmployee: $(
+					'#jobModalChanges .modal-body input[name="employee"]'
+				).val(),
+				name: $(
+					'#jobModalChanges .modal-body input[name="name"]'
+				).val(),
+				expectedCompletionDate: $(
+					'#jobModalChanges .modal-body input[name="expectedCompletionDate"]'
+				).val(),
+				actualCompletionDate: $(
+					'#jobModalChanges .modal-body input[name="actualCompletionDate"]'
+				).val(),
+				isDone: $(
+					'#jobModalChanges .modal-body input[name="isDone"]'
+				).val(),
 			},
 		})
 			.done(() => {
-				$("#resultAjax h6").html("Successfully updated");
+				$(".resultAjax h6").html("Successfully updated");
 				setTimeout(() => {
 					location.reload(true);
 				}, 500);
@@ -99,6 +109,38 @@ function openModalChanges(data) {
 
 function openModalAdd() {
 	$("#jobModalAdd").modal();
+
+	$("#btnAdd").click(() => {
+		let endpointAjax = BASE_URL + "api.php?category=job&action=create";
+		$.ajax({
+			url: endpointAjax,
+			method: "POST",
+			data: {
+				idEmployee: $(
+					'#jobModalAdd.modal-body input[name="employee"]'
+				).val(),
+				name: $('#jobModalAdd .modal-body input[name="name"]').val(),
+				expectedCompletionDate: $(
+					'#jobModalAdd .modal-body input[name="expectedCompletionDate"]'
+				).val(),
+				actualCompletionDate: $(
+					'#jobModalAdd .modal-body input[name="actualCompletionDate"]'
+				).val(),
+				isDone: $(
+					'#jobModalAdd .modal-body input[name="isDone"]'
+				).val(),
+			},
+		})
+			.done(() => {
+				$(".resultAjax h6").html("Successfully added");
+				setTimeout(() => {
+					location.reload(true);
+				}, 500);
+			})
+			.fail(() => {
+				console.log("Failed to update");
+			});
+	});
 }
 
 $.urlParam = function (name) {

@@ -76,7 +76,7 @@
 					<div class="row">
 						<div class="col-6">
 							<div class="input-box">
-								<label for="">Birhday</label>
+								<label for="">Birhday (Y- M- d)</label>
 								<input type="text" name="birthday" id="datepicker" class="text-center" value="<?php echo$birthday?>">
 							</div>
 						</div>
@@ -122,12 +122,12 @@
 			>
 				<thead>
 					<tr id="list-header">
-						<th id="ID">ID</th>
-						<th id="ID">Employee</th>
-						<th id="Name">Name</th>
-						<th id="Position">Expected Completion Date</th>
-						<th id="Address">Actual Completion Date</th>
-						<th id="Birthday">Is Done</th>
+						<th>ID</th>
+						<th>Employee</th>
+						<th>Name</th>
+						<th>Expected Completion Date (Y- M- d)</th>
+						<th>Actual Completion Date (Y- M- d)</th>
+						<th>Is Done</th>
 					</tr>
 				</thead>
 				<tbody></tbody>
@@ -157,11 +157,11 @@
 						<input type="text" name="name" class="text-center">
 					</div>
 					<div class="input-group">
-						<label for="expectedCompletionDate">Expected Completion Date</label>
+						<label for="expectedCompletionDate">Expected Completion Date (Y- M- d)</label>
 						<input type="text" name="expectedCompletionDate" class="text-center">
 					</div>
 					<div class="input-group">
-						<label for="actualCompletionDate">Actual Completion Date</label>
+						<label for="actualCompletionDate">Actual Completion Date (Y- M- d)</label>
 						<input type="text" name="actualCompletionDate" class="text-center">
 					</div>
 					<div class="input-group">
@@ -204,11 +204,11 @@
 						<input type="text" name="name" class="text-center">
 					</div>
 					<div class="input-group">
-						<label for="expectedCompletionDate">Expected Completion Date</label>
+						<label for="expectedCompletionDate">Expected Completion Date (Y- M- d)</label>
 						<input type="text" name="expectedCompletionDate" class="text-center">
 					</div>
 					<div class="input-group">
-						<label for="actualCompletionDate">Actual Completion Date</label>
+						<label for="actualCompletionDate">Actual Completion Date (Y- M- d)</label>
 						<input type="text" name="actualCompletionDate" class="text-center">
 					</div>
 					<div class="input-group">
