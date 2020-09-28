@@ -42,11 +42,17 @@ function initJob(id) {
 function openModalChanges(data) {
 	$("#jobModalChanges").modal();
 
-	$("#employee").val(data.id_employee);
-	$("#name").val(data.name);
-	$("#expectedCompletionDate").val(data.expected_completion_date);
-	$("#actualCompletionDate").val(data.actual_completion_date);
-	$("#isDone").val(data.is_done);
+	$('#jobModalChanges .modal-body input[name="employee"]').val(
+		data.id_employee
+	);
+	$('#jobModalChanges .modal-body input[name="name"]').val(data.name);
+	$('#jobModalChanges .modal-body input[name="expectedCompletionDate"]').val(
+		data.expected_completion_date
+	);
+	$('#jobModalChanges .modal-body input[name="actualCompletionDate"]').val(
+		data.actual_completion_date
+	);
+	$('#jobModalChanges .modal-body input[name="isDone"]').val(data.is_done);
 
 	$("#btnSaveJob").click(() => {
 		let endpointAjax =
