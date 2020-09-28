@@ -1,0 +1,149 @@
+Database:
+	Gồm 3 bảng:
+		- account:
+			+ id
+			+ username
+			+ password
+			--> Dùng để lưu thông tin đăng nhập của người dùng.
+
+		- infomation:
+			+ id
+			+ name: Tên nhân viên
+			+ address: Địa chỉ nhân viên
+			+ birthday: Ngày sinh nhân viên
+			+ level: Cấp bậc nhân viên (1-> admin, 2-> member)
+			--> Dùng để lưu thông tin người dùng.
+			* Bảng infomation và bảng account liên kết với nhau bởi khóa ngoại id. Khóa ngoại id tham chiếu từ bảng account tới bảng infomation.
+		
+		- job:
+			+ id: Số thứ tự công việc trong bảng
+			+ id_employee: ID của nhân viên trong bảng infomation
+			+ name: Tên công việc
+			+ expected_completion_date: Ngày dự kiến hoàn thành
+			+ actual_complete_date: Ngày hoàn thành thực tế
+			+ is_done: Kiểm tra đã hoàn thành hay chưa (1 là đã hoàn thành, 0 là chưa hoàn thành)
+			--> Lưu các công việc của người dùng.
+
+
+Cấu trúc thư mục:
+.
+├── admin.php
+├── API
+├── api.php
+├── autoload
+├── backups
+├── config
+├── controllers
+├── forgotPassword.php
+├── helpers
+├── index.php
+├── LICENSE
+├── login.php
+├── logout.php
+├── models
+├── public
+├── README.md
+├── signup.php
+└── views
+
+***
+=> admin.php: Thao tác với các chức nằng admin.
+
+=> API: Chứa file class apiController. Kiểm tra xem đủ các request lên server hay không
+
+=> API.php: Điều hướng và import các file cần thiết cho API
+
+=> autoload: Thực hiện chức năng import/require các file cần thiết
+
+=> config:
+	- Config.php: Lưu các config của server < Các thông tin về DB, các const toàn cục, path các thư mục, ...>
+	- Setting.php: Lưu các setting của server <Có yêu cầu đăng nhập hay không ?>
+
+=> controllers: Các thao tác xử lý với employee và job
+	- admin: Thực hiện thao tác xử lý phần admin
+		+ adminController:
+			- checkAuth: Kiểm tra xem đã đăng nhập với quyền admin hay chưa ?
+			- search: thực hiện tìm kiếm nhân viên
+			- edit: thực hiện chỉnh sửa thông tin nhân viên
+			- remove: thực hiện xóa nhân viên
+
+	- employeeController: Thực hiện thao tác xử lý với employee
+		+ Kiểm tra request để từ đó gọi tới models tương ứng
+	- jobController: Thực hiện thao tác xử lý với employee
+		+ Kiểm tra request để từ đó gọi tới models tương ứng
+	- loginController: thực hiện xử lý thao tác login
+		+ Kiểm tra request để gọi hàm login
+	- signupController: thực hiện xử lý thao tác đăng kí
+		+ Kiểm tra request để gọi hàm signup
+
+=> helpers: Load các file cần thiết, các thư viện phục vụ cho phần tiếp theo.
+	- Auth.php: Chứa các hàm liên quan đến xác thực người dùng.
+		+ isUser: Kiểm tra xem người dùng có phải là member hay không ?
+		+ isAdmin: Kiểm tra người dùng có phải là admin hay không ?
+		+ isLogin: Kiểm tra xem người dùng đã login thành công hay chưa ?
+		+ login: Thực hiện quá trình đăng nhập của người dùng.
+		+ signup: Thực hiện quá trình đăng kí người dùng. (tương ứng chức năng thêm của Employee)
+	- Database.php: Chứa các hàm liên quan tới thao tác với cơ sở dữ liệu.
+		+ connect: Thực hiện chức năng kết nối tới cơ sở dữ liệu.
+		+ queryOne: Thực hiện 1 query nhưng chỉ trả về duy nhất 1 kết quả đầu tiên
+		+ query: Thực hiện 1 query và trả về toàn bộ các kết quả.
+		+ lastID: Trả về ID cưới cùng của bảng.
+		+ create: Thực hiện tạo dữ liệu trong bảng.
+		+ read: Thực hiện đọc dữ liệu từ bảng ra
+		+ update: Thực hiện chức năng update dữ liệu trong bảng
+		+ delete: Thực hiện chức năng xóa dữ liệu trong bảng
+		+ find: Thực hiện chức năng tìm kiếm dữ liệu trong bảng
+	- Function: Chứa các hàm thao tác chung
+		+ formatDate: format ngày tháng năm về dạng chuẩn
+	- HTTP.php: Chứa các hàm liên quan đến gửi dữ liệu từ server tới client
+		+ sendMessage: Gửi một thông báo về Client
+		+ sendData: Gửi dữ liệu từ Server về Client
+	- Input.php: Chứa các hàm thực hiện việc kiểm tra và phân loại request
+		+ hasRequest: Kiểm tra có request hay không ?
+		+ request: lấy dữ liệu của request.
+		...<Tương tự với các hàm hasGet, get, hasPost, post>
+	- Redirect.php: Thực hiện việc chuyển hướng trang
+		+ back: Trở về trang chủ
+		+ url: Đi tới một trang nằm trong Server
+		+ to: Đi tới một trang bất kì
+	- Session.php: Chứa các hàm thao tác với Session
+		+ get: Lấy một session
+		+ set: Cài đặt một session
+		+ forget: Xóa một session
+		+ start: Bắt đầu một sesssion.
+		+ destroy: Hủy toàn bộ session
+
+=> index.php: Trang chính gọi tới các view tương ứng
+=> login.php: Gọi tới view login
+=> logout: Thực hiện chức năng đăng xuất
+
+=> models: Chứa các models
+	- employee.php: models của nhân viên
+		+ Thực hiện các chức năng thêm, sửa, xóa, tìm kiếm tới Database.
+	- jobModel.php: models của công việc
+		+ Thực hiện các chức năng thêm sửa xóa tìm kiếm tới Database.
+=> public: Chứa các thành phần public tới người dùng
+	- css: Chứa css
+	- image: Chứa ảnh
+	- js: Chứa file js
+		- core: Chứa phần js chính của web
+			- ajax
+				- adminControl: Thực hiện js tại trang admin
+					+ Chức năng tạo bảng, dùng ajax để call API lấy dữ liệu để hiển thị ra bảng
+					+ Tạo các event click cho modal khi thêm sửa xóa job
+				- home: Thực hiện js tại trang home
+					+ Chức năng tạo bảng, dùng ajax để call API lấy dữ liệu để hiển thị ra bảng
+					+ Tạo các event click trên bảng employee để view dữ liệu phù hợp ra bảng job
+			- checkPassword: Kiểm tra password khi đăng kí
+		- libs: Chứa các thư viện js (có thư viện jquery dataTable)
+			
+	- node_modules: Chứa các thư viện: bootstrap, jquery, ...
+
+=> signup: Thực hiện chức năng đăng kí
+
+=> views: Chứa giao diện của các trang
+	- layouts: Chứa phần header và footer của các trang
+	- adminView: Chứa giao diện trang admin
+	- homeView: Chứa giao diện trang home
+	- loginView: Chứa giao diện trang login
+	- signupView: Chứa giao diện trang đăng kí

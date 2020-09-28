@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 18, 2020 at 10:18 PM
+-- Generation Time: Sep 28, 2020 at 02:34 PM
 -- Server version: 8.0.21-0ubuntu0.20.04.4
 -- PHP Version: 7.4.3
 
@@ -41,7 +41,7 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`password`, `username`, `id`) VALUES
 ('c4ca4238a0b923820dcc509a6f75849b', '1', 1),
 ('c81e728d9d4c2f636f067f89cc14862c', '2', 2),
-('098f6bcd4621d373cade4e832627b4f6', 'test', 3);
+('0cbc6611f5540bd0809a388dc95a615b', 'Test', 3);
 
 -- --------------------------------------------------------
 
@@ -62,9 +62,9 @@ CREATE TABLE `information` (
 --
 
 INSERT INTO `information` (`id`, `name`, `address`, `birthday`, `level`) VALUES
-(1, 'name1', '1', '2000-01-01', 1),
-(2, '2', '2', '2000-02-02', 2),
-(3, 'test', 'Ha Noi', '2020-01-01', 1);
+(1, 'Nguyen Van A', 'Ha Tay', '1996-01-02', 1),
+(2, 'Nguyen Van B', 'TP Ho Chi Minh', '2000-02-02', 2),
+(3, 'Test', 'Test', '2020-01-01', 1);
 
 -- --------------------------------------------------------
 
@@ -73,12 +73,25 @@ INSERT INTO `information` (`id`, `name`, `address`, `birthday`, `level`) VALUES
 --
 
 CREATE TABLE `job` (
-  `id` int NOT NULL,
+  `id_employee` int NOT NULL,
   `expected_completion_date` date NOT NULL,
   `actual_completion_date` date NOT NULL,
   `is_done` tinyint(1) NOT NULL DEFAULT '0',
-  `name` varchar(100) NOT NULL
+  `name` varchar(100) NOT NULL,
+  `id` int UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `job`
+--
+
+INSERT INTO `job` (`id_employee`, `expected_completion_date`, `actual_completion_date`, `is_done`, `name`, `id`) VALUES
+(1, '2020-01-01', '2020-01-01', 1, 'Cong Viec ID 1', 1),
+(2, '2020-01-03', '2020-01-05', 1, 'Cong Viec ID 2', 2),
+(3, '2020-01-05', '2020-01-05', 1, 'Cong Viec ID 3', 3),
+(2, '2020-01-05', '2020-01-05', 1, 'Cong Viec ID 5', 5),
+(2, '2020-01-05', '2020-01-05', 1, 'Cong Viec ID 6', 6),
+(2, '2000-01-01', '2000-01-01', 1, 'Cong Viec ID 7', 7);
 
 --
 -- Indexes for dumped tables
@@ -101,7 +114,7 @@ ALTER TABLE `information`
 -- Indexes for table `job`
 --
 ALTER TABLE `job`
-  ADD UNIQUE KEY `unq_job_id` (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -112,6 +125,12 @@ ALTER TABLE `job`
 --
 ALTER TABLE `information`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `job`
+--
+ALTER TABLE `job`
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables

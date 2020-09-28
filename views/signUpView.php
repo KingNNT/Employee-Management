@@ -95,7 +95,7 @@
     <script type="text/javascript" src="<?echo PUBLIC_URL . "node_modules/datetimepicker/dist/DateTimePicker.min.css"?>"></script>
     <script src="<?echo PUBLIC_URL . "js/dateTimePicker.js"?>"></script> -->
 
-    <!-- <script src="<?echo PUBLIC_URL . "js/signup/checkPassword.js"?>" crossorigin="anonymous"></script> -->
+    <!-- <script src="<?echo PUBLIC_URL . "js/core/checkPassword.js"?>" crossorigin="anonymous"></script> -->
     <!-- <script src="<?echo PUBLIC_URL . "node_modules/jquery-validation/dist/jquery.validate.min.js"?>" crossorigin="anonymous"></script> -->
 
 </body>
