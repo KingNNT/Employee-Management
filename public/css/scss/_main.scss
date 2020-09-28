@@ -1,10 +1,11 @@
-@import "tableEmployee";
-@import "formInfo";
-@import "menuBtn";
-@import "menuBar";
-@import "checkMenu";
-@import "admin";
-@import "modal";
+@import "./main/tableEmployee";
+@import "./main/formInfo";
+@import "./main/menuBtn";
+@import "./main/menuBar";
+@import "./main/checkMenu";
+@import "./main/admin";
+@import "./main/modal";
+
 main {
 	display: flex;
 	position: relative;

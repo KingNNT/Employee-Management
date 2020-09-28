@@ -197,23 +197,23 @@
 				<div class="container-fluid">
 					<div class="input-group">
 						<label for="name">Employee</label>
-						<input type="text" name="employee" class="text-center" id="employee" value="">
+						<input type="text" name="employee" class="text-center">
 					</div>
 					<div class="input-group">
 						<label for="name">Name</label>
-						<input type="text" name="name" class="text-center" id="name" value="">
+						<input type="text" name="name" class="text-center">
 					</div>
 					<div class="input-group">
 						<label for="expectedCompletionDate">Expected Completion Date</label>
-						<input type="text" name="expectedCompletionDate" class="text-center" id="expectedCompletionDate" value="">
+						<input type="text" name="expectedCompletionDate" class="text-center">
 					</div>
 					<div class="input-group">
 						<label for="actualCompletionDate">Actual Completion Date</label>
-						<input type="text" name="actualCompletionDate" class="text-center" id="actualCompletionDate" value="">
+						<input type="text" name="actualCompletionDate" class="text-center">
 					</div>
 					<div class="input-group">
 						<label for="isDone">isDone</label>
-						<input type="text" name="isDone" class="text-center" id="isDone" value="">
+						<input type="text" name="isDone" class="text-center">
 					</div>
 					<div id="resultAjax">
 						<h6 class="text-primary text-center"></h6>
