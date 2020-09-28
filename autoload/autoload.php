@@ -7,7 +7,6 @@ $loadHelper = [
     'HTTP',
     'Input',
     'Redirect',
-    'RestfulAPI',
     'Session',
 ];
 $loadConfig = [
