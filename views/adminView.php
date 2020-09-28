@@ -4,7 +4,7 @@
     
     AdminController::checkAuth();
     
-    $id = "";
+    $idEmployee = "";
     $name = "";
     $address = "";
     $birthday = "";
@@ -46,8 +46,8 @@
 		<div class="search d-flex justify-content-center">
 			<form method="GET">
 				<div class="input-box">
-					<label for="id" class = "mr-1">ID</label>
-					<input type="text" name="id" class="m-2 text-center" id="idSearch" value = "<?php echo $id?>" placeholder="Nhập ID cần tìm kiếm">
+					<label for="id" class = "mr-1">ID Employee</label>
+					<input type="text" name="id" class="m-2 text-center" id="idSearch" value = "<?php echo $idEmployee?>" placeholder="Nhập ID nhân viên cần tìm">
 					<button type="submit" name="search" class="login login-submit" id="btnSearch">
 						<img src="<?php echo PUBLIC_URL . "images/loupe.png"?>" />
 					</button>

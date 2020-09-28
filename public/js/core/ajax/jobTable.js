@@ -72,7 +72,23 @@ function openModel(data) {
 				console.log("Failed to update");
 			});
 	});
-	$("#btnRemoveJob").click(() => {});
+	$("#btnRemoveJob").click(() => {
+		let endpointAjax =
+			BASE_URL + "api.php?category=job&action=delete&id=" + data.id;
+		$.ajax({
+			url: endpointAjax,
+			method: "GET",
+		})
+			.done(() => {
+				$("#resultAjax h6").html("Successfully deleted");
+				setTimeout(() => {
+					location.reload(true);
+				}, 500);
+			})
+			.fail(() => {
+				console.log("Failed to delete");
+			});
+	});
 }
 
 $.urlParam = function (name) {
