@@ -117,7 +117,7 @@ function openModalAdd() {
 			method: "POST",
 			data: {
 				idEmployee: $(
-					'#jobModalAdd.modal-body input[name="employee"]'
+					'#jobModalAdd .modal-body input[name="employee"]'
 				).val(),
 				name: $('#jobModalAdd .modal-body input[name="name"]').val(),
 				expectedCompletionDate: $(
@@ -138,7 +138,7 @@ function openModalAdd() {
 				}, 500);
 			})
 			.fail(() => {
-				console.log("Failed to update");
+				console.log("Failed to add");
 			});
 	});
 }
