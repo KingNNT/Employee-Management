@@ -228,11 +228,11 @@ main .container .info form .btn button img {
   width: auto;
 }
 
-#jobModal .modal-body .input-group {
+.modal .modal-body .input-group {
   margin: 5px;
   display: grid;
 }
-#jobModal .modal-body .input-group input {
+.modal .modal-body .input-group input {
   border: 1px solid #000000;
 }
 

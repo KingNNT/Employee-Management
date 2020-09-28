@@ -35,12 +35,12 @@ function initJob(id) {
 
 	$(element).on("click", "tr", function () {
 		let data = tableJob.row(this).data();
-		openModalAdd(data);
+		openModalChanges(data);
 	});
 }
 
-function openModal(data) {
-	$("#jobModal").modal();
+function openModalChanges(data) {
+	$("#jobModalChanges").modal();
 
 	$("#employee").val(data.id_employee);
 	$("#name").val(data.name);
