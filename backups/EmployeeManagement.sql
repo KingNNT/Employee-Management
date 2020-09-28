@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 28, 2020 at 02:34 PM
+-- Generation Time: Sep 28, 2020 at 05:57 PM
 -- Server version: 8.0.21-0ubuntu0.20.04.4
 -- PHP Version: 7.4.3
 
@@ -88,10 +88,7 @@ CREATE TABLE `job` (
 INSERT INTO `job` (`id_employee`, `expected_completion_date`, `actual_completion_date`, `is_done`, `name`, `id`) VALUES
 (1, '2020-01-01', '2020-01-01', 1, 'Cong Viec ID 1', 1),
 (2, '2020-01-03', '2020-01-05', 1, 'Cong Viec ID 2', 2),
-(3, '2020-01-05', '2020-01-05', 1, 'Cong Viec ID 3', 3),
-(2, '2020-01-05', '2020-01-05', 1, 'Cong Viec ID 5', 5),
-(2, '2020-01-05', '2020-01-05', 1, 'Cong Viec ID 6', 6),
-(2, '2000-01-01', '2000-01-01', 1, 'Cong Viec ID 7', 7);
+(3, '2020-01-05', '2020-01-05', 1, 'Cong Viec ID 3', 3);
 
 --
 -- Indexes for dumped tables
@@ -130,7 +127,7 @@ ALTER TABLE `information`
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
