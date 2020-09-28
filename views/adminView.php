@@ -137,53 +137,53 @@
 
 
 	<!-- Modal Add Job -->
-<div class="modal fade" id="jobModalAdd" tabindex="-1" role="dialog" aria-labelledby="jobModalTitle" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Add Job</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+	<div class="modal fade" id="jobModalAdd" tabindex="-1" role="dialog" aria-labelledby="jobModalTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Add Job</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="input-group">
+						<label for="employee">Employee</label>
+						<input type="text" name="employee" class="text-center">
+					</div>
+					<div class="input-group">
+						<label for="name">Name</label>
+						<input type="text" name="name" class="text-center">
+					</div>
+					<div class="input-group">
+						<label for="expectedCompletionDate">Expected Completion Date</label>
+						<input type="text" name="expectedCompletionDate" class="text-center">
+					</div>
+					<div class="input-group">
+						<label for="actualCompletionDate">Actual Completion Date</label>
+						<input type="text" name="actualCompletionDate" class="text-center">
+					</div>
+					<div class="input-group">
+						<label for="isDone">isDone</label>
+						<input type="text" name="isDone" class="text-center">
+					</div>
+					<div class="resultAjax">
+						<h6 class="text-primary text-center"></h6>
+					</div>
+				</div>
 			</div>
-		<div class="modal-body">
-			<div class="container-fluid">
-				<div class="input-group">
-					<label for="employee">Employee</label>
-					<input type="text" name="employee" class="text-center">
-				</div>
-				<div class="input-group">
-					<label for="name">Name</label>
-					<input type="text" name="name" class="text-center">
-				</div>
-				<div class="input-group">
-					<label for="expectedCompletionDate">Expected Completion Date</label>
-					<input type="text" name="expectedCompletionDate" class="text-center">
-				</div>
-				<div class="input-group">
-					<label for="actualCompletionDate">Actual Completion Date</label>
-					<input type="text" name="actualCompletionDate" class="text-center">
-				</div>
-				<div class="input-group">
-					<label for="isDone">isDone</label>
-					<input type="text" name="isDone" class="text-center">
-				</div>
-				<div class="resultAjax">
-					<h6 class="text-primary text-center"></h6>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="btnAdd">Add</button>
 				</div>
 			</div>
 		</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" id="btnAdd">Add</button>
-			</div>
-		</div>
-	</div>
 	</div>
 
 
 
 
-	<!-- Modal Edit and Remove Job -->
+	<!-- Modal Changes -->
 	<div class="modal fade" id="jobModalChanges" tabindex="-1" role="dialog" aria-labelledby="jobModalTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
@@ -227,6 +227,8 @@
 			</div>
 		</div>
 	</div>
+
+
 </main>
 
  <!--    DataTable    -->
