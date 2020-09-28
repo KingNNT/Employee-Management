@@ -35,11 +35,11 @@ function initJob(id) {
 
 	$(element).on("click", "tr", function () {
 		let data = tableJob.row(this).data();
-		openModel(data);
+		openModalAdd(data);
 	});
 }
 
-function openModel(data) {
+function openModal(data) {
 	$("#jobModal").modal();
 
 	$("#employee").val(data.id_employee);
@@ -91,6 +91,10 @@ function openModel(data) {
 	});
 }
 
+function openModalAdd() {
+	$("#jobModalAdd").modal();
+}
+
 $.urlParam = function (name) {
 	var results = new RegExp("[?&]" + name + "=([^&#]*)").exec(
 		window.location.href
@@ -101,9 +105,14 @@ $.urlParam = function (name) {
 		return results[1] || 0;
 	}
 };
-
+function addEventAddJob() {
+	$("#btnAddJob").click(() => {
+		openModalAdd();
+	});
+}
 /* Loaded */
 $(document).ready(function () {
 	let id = $.urlParam("id");
 	initJob(id);
+	addEventAddJob();
 });
