@@ -161,6 +161,8 @@ function addEventAddJob() {
 /* Loaded */
 $(document).ready(function () {
 	let id = $.urlParam("idEmployee");
-	initJob(id);
+	if (id != null) {
+		initJob(id);
+	}
 	addEventAddJob();
 });
