@@ -14,9 +14,9 @@
     <title>
         <?php
             if ($title == "") {
-                echo APP_NAME;
+                echo APP['fullname'];
             } else {
-                echo $title . " - " . APP_NAME;
+                echo $title . " - " . APP['fullname'];
             }
         ?>
     </title>

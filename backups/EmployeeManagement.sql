@@ -32,7 +32,7 @@ CREATE TABLE `account` (
   `password` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `id` int UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `account`
@@ -55,7 +55,7 @@ CREATE TABLE `information` (
   `address` varchar(100) NOT NULL DEFAULT 'address',
   `birthday` date DEFAULT NULL,
   `level` tinyint NOT NULL DEFAULT '-1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `information`
@@ -79,7 +79,7 @@ CREATE TABLE `job` (
   `is_done` tinyint(1) NOT NULL DEFAULT '0',
   `name` varchar(100) NOT NULL,
   `id` int UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `job`

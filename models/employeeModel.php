@@ -68,6 +68,8 @@ class EmployeeModel
     public static function update()
     {
         self::loadData();
+        self::$id  = Input::post('id');
+
         if (self::$id !== null) {
             $data = array(
                     'name' => self::$name,

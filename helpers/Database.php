@@ -96,7 +96,6 @@ class Database
             $dataUpdate = implode(',', $dataUpdate);
 
             $sql = "UPDATE $table SET $dataUpdate WHERE id = '$id'";
-
             return self::$connection->query($sql);
         } else {
             return false;

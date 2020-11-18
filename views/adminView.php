@@ -94,6 +94,7 @@
 					<button type="submit" name="edit" class="login login-submit" id="btnEdit">
 						<img src="<?php echo PUBLIC_URL . "images/check.png"?>" />
 					</button>
+
 					<button type="submit" name="remove" class="login login-submit" id="btnRemove">
 						<img src="<?php echo PUBLIC_URL . "images/bin.png"?>" />
 					</button>
@@ -103,7 +104,7 @@
 		</div>
 		<div class="d-flex justify-content-center">
 			<?php if ($resultSearch === false): ?>
-				<h5>Error: 404 Not Fpund</h5>
+				<h5>Error: 404 Not Found</h5>
 			<?php endif ?>
 			<?php if ($resultEdit !== false): ?>
 				<h5>Update Successful</h5>
